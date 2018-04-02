@@ -1,0 +1,40 @@
+package config
+
+type Env struct {
+	DEBUG             bool
+	DATABASE_IP       string
+	DATABASE_PORT     string
+	DATABASE_USERNAME string
+	DATABASE_PASSWORD string
+	DATABASE_NAME     string
+	SERVER_PORT       string
+	REDIS_IP          string
+	REDIS_PORT        string
+	REDIS_PASSWORD    string
+	REDIS_DB          int
+	REDIS_SESSION_DB  int
+	REDIS_CACHE_DB    int
+}
+
+var env = Env{
+	DEBUG: true,
+
+	SERVER_PORT:       "4000",
+	DATABASE_IP:       "127.0.0.1",
+	DATABASE_PORT:     "3306",
+	DATABASE_USERNAME: "root",
+	DATABASE_PASSWORD: "root",
+	DATABASE_NAME:     "star",
+
+	REDIS_IP:       "127.0.0.1",
+	REDIS_PORT:     "6378",
+	REDIS_PASSWORD: "",
+	REDIS_DB:       0,
+
+	REDIS_SESSION_DB: 1,
+	REDIS_CACHE_DB:   2,
+}
+
+func GetEnv() *Env {
+	return &env
+}
