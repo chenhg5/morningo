@@ -1,6 +1,3 @@
-# huliao-go
-胡撩的go api
+# gin web项目模板
 
-
-
-##
+gin web项目模板
