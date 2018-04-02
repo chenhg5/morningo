@@ -20,8 +20,8 @@ func initRouter() *gin.Engine {
 
 	api := router.Group("/api")
 	{
-		api.POST("/", controllers.IndexApi)
-		api.GET("/", controllers.IndexApi)
+		api.POST("/index", controllers.IndexApi)
+		api.GET("/index", controllers.IndexApi)
 	}
 
 	return router
