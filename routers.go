@@ -3,6 +3,7 @@ package main
 import (
 	"./config"
 	"./controllers"
+	"./filters"
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,6 +15,8 @@ func initRouter() *gin.Engine {
 	}
 
 	router.Use(handleErrors()) // 错误处理
+
+	router.Use(filters.AuthMiddleware()) // 中间件使用
 
 	api := router.Group("/api")
 	{
