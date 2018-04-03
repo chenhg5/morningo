@@ -13,6 +13,7 @@ func initRouter() *gin.Engine {
 
 	if config.GetEnv().DEBUG {
 		router.Use(gin.Logger()) // 开发模式下使用，console打印请求记录
+		pprof.Register(router) // 性能分析工具
 	}
 
 	router.Use(handleErrors()) // 错误处理
@@ -24,8 +25,6 @@ func initRouter() *gin.Engine {
 		api.POST("/index", controllers.IndexApi)
 		api.GET("/index", controllers.IndexApi)
 	}
-
-	pprof.Register(router)
 
 	return router
 }
