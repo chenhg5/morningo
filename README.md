@@ -44,7 +44,8 @@ gin web项目模板
 │   └── session
 │       └── session.go
 ├── routers.go                  路由
-└── test                        测试
+├── test                        测试
+└── vendor                      govendor 第三方包
 
 
 ```
