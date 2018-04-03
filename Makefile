@@ -28,6 +28,7 @@ deps:
 	$(GOGET) github.com/gin-gonic/gin
 	$(GOGET) github.com/go-sql-driver/mysql
 	$(GOGET) github.com/go-redis/redis
+	$(GOGET) github.com/jinzhu/gorm
 
 # Cross compilation
 build-linux:

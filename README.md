@@ -3,6 +3,8 @@
 gin web项目模板
 
 
+## 项目结构
+
 ```
 
 .
@@ -46,3 +48,11 @@ gin web项目模板
 
 
 ```
+
+## 项目依赖
+
+- web框架：github.com/gin-gonic/gin
+- ORM包：github.com/jinzhu/gorm
+- Redis：github.com/go-redis/redis
+- Mysql：github.com/go-sql-driver/mysql
+- Wechat：github.com/silenceper/wechat
