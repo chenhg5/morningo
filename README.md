@@ -2,6 +2,26 @@
 
 gin web项目模板
 
+## 项目安装
+
+### 下载骨架
+
+```
+cd $GOPATH/src
+git clone https://github.com/chenhg5/gin-template.git
+```
+
+### 安装依赖
+
+```
+make deps
+```
+
+### 运行
+
+```
+make
+```
 
 ## 项目结构
 
@@ -58,23 +78,12 @@ gin web项目模板
 - Mysql：github.com/go-sql-driver/mysql
 - Wechat：github.com/silenceper/wechat
 
-## 项目安装
+### TODO
 
-### 下载骨架
-
-```
-cd $GOPATH/src
-git clone https://github.com/chenhg5/gin-template.git
-```
-
-### 安装依赖
-
-```
-make deps
-```
-
-### 运行
-
-```
-make
-```
+- [ ] 脚手架命令行工具 sword
+- [ ] mysql读写分离
+- [ ] redis集群
+- [ ] cache/session多存储支持
+- [ ] 队列任务
+- [ ] 测试
+- [ ] 日志分析
