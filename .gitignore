@@ -1,3 +1,5 @@
 .idea
-# config/env.go
 pro_binary
+# config/env.go
+vendor/**
+!vendor/vendor.json
