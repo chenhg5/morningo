@@ -57,3 +57,24 @@ gin web项目模板
 - Redis：github.com/go-redis/redis
 - Mysql：github.com/go-sql-driver/mysql
 - Wechat：github.com/silenceper/wechat
+
+## 项目安装
+
+### 下载骨架
+
+```
+cd $GOPATH/src
+git clone https://github.com/chenhg5/gin-template.git
+```
+
+### 安装依赖
+
+```
+make deps
+```
+
+### 运行
+
+```
+make
+```
