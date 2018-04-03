@@ -3,7 +3,6 @@ package main
 import (
 	"./config"
 	"github.com/gin-gonic/gin"
-	"log"
 	"runtime"
 )
 

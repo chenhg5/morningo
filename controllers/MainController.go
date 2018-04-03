@@ -19,8 +19,7 @@ func IndexApi(c *gin.Context) {
 
 	// 0表示不过期
 	session.GetStore().Set("key", "value", 0)
-	str, redisCon := session.GetStore().Get("key")
-	redisCon.ClientGetName()
+	str, _ := session.GetStore().Get("key")
 
 	log.Println("session key: " + str)
 	cache.GetStore().Set("key", "value", time.Minute)
