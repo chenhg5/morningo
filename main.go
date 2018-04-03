@@ -16,8 +16,6 @@ func main() {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	log.Println("env.DATABASE_IP" + config.GetEnv().SERVER_PORT)
-
 	router := initRouter() // 初始化路由
 	router.Run(":" + config.GetEnv().SERVER_PORT)
 }

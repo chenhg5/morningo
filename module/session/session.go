@@ -5,9 +5,14 @@ import (
 	"../../connections/redis"
 )
 
-var SessionStore *redis.ClientType
+var sessionStore *redis.ClientType
 
 func init() {
-	SessionStore = &redis.Client
-	SessionStore.RedisCon.Pipeline().Select(config.GetEnv().REDIS_SESSION_DB)
+	sessionStore = &redis.Client
+	sessionStore.RedisCon.Pipeline().Select(config.GetEnv().REDIS_SESSION_DB)
+}
+
+func GetStore() *redis.ClientType {
+	sessionStore.RedisCon.Pipeline().Select(config.GetEnv().REDIS_CACHE_DB)
+	return sessionStore
 }

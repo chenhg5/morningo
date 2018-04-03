@@ -18,12 +18,12 @@ func IndexApi(c *gin.Context) {
 	defer con.Close() // 函数结束时关闭数据库连接
 
 	// 0表示不过期
-	session.SessionStore.Set("key", "value", 0)
-	str, redisCon := session.SessionStore.Get("key")
+	session.GetStore().Set("key", "value", 0)
+	str, redisCon := session.GetStore().Get("key")
 	redisCon.ClientGetName()
 
 	log.Println("session key: " + str)
-	cache.CacheStore.Set("key", "value", time.Minute)
+	cache.GetStore().Set("key", "value", time.Minute)
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,
