@@ -5,6 +5,7 @@ import (
 	"./controllers"
 	"./filters"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/pprof"
 )
 
 func initRouter() *gin.Engine {
@@ -23,6 +24,8 @@ func initRouter() *gin.Engine {
 		api.POST("/index", controllers.IndexApi)
 		api.GET("/index", controllers.IndexApi)
 	}
+
+	pprof.Register(router)
 
 	return router
 }
