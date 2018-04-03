@@ -27,7 +27,7 @@ var env = Env{
 	DATABASE_NAME:     "star",
 
 	REDIS_IP:       "127.0.0.1",
-	REDIS_PORT:     "6378",
+	REDIS_PORT:     "6379",
 	REDIS_PASSWORD: "",
 	REDIS_DB:       0,
 
