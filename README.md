@@ -23,12 +23,6 @@ make deps
 make
 ```
 
-### 使用
-
-- 1. config/env.go 是项目数据库等配置
-- 2. controllers/MainController.go 有数据库与session/cache使用示例
-
-
 ## 项目结构
 
 ```
