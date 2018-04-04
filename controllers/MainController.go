@@ -25,10 +25,11 @@ func IndexApi(c *gin.Context) {
 	// Read
 	var user m.User
 	m.Model.First(&user, 1) // find user with id 1
-	m.Model.First(&user, "name = ?", "L1212") // find user with name l1212
+	//fmt.Printf("user model insert %d\n", user.Model.ID)
+	// m.Model.First(&user, "name = ?", "L1212") // find user with name l1212
 
 	// Update
-	m.Model.Model(&user).Update("avatar", "123")
+	m.Model.Model(&user).Update("avatar", "12345")
 
 	// Delete
 	// m.Model.Delete(&user)
