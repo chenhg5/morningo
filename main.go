@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./config"
+	"gin-template/config"
 	"github.com/gin-gonic/gin"
 	"runtime"
 )

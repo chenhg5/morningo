@@ -1,8 +1,8 @@
 package cache
 
 import (
-	"../../config"
-	"../../connections/redis"
+	"gin-template/config"
+	"gin-template/connections/redis"
 )
 
 var cacheStore *redis.ClientType

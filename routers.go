@@ -1,9 +1,9 @@
 package main
 
 import (
-	"./config"
-	"./controllers"
-	"./filters"
+	"gin-template/config"
+	"gin-template/controllers"
+	//"gin-template/filters"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/pprof"
 )
@@ -18,7 +18,7 @@ func initRouter() *gin.Engine {
 
 	router.Use(handleErrors()) // 错误处理
 
-	router.Use(filters.AuthMiddleware()) // 中间件使用
+	// router.Use(filters.AuthMiddleware()) // 中间件使用
 
 	api := router.Group("/api")
 	{

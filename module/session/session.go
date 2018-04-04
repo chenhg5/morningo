@@ -1,8 +1,8 @@
 package session
 
 import (
-	"../../config"
-	"../../connections/redis"
+	"gin-template/config"
+	"gin-template/connections/redis"
 )
 
 var sessionStore *redis.ClientType

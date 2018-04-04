@@ -24,7 +24,7 @@ var env = Env{
 	DATABASE_PORT:     "3306",
 	DATABASE_USERNAME: "root",
 	DATABASE_PASSWORD: "root",
-	DATABASE_NAME:     "star",
+	DATABASE_NAME:     "gin-template",
 
 	REDIS_IP:       "127.0.0.1",
 	REDIS_PORT:     "6379",

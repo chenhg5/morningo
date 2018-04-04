@@ -1,7 +1,7 @@
 package redis
 
 import (
-	"../../config"
+	"gin-template/config"
 	"github.com/go-redis/redis"
 	"time"
 )
@@ -34,4 +34,12 @@ func (client *ClientType) Get(key string) (string, *redis.Client) {
 		panic(err)
 	}
 	return val, client.RedisCon
+}
+
+func (client *ClientType) Del(key string) *redis.Client {
+	_, err := client.RedisCon.Del(key).Result()
+	if err != nil {
+		panic(err)
+	}
+	return client.RedisCon
 }

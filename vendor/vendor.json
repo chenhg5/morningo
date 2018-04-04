@@ -21,7 +21,7 @@
 			"revisionTime": "2018-03-20T13:09:17Z"
 		},
 		{
-			"checksumSHA1": "WkZSRf5rVTG7XJyra5VMZ81U5p8=",
+			"checksumSHA1": "x90JasSxrA58OTVbnzPaNP9IDZM=",
 			"path": "github.com/gin-contrib/pprof",
 			"revision": "3c13bbb13dd4feba12e689c0041fe13394e014e8",
 			"revisionTime": "2018-03-02T17:12:26Z"
@@ -33,28 +33,28 @@
 			"revisionTime": "2017-01-09T09:34:21Z"
 		},
 		{
-			"checksumSHA1": "BMaJDqifvwJ5LWPOiZn9Rjet/94=",
+			"checksumSHA1": "XdXz9sT0/4GITl4zETpuptOX7Fc=",
 			"path": "github.com/gin-gonic/gin",
-			"revision": "6d913fc343cfac80d656db5be67a0ffb1323ba0d",
-			"revisionTime": "2018-03-29T06:33:07Z"
+			"revision": "65a65c2edd4e86f96634a553f07a25c38f2b1c75",
+			"revisionTime": "2018-03-20T06:42:51Z"
 		},
 		{
-			"checksumSHA1": "qEoVYhFT/TTaIfa9qI249vU9yHo=",
+			"checksumSHA1": "3Ttl4CxOEl+NCstutCFyECv0CWs=",
 			"path": "github.com/gin-gonic/gin/binding",
-			"revision": "6d913fc343cfac80d656db5be67a0ffb1323ba0d",
-			"revisionTime": "2018-03-29T06:33:07Z"
+			"revision": "65a65c2edd4e86f96634a553f07a25c38f2b1c75",
+			"revisionTime": "2018-03-20T06:42:51Z"
 		},
 		{
 			"checksumSHA1": "woO1qIxIeQ1bcbPSiMfAKk3r4xg=",
 			"path": "github.com/gin-gonic/gin/json",
-			"revision": "6d913fc343cfac80d656db5be67a0ffb1323ba0d",
-			"revisionTime": "2018-03-29T06:33:07Z"
+			"revision": "65a65c2edd4e86f96634a553f07a25c38f2b1c75",
+			"revisionTime": "2018-03-20T06:42:51Z"
 		},
 		{
 			"checksumSHA1": "O+2Q4Uc9Vidvc/ctORliL315ZVI=",
 			"path": "github.com/gin-gonic/gin/render",
-			"revision": "6d913fc343cfac80d656db5be67a0ffb1323ba0d",
-			"revisionTime": "2018-03-29T06:33:07Z"
+			"revision": "65a65c2edd4e86f96634a553f07a25c38f2b1c75",
+			"revisionTime": "2018-03-20T06:42:51Z"
 		},
 		{
 			"checksumSHA1": "GE9y3KX8Fe7oXWPnUJ70BEmX3cg=",
@@ -113,8 +113,8 @@
 		{
 			"checksumSHA1": "WX1+2gktHcBmE9MGwFSGs7oqexU=",
 			"path": "github.com/golang/protobuf/proto",
-			"revision": "e09c5db296004fbe3f74490e84dcd62c3c5ddb1b",
-			"revisionTime": "2018-03-28T16:31:53Z"
+			"revision": "bbd03ef6da3a115852eaf24c8a1c46aeb39aa175",
+			"revisionTime": "2018-02-02T18:43:18Z"
 		},
 		{
 			"checksumSHA1": "lYUMiQOLvV+Okxcm1RQnot+c0ho=",
@@ -251,10 +251,10 @@
 			"revisionTime": "2017-07-30T05:02:35Z"
 		},
 		{
-			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
+			"checksumSHA1": "AnKBN2Q4AWaSNb0JyINBQbnpxGM=",
 			"path": "gopkg.in/yaml.v2",
-			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
-			"revisionTime": "2018-03-28T19:50:20Z"
+			"revision": "7f97868eec74b32b0982dd158a51a446d1da7eb5",
+			"revisionTime": "2018-02-23T19:12:37Z"
 		}
 	],
 	"rootPath": "gin-template"

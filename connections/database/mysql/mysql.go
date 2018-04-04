@@ -1,7 +1,7 @@
 package database
 
 import (
-	"../../../config"
+	"gin-template/config"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
@@ -18,20 +18,10 @@ func init() {
 		log.Fatal(err.Error())
 		panic(err.Error())
 	}
-	err = SqlDB.Ping()
-	if err != nil {
-		log.Fatal(err.Error())
-		panic(err.Error())
-	}
 
 	// 设置数据库最大连接 减少timewait
 	SqlDB.SetMaxIdleConns(2000)
 	SqlDB.SetMaxOpenConns(2000)
-
-	if err := SqlDB.Ping(); err != nil {
-		log.Fatalln(err)
-		panic(err)
-	}
 }
 
 func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Rows) {
@@ -60,8 +50,7 @@ func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Ro
 	for rs.Next() {
 		var colVar = make([]interface{}, len(col))
 		for i := 0; i < len(col); i++ {
-			//log.Println("type: " + typeVal[i].ScanType().Name())
-			// TODO: string类型如果为interface返回乱字符串
+			// Tips: string类型如果为interface返回乱字符串
 			if typeVal[i].ScanType().Name() == "RawBytes" {
 				var s string
 				colVar[i] = &s
@@ -93,5 +82,10 @@ func Exec(query string, args ...interface{}) sql.Result {
 		log.Fatalln(err)
 		panic(err)
 	}
+
+	// update
+
+	// insert
+
 	return rs
 }
