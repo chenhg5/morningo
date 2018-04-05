@@ -14,7 +14,7 @@ type sqlTx struct {
 	Tx *sql.Tx
 }
 
-var SqlTx *sqlTx
+var SqlTx sqlTx
 
 func init() {
 	var err error
@@ -109,7 +109,7 @@ func BeginTransactionsByLevel() *sqlTx {
 		panic(err)
 	}
 	SqlTx.Tx = tx
-	return SqlTx
+	return &SqlTx
 }
 
 func BeginTransactions() *sqlTx {
@@ -119,7 +119,7 @@ func BeginTransactions() *sqlTx {
 		panic(err)
 	}
 	SqlTx.Tx = tx
-	return SqlTx
+	return &SqlTx
 }
 
 func (SqlTx *sqlTx) Exec(query string, args ...interface{}) (sql.Result, error) {

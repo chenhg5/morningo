@@ -29,7 +29,7 @@ func IndexApi(c *gin.Context) {
 	// m.Model.First(&user, "name = ?", "L1212") // find user with name l1212
 
 	// Update
-	m.Model.Model(&user).Update("avatar", "12345")
+	m.Model.Model(&user).Update("avatar", "123456")
 
 	// Delete
 	// m.Model.Delete(&user)
