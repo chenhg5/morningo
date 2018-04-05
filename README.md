@@ -1,10 +1,10 @@
-# gin web项目模板
+# gin web project skeleton
 
 gin web项目模板
 
 ## 项目安装使用
 
-### 下载骨架
+### 下载
 
 ```
 cd $GOPATH/src
