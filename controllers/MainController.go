@@ -48,6 +48,14 @@ func IndexApi(c *gin.Context) {
 	rs, con := db.Query("select name,avatar,id from users where id < ?", 100)
 	defer con.Close() // 函数结束时关闭数据库连接
 
+	// 数据库事务
+	Tx := db.BeginTransactions()
+	_, err := Tx.Query("select name,avatar,id from users where id < ?", 100)
+	if err != nil {
+		Tx.Tx.Rollback()
+	}
+	Tx.Tx.Commit()
+
 	/** 存储连接使用 **/
 
 	// session存储
