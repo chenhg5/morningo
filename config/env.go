@@ -14,6 +14,7 @@ type Env struct {
 	REDIS_DB          int
 	REDIS_SESSION_DB  int
 	REDIS_CACHE_DB    int
+	ACCESS_LOG		  bool
 }
 
 var env = Env{
@@ -33,6 +34,8 @@ var env = Env{
 
 	REDIS_SESSION_DB: 1,
 	REDIS_CACHE_DB:   2,
+
+	ACCESS_LOG: true,
 }
 
 func GetEnv() *Env {
