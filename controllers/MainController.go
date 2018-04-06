@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	db "gin-template/connections/database/mysql"
-	"gin-template/module/cache"
-	"gin-template/module/session"
-	m "gin-template/models"
+	db "moringo/connections/database/mysql"
+	"moringo/module/cache"
+	"moringo/module/session"
+	m "moringo/models"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"

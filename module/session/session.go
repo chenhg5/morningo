@@ -1,8 +1,8 @@
 package session
 
 import (
-	"gin-template/config"
-	"gin-template/connections/redis"
+	"moringo/config"
+	"moringo/connections/redis"
 )
 
 var sessionStore *redis.ClientType

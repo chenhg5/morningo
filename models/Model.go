@@ -2,7 +2,7 @@ package models
 
 import (
 	"github.com/jinzhu/gorm"
-	"gin-template/config"
+	"moringo/config"
 )
 
 var Model *gorm.DB

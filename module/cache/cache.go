@@ -1,8 +1,8 @@
 package cache
 
 import (
-	"gin-template/config"
-	"gin-template/connections/redis"
+	"moringo/config"
+	"moringo/connections/redis"
 )
 
 var cacheStore *redis.ClientType

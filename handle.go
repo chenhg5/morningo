@@ -6,7 +6,7 @@ import (
 	"io"
 	"runtime/debug"
 	"time"
-	"gin-template/config"
+	"moringo/config"
 	"os"
 )
 

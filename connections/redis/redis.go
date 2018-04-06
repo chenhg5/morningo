@@ -1,7 +1,7 @@
 package redis
 
 import (
-	"gin-template/config"
+	"moringo/config"
 	"github.com/go-redis/redis"
 	"time"
 )

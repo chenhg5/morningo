@@ -1,9 +1,9 @@
 package main
 
 import (
-	"gin-template/config"
-	"gin-template/controllers"
-	//"gin-template/filters"
+	"moringo/config"
+	"moringo/controllers"
+	//"moringo/filters"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/pprof"
 )

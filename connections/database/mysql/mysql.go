@@ -1,7 +1,7 @@
 package database
 
 import (
-	"gin-template/config"
+	"moringo/config"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
