@@ -86,4 +86,9 @@ make
 - [ ] cache/session多存储支持
 - [ ] 队列任务
 - [ ] 测试
-- [ ] 日志分析
+- [X] 日志分析
+
+## ChangeLog
+
+- 增加access.log与error.log
+- 增加数据库事务

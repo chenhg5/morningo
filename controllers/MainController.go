@@ -17,6 +17,8 @@ import (
  */
 func IndexApi(c *gin.Context) {
 
+	panic("test")
+
 	/** ORM使用 **/
 
 	// Create
