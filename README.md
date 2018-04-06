@@ -2,7 +2,7 @@
 
 gin web项目模板
 
-## 项目安装使用
+## 项目安装运行
 
 使用安装器安装
 
@@ -91,13 +91,14 @@ make
 
 ## TODO
 
-- [ ] 脚手架命令行工具 sword
+- [X] 日志分析
 - [ ] mysql读写分离
 - [ ] redis集群
 - [ ] cache/session多存储支持
 - [ ] 队列任务
 - [ ] 测试
-- [X] 日志分析
+- [ ] 框架性能分析（对标php laravel/swoole;go beego）
+- [ ] 脚手架命令行工具 sword
 
 ## ChangeLog
 
