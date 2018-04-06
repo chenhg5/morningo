@@ -1,4 +1,4 @@
-# gin web project skeleton
+# Gin Web Project Skeleton
 
 gin web项目模板
 
