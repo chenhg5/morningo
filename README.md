@@ -64,6 +64,11 @@ make
 │   └── session
 │       └── session.go
 ├── routers.go                  路由
+├── storage                     
+│   ├── cache                   缓存文件
+│   └── logs                    项目日志
+│       ├── access.log          
+│       └── error.log
 ├── test                        测试
 └── vendor                      govendor 第三方包
 
