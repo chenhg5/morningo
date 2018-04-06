@@ -153,6 +153,12 @@
 			"revisionTime": "2018-03-20T13:32:07Z"
 		},
 		{
+			"checksumSHA1": "bOUCnFlRuGN/E633R/lFuiWVrkk=",
+			"path": "github.com/robfig/cron",
+			"revision": "2315d5715e36303a941d907f038da7f7c44c773b",
+			"revisionTime": "2017-11-01T20:10:47Z"
+		},
+		{
 			"checksumSHA1": "u/AnjLifqJUv3TvngVlqWSOo2xg=",
 			"path": "github.com/silenceper/wechat",
 			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",

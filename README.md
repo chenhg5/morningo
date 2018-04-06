@@ -88,6 +88,7 @@ make
 - Redis：github.com/go-redis/redis
 - Mysql：github.com/go-sql-driver/mysql
 - Wechat：github.com/silenceper/wechat
+- 任务调度：github.com/robfig/cron
 
 ## TODO
 
@@ -102,6 +103,7 @@ make
 
 ## ChangeLog
 
+- 增加定时任务
 - 增加项目安装器
 - 增加access.log与error.log
 - 增加数据库事务

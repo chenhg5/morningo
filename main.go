@@ -7,6 +7,7 @@ import (
 	"os"
 	"log"
 	"io"
+	_ "morningo/module/schedule"  // 定时任务
 )
 
 func main() {
