@@ -69,6 +69,8 @@ make
 │   │   └── cache.go
 │   └── session
 │       └── session.go
+│   └── schedule
+│       └── schedule.go         定时任务模块
 ├── routers.go                  路由
 ├── storage                     
 │   ├── cache                   缓存文件
