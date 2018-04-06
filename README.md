@@ -2,18 +2,20 @@
 
 gin web项目模板
 
-## 项目安装使用
+## 项目安装使用【使用安装器安装】
 
-### 下载
+### 安装项目
 
 ```
 cd $GOPATH/src
-git clone https://github.com/chenhg5/gin-template.git
+curl https://github.com/chenhg5/moringo-installer/raw/master/moringo-installer
+./moringo-installer --project-name web
 ```
 
-### 安装依赖
+### 加载依赖
 
 ```
+cd web
 make deps
 ```
 
