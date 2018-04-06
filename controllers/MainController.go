@@ -17,26 +17,13 @@ import (
  */
 func IndexApi(c *gin.Context) {
 
-	panic("test")
+	// 返回html
+	c.HTML(http.StatusOK, "index.tpl", gin.H{
+		"title": "GO GO GO!",
+	})
+}
 
-	/** ORM使用 **/
-
-	// Create
-	m.Model.Create(&m.User{Name: "L1212", Avatar: "unknown", Sex: 1})
-
-	// Read
-	var user m.User
-	m.Model.First(&user, 1) // find user with id 1
-	//fmt.Printf("user model insert %d\n", user.Model.ID)
-	// m.Model.First(&user, "name = ?", "L1212") // find user with name l1212
-
-	// Update
-	m.Model.Model(&user).Update("avatar", "123456")
-
-	// Delete
-	// m.Model.Delete(&user)
-
-	/** 数据库连接使用 **/
+func DBexample(c *gin.Context) {
 
 	// 数据库插入
 	insertRs := db.Exec("insert into users (name, avatar, sex) values (?, ?, ?)", "人才", "unknown", 1)
@@ -58,7 +45,16 @@ func IndexApi(c *gin.Context) {
 	}
 	Tx.Tx.Commit()
 
-	/** 存储连接使用 **/
+	c.JSON(http.StatusOK, gin.H{
+		"code": 0,
+		"msg":  "ok",
+		"data": gin.H{
+			"query_result": rs,
+		},
+	})
+}
+
+func StoreExample(c *gin.Context)  {
 
 	// session存储
 	session.GetStore().Set("key", "value", 0) // 0表示不过期
@@ -69,22 +65,37 @@ func IndexApi(c *gin.Context) {
 	cache.GetStore().Set("key", "value", time.Minute)
 	cache.GetStore().Del("key")
 
-	/** 数据返回 **/
-
-	// 返回json数据
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,
 		"msg":  "ok",
 		"data": gin.H{
-			"str": rs,
+			"store_result": str,
 		},
 	})
+}
 
-	// 返回字符串
-	//c.String(http.StatusOK, "It works")
+func OrmExample(c *gin.Context)  {
 
-	// 返回html
-	//c.HTML(http.StatusOK, "index.tpl", gin.H{
-	//	"title": "Main website",
-	//})
+	// Create
+	m.Model.Create(&m.User{Name: "L1212", Avatar: "unknown", Sex: 1})
+
+	// Read
+	var user m.User
+	m.Model.First(&user, 1) // find user with id 1
+	//fmt.Printf("user model insert %d\n", user.Model.ID)
+	// m.Model.First(&user, "name = ?", "L1212") // find user with name l1212
+
+	// Update
+	m.Model.Model(&user).Update("avatar", "123456")
+
+	// Delete
+	// m.Model.Delete(&user)
+
+	c.JSON(http.StatusOK, gin.H{
+		"code": 0,
+		"msg":  "ok",
+		"data": gin.H{
+			"orm_result": user,
+		},
+	})
 }

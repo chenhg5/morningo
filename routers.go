@@ -18,11 +18,15 @@ func initRouter() *gin.Engine {
 
 	router.Use(handleErrors()) // 错误处理
 
+	router.LoadHTMLGlob("frontend/templates/*") // html模板
+
 	// router.Use(filters.AuthMiddleware()) // 中间件使用
 
 	api := router.Group("/api")
 	{
-		api.POST("/index", controllers.IndexApi)
+		api.GET("/orm", controllers.OrmExample)
+		api.GET("/store", controllers.StoreExample)
+		api.GET("/db", controllers.DBexample)
 		api.GET("/index", controllers.IndexApi)
 	}
 
