@@ -1,6 +1,6 @@
 # MorningGo : Gin WebApp Project Skeleton
 
-gin web项目模板
+基于(gin)[https://github.com/gin-gonic/gin]的http项目开发框架。更高的开发效率，更好的性能，更简单整洁的项目组织结构，更快的部署。
 
 ## 环境要求
 
