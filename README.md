@@ -11,6 +11,7 @@ gin web项目模板
 ```
 cd $GOPATH/src
 wget https://github.com/chenhg5/morningo-installer/raw/master/morningo-installer
+chmod +x morningo-installer
 ./morningo-installer --project-name web
 ```
 
@@ -26,6 +27,7 @@ make deps
 ```
 make
 ```
+浏览器访问 http://localhost:4000/api/index
 
 ## 项目结构
 

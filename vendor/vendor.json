@@ -21,7 +21,7 @@
 			"revisionTime": "2018-03-20T13:09:17Z"
 		},
 		{
-			"checksumSHA1": "x90JasSxrA58OTVbnzPaNP9IDZM=",
+			"checksumSHA1": "WkZSRf5rVTG7XJyra5VMZ81U5p8=",
 			"path": "github.com/gin-contrib/pprof",
 			"revision": "3c13bbb13dd4feba12e689c0041fe13394e014e8",
 			"revisionTime": "2018-03-02T17:12:26Z"
@@ -257,5 +257,5 @@
 			"revisionTime": "2018-02-23T19:12:37Z"
 		}
 	],
-	"rootPath": "gin-template"
+	"rootPath": "morningo"
 }
