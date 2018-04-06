@@ -1,4 +1,4 @@
-# Gin Web Project Skeleton
+# MorningGo : Gin WebApp Project Skeleton
 
 gin web项目模板
 
@@ -100,7 +100,7 @@ make
 - [ ] cache/session多存储支持
 - [ ] 队列任务
 - [ ] 测试
-- [ ] 框架性能分析（对标php laravel/swoole;go beego）
+- [ ] 框架性能分析（对标laravel/swoole_php;beego_go）
 - [ ] 脚手架命令行工具 sword
 
 ## ChangeLog
