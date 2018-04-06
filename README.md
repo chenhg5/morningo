@@ -10,7 +10,7 @@ gin web项目模板
 
 ```
 cd $GOPATH/src
-curl https://github.com/chenhg5/morningo-installer/raw/master/moringo-installer
+wget https://github.com/chenhg5/morningo-installer/raw/master/morningo-installer
 ./morningo-installer --project-name web
 ```
 
