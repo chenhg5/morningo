@@ -1,8 +1,8 @@
 package cache
 
 import (
-	"moringo/config"
-	"moringo/connections/redis"
+	"morningo/config"
+	"morningo/connections/redis"
 )
 
 var cacheStore *redis.ClientType

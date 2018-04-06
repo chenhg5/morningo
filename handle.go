@@ -6,7 +6,7 @@ import (
 	"io"
 	"runtime/debug"
 	"time"
-	"moringo/config"
+	"morningo/config"
 	"os"
 )
 

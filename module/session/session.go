@@ -1,8 +1,8 @@
 package session
 
 import (
-	"moringo/config"
-	"moringo/connections/redis"
+	"morningo/config"
+	"morningo/connections/redis"
 )
 
 var sessionStore *redis.ClientType

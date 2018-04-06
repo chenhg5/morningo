@@ -2,7 +2,7 @@ package models
 
 import (
 	"github.com/jinzhu/gorm"
-	"moringo/config"
+	"morningo/config"
 )
 
 var Model *gorm.DB

@@ -1,10 +1,10 @@
 package controllers
 
 import (
-	db "moringo/connections/database/mysql"
-	"moringo/module/cache"
-	"moringo/module/session"
-	m "moringo/models"
+	db "morningo/connections/database/mysql"
+	"morningo/module/cache"
+	"morningo/module/session"
+	m "morningo/models"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"

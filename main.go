@@ -1,7 +1,7 @@
 package main
 
 import (
-	"moringo/config"
+	"morningo/config"
 	"github.com/gin-gonic/gin"
 	"runtime"
 	"os"

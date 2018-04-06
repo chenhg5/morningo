@@ -5,25 +5,25 @@ goroutine 34 [running]:
 runtime/debug.Stack(0x17b9f60, 0xc4202ec4a0, 0x173040a)
 	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
 main.handleErrors.func1.1(0xc4202488f0)
-	/Users/chenhg5/go/src/moringo/handle.go:44 +0x4cd
+	/Users/chenhg5/go/src/morningo/handle.go:44 +0x4cd
 panic(0x1621720, 0x17b6a10)
 	/usr/local/go/src/runtime/panic.go:505 +0x229
-moringo/controllers.IndexApi(0xc4202488f0)
-	/Users/chenhg5/go/src/moringo/controllers/MainController.go:20 +0x39
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202488f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/controllers.IndexApi(0xc4202488f0)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:20 +0x39
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202488f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
 main.handleErrors.func1(0xc4202488f0)
-	/Users/chenhg5/go/src/moringo/handle.go:54 +0x51
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202488f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-moringo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4202488f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202488f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-moringo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420314000, 0xc4202488f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
-moringo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420314000, 0x17bdf20, 0xc420336000, 0xc420332100)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+	/Users/chenhg5/go/src/morningo/handle.go:54 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202488f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4202488f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202488f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420314000, 0xc4202488f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420314000, 0x17bdf20, 0xc420336000, 0xc420332100)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
 net/http.serverHandler.ServeHTTP(0xc42030a1a0, 0x17bdf20, 0xc420336000, 0xc420332100)
 	/usr/local/go/src/net/http/server.go:2694 +0xbc
 net/http.(*conn).serve(0xc42031e000, 0x17be9a0, 0xc4201d83c0)
@@ -38,27 +38,27 @@ goroutine 20 [running]:
 runtime/debug.Stack(0x17bc600, 0xc42037e240, 0x17327ca)
 	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
 main.handleErrors.func1.1(0xc42024e8f0)
-	/Users/chenhg5/go/src/moringo/handle.go:44 +0x4cd
+	/Users/chenhg5/go/src/morningo/handle.go:44 +0x4cd
 panic(0x1659f20, 0x1ac7480)
 	/usr/local/go/src/runtime/panic.go:505 +0x229
-moringo/vendor/github.com/gin-gonic/gin.(*Context).HTML(0xc42024e8f0, 0xc8, 0x17450d7, 0x1f, 0x166cd80, 0xc42037a090)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:654 +0x35
-moringo/controllers.IndexApi(0xc42024e8f0)
-	/Users/chenhg5/go/src/moringo/controllers/MainController.go:85 +0x700
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42024e8f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Context).HTML(0xc42024e8f0, 0xc8, 0x17450d7, 0x1f, 0x166cd80, 0xc42037a090)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:654 +0x35
+morningo/controllers.IndexApi(0xc42024e8f0)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:85 +0x700
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42024e8f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
 main.handleErrors.func1(0xc42024e8f0)
-	/Users/chenhg5/go/src/moringo/handle.go:54 +0x51
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42024e8f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-moringo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc42024e8f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42024e8f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-moringo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc4200cd680, 0xc42024e8f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
-moringo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc4200cd680, 0x17c05c0, 0xc42033a000, 0xc42014a800)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+	/Users/chenhg5/go/src/morningo/handle.go:54 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42024e8f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc42024e8f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42024e8f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc4200cd680, 0xc42024e8f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc4200cd680, 0x17c05c0, 0xc42033a000, 0xc42014a800)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
 net/http.serverHandler.ServeHTTP(0xc4201ca8f0, 0x17c05c0, 0xc42033a000, 0xc42014a800)
 	/usr/local/go/src/net/http/server.go:2694 +0xbc
 net/http.(*conn).serve(0xc4201bcbe0, 0x17c1040, 0xc4201cc700)
@@ -73,29 +73,29 @@ goroutine 9 [running]:
 runtime/debug.Stack(0x17bc640, 0xc42036dfa0, 0x17327ea)
 	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
 main.handleErrors.func1.1(0xc4202468f0)
-	/Users/chenhg5/go/src/moringo/handle.go:44 +0x4cd
+	/Users/chenhg5/go/src/morningo/handle.go:44 +0x4cd
 panic(0x1646a60, 0xc4203756f0)
 	/usr/local/go/src/runtime/panic.go:505 +0x229
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Render(0xc4202468f0, 0xc8, 0x17bf840, 0xc42038f0b0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:646 +0x160
-moringo/vendor/github.com/gin-gonic/gin.(*Context).HTML(0xc4202468f0, 0xc8, 0x174510b, 0x1f, 0x166cda0, 0xc42038ecc0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:655 +0x93
-moringo/controllers.IndexApi(0xc4202468f0)
-	/Users/chenhg5/go/src/moringo/controllers/MainController.go:85 +0x700
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202468f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Render(0xc4202468f0, 0xc8, 0x17bf840, 0xc42038f0b0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:646 +0x160
+morningo/vendor/github.com/gin-gonic/gin.(*Context).HTML(0xc4202468f0, 0xc8, 0x174510b, 0x1f, 0x166cda0, 0xc42038ecc0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:655 +0x93
+morningo/controllers.IndexApi(0xc4202468f0)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:85 +0x700
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202468f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
 main.handleErrors.func1(0xc4202468f0)
-	/Users/chenhg5/go/src/moringo/handle.go:54 +0x51
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202468f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-moringo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4202468f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202468f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-moringo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc4200bd320, 0xc4202468f0)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
-moringo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc4200bd320, 0x17c0600, 0xc420330000, 0xc42032c000)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+	/Users/chenhg5/go/src/morningo/handle.go:54 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202468f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4202468f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4202468f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc4200bd320, 0xc4202468f0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc4200bd320, 0x17c0600, 0xc420330000, 0xc42032c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
 net/http.serverHandler.ServeHTTP(0xc4201aeb60, 0x17c0600, 0xc420330000, 0xc42032c000)
 	/usr/local/go/src/net/http/server.go:2694 +0xbc
 net/http.(*conn).serve(0xc420198d20, 0x17c1080, 0xc4201e8140)
@@ -110,29 +110,29 @@ goroutine 5 [running]:
 runtime/debug.Stack(0x17bc640, 0xc4203b3e80, 0x17327ea)
 	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
 main.handleErrors.func1.1(0xc420386000)
-	/Users/chenhg5/go/src/moringo/handle.go:44 +0x4cd
+	/Users/chenhg5/go/src/morningo/handle.go:44 +0x4cd
 panic(0x1646a60, 0xc4203c03e0)
 	/usr/local/go/src/runtime/panic.go:505 +0x229
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Render(0xc420386000, 0xc8, 0x17bf840, 0xc4203c4210)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:646 +0x160
-moringo/vendor/github.com/gin-gonic/gin.(*Context).HTML(0xc420386000, 0xc8, 0x174510b, 0x1f, 0x166cda0, 0xc4203b9e00)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:655 +0x93
-moringo/controllers.IndexApi(0xc420386000)
-	/Users/chenhg5/go/src/moringo/controllers/MainController.go:85 +0x700
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420386000)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Render(0xc420386000, 0xc8, 0x17bf840, 0xc4203c4210)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:646 +0x160
+morningo/vendor/github.com/gin-gonic/gin.(*Context).HTML(0xc420386000, 0xc8, 0x174510b, 0x1f, 0x166cda0, 0xc4203b9e00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:655 +0x93
+morningo/controllers.IndexApi(0xc420386000)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:85 +0x700
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420386000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
 main.handleErrors.func1(0xc420386000)
-	/Users/chenhg5/go/src/moringo/handle.go:54 +0x51
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420386000)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-moringo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420386000)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
-moringo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420386000)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-moringo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420336000, 0xc420386000)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
-moringo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420336000, 0x17c0600, 0xc420382000, 0xc420158800)
-	/Users/chenhg5/go/src/moringo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+	/Users/chenhg5/go/src/morningo/handle.go:54 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420386000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420386000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420386000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420336000, 0xc420386000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420336000, 0x17c0600, 0xc420382000, 0xc420158800)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
 net/http.serverHandler.ServeHTTP(0xc42032c5b0, 0x17c0600, 0xc420382000, 0xc420158800)
 	/usr/local/go/src/net/http/server.go:2694 +0xbc
 net/http.(*conn).serve(0xc42034c000, 0x17c1080, 0xc4201d86c0)

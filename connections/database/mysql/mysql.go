@@ -1,7 +1,7 @@
 package database
 
 import (
-	"moringo/config"
+	"morningo/config"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
