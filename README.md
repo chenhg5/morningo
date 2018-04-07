@@ -37,6 +37,12 @@ make deps
 make test
 ```
 
+### 平滑重启
+
+```
+make restart
+```
+
 ### 运行
 
 ```
@@ -44,11 +50,6 @@ make
 ```
 浏览器访问 http://localhost:4000/api/index
 
-### 平滑重启
-
-```
-make restart
-```
 
 ## 项目结构
 
