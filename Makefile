@@ -4,30 +4,30 @@ GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
 GOTEST=$(GOCMD) test
 GOGET=$(GOCMD) get
-BINARY_NAME=pro_binary
+BINARY_NAME=morningo
 BINARY_UNIX=$(BINARY_NAME)_unix
 
 all: run
 
 build:
-	$(GOBUILD) -o $(BINARY_NAME) -v ./
+	$(GOBUILD) -o ./build/$(BINARY_NAME) -v ./
 
 test:
 	$(GOTEST) -v ./
 
 clean:
 	$(GOCLEAN)
-	rm -f $(BINARY_NAME)
-	rm -f $(BINARY_UNIX)
+	rm -f ./build/$(BINARY_NAME)
+	rm -f ./build/$(BINARY_UNIX)
 
 run:
-	$(GOBUILD) -o $(BINARY_NAME) -v ./
-	./$(BINARY_NAME)
+	$(GOBUILD) -o ./build/$(BINARY_NAME) -v ./
+	./build/$(BINARY_NAME)
 
 restart:
 	kill -INT $$(cat pid)
-	$(GOBUILD) -o $(BINARY_NAME) -v ./
-	./$(BINARY_NAME)
+	$(GOBUILD) -o ./build/$(BINARY_NAME) -v ./
+	./build/$(BINARY_NAME)
 
 deps:
 	$(GOGET) github.com/kardianos/govendor
