@@ -12,9 +12,6 @@ import (
 	"fmt"
 )
 
-/**
- * 数据库与redis连接使用示例
- */
 func IndexApi(c *gin.Context) {
 
 	// 返回html
