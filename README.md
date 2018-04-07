@@ -31,6 +31,12 @@ cd web
 make deps
 ```
 
+### 测试
+
+```
+make test
+```
+
 ### 运行
 
 ```
@@ -81,12 +87,12 @@ make
 │   └── schedule
 │       └── schedule.go         定时任务模块
 ├── routers.go                  路由
+├── routers_test.go             api测试
 ├── storage                     
 │   ├── cache                   缓存文件
 │   └── logs                    项目日志
 │       ├── access.log          
 │       └── error.log
-├── test                        测试
 └── vendor                      govendor 第三方包
 
 
@@ -114,6 +120,7 @@ make
 
 ## ChangeLog
 
+- 增加测试文件
 - 增加平滑重启
 - 增加定时任务
 - 增加项目安装器
