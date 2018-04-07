@@ -19,7 +19,7 @@ func IndexApi(c *gin.Context) {
 
 	// 返回html
 	c.HTML(http.StatusOK, "index.tpl", gin.H{
-		"title": "GO GO GO!!?",
+		"title": "GO GO GO!",
 	})
 }
 

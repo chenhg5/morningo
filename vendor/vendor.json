@@ -9,6 +9,12 @@
 			"revisionTime": "2017-02-08T21:30:04Z"
 		},
 		{
+			"checksumSHA1": "CSPbwbyzqA6sfORicn4HFtIhF/c=",
+			"path": "github.com/davecgh/go-spew/spew",
+			"revision": "8991bc29aa16c548c550c7ff78260e27b9ab7c73",
+			"revisionTime": "2018-02-21T22:46:20Z"
+		},
+		{
 			"checksumSHA1": "2UmMbNHc8FBr98mJFN1k8ISOIHk=",
 			"path": "github.com/garyburd/redigo/internal",
 			"revision": "e8e59ed1cd89662b75af5d1109e39e5dc148cc00",
@@ -153,6 +159,12 @@
 			"revisionTime": "2018-03-20T13:32:07Z"
 		},
 		{
+			"checksumSHA1": "LuFv4/jlrmFNnDb/5SCSEPAM9vU=",
+			"path": "github.com/pmezard/go-difflib/difflib",
+			"revision": "792786c7400a136282c1664665ae0a8db921c6c2",
+			"revisionTime": "2016-01-10T10:55:54Z"
+		},
+		{
 			"checksumSHA1": "bOUCnFlRuGN/E633R/lFuiWVrkk=",
 			"path": "github.com/robfig/cron",
 			"revision": "2315d5715e36303a941d907f038da7f7c44c773b",
@@ -235,6 +247,12 @@
 			"path": "github.com/silenceper/wechat/util",
 			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
 			"revisionTime": "2018-02-23T08:31:59Z"
+		},
+		{
+			"checksumSHA1": "6LwXZI7kXm1C0h4Ui0Y52p9uQhk=",
+			"path": "github.com/stretchr/testify/assert",
+			"revision": "c679ae2cc0cb27ec3293fea7e254e47386f05d69",
+			"revisionTime": "2018-03-14T08:05:35Z"
 		},
 		{
 			"checksumSHA1": "WMhojMi3PWu3rn8vmXmUQuoOX/c=",
