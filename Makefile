@@ -24,6 +24,11 @@ run:
 	$(GOBUILD) -o $(BINARY_NAME) -v ./
 	./$(BINARY_NAME)
 
+restart:
+	kill -INT $$(cat pid)
+	$(GOBUILD) -o $(BINARY_NAME) -v ./
+	./$(BINARY_NAME)
+
 deps:
 	$(GOGET) github.com/kardianos/govendor
 	govendor sync

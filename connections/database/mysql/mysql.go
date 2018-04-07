@@ -6,7 +6,6 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"context"
-	"fmt"
 )
 
 var SqlDB *sql.DB

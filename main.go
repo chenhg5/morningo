@@ -12,6 +12,8 @@ import (
 	"net/http"
 	"os/signal"
 	"time"
+	"io/ioutil"
+	"fmt"
 )
 
 func main() {
@@ -36,6 +38,11 @@ func main() {
 	}
 
 	//fmt.Printf("\nserver pid: %d\n", os.Getpid())
+	pid := fmt.Sprintf("%d", os.Getpid())
+	_, openErr := os.OpenFile("pid", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if openErr == nil {
+		ioutil.WriteFile("pid", []byte(pid), 0)
+	}
 
 	router := initRouter() // 初始化路由
 	//router.Run(":" + config.GetEnv().SERVER_PORT)
