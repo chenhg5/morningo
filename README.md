@@ -9,7 +9,7 @@
 
 ## 环境要求
 
-- GO >= 1.8
+- [GO >= 1.8](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
 
 ## 项目安装运行
 
