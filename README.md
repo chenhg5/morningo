@@ -78,8 +78,6 @@ make
 ├── models                      模型
 │   └── User.go
 ├── module                      项目模块
-│   ├── alipay
-│   │   └── alipay.go
 │   ├── cache
 │   │   └── cache.go
 │   └── session
@@ -110,11 +108,11 @@ make
 ## TODO
 
 - [X] 日志分析
+- [X] 测试
 - [ ] mysql读写分离
 - [ ] redis集群
 - [ ] cache/session多存储支持
 - [ ] 队列任务
-- [ ] 测试
 - [ ] 框架性能分析（对标laravel/swoole_php;beego_go）
 - [ ] 脚手架命令行工具 sword
 

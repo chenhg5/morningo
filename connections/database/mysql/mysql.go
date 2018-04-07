@@ -6,6 +6,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"log"
 	"context"
+	"fmt"
 )
 
 var SqlDB *sql.DB
@@ -16,6 +17,7 @@ type sqlTx struct {
 
 var SqlTx sqlTx
 
+// 只会执行一次在执行程序启动的时候
 func init() {
 	var err error
 	SqlDB, err = sql.Open("mysql", config.GetEnv().DATABASE_USERNAME+
