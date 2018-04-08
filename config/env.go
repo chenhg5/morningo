@@ -1,5 +1,8 @@
 package config
 
+// 环境配置文件
+// 可配置多个环境配置，进行切换
+
 type Env struct {
 	DEBUG             bool
 	DATABASE_IP       string
