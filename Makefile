@@ -32,3 +32,6 @@ restart:
 deps:
 	$(GOGET) github.com/kardianos/govendor
 	govendor sync
+
+cross:
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o ./build/$(BINARY_NAME) -v ./

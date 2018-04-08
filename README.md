@@ -1,6 +1,6 @@
 # MorningGo : Gin WebApp Project Skeleton
 
-基于[Gin](https://github.com/gin-gonic/gin)的http项目开发框架。仅供参考。
+基于[Gin](https://github.com/gin-gonic/gin)的web项目开发框架。仅供参考。
 
 更高的开发效率，<br>
 更好的性能，<br>
@@ -54,7 +54,8 @@ make
 
 生成可执行文件
 ```
-make build
+make build # linus用户
+make cross # mac/windows用户
 ```
 将```build```下文件上传到生产环境服务器，直接运行。如端口不为80端口，可以配置nginx代理。运行的同时会在文件夹下生成```pid```文件，每次更新完文件后执行如下命令即可平滑热更。
 ```
