@@ -7,6 +7,8 @@
 更简单整洁的项目组织结构，<br>
 更快的部署。
 
+适合于小型项目，大中型项目(pv高、需求复杂度高)移步 [micro](https://github.com/micro/micro)、[kite](https://github.com/koding/kite)
+
 ## 环境要求
 
 - [GO >= 1.8](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
