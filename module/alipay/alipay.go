@@ -18,15 +18,15 @@ var aliSdk aliSdkType
 
 func init() {
 	aliSdk.ticket = authKeyType{
-		APP_PRIVATE:config.GetEnv().DATABASE_IP,
-		APP_PUBLIC:config.GetEnv().DATABASE_IP,
+		APP_PRIVATE: config.GetEnv().DATABASE_IP,
+		APP_PUBLIC:  config.GetEnv().DATABASE_IP,
 	}
 }
 
-func (aliSdk aliSdkType)withdraw(amount int)  {
-	
+func (aliSdk aliSdkType) withdraw(amount int) {
+
 }
 
-func (aliSdk aliSdkType)pay(amount int)  {
+func (aliSdk aliSdkType) pay(amount int) {
 
 }

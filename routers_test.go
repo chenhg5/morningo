@@ -1,10 +1,10 @@
 package main
 
 import (
-	"net/http/httptest"
-	"net/http"
-	"testing"
 	"github.com/stretchr/testify/assert"
+	"net/http"
+	"net/http/httptest"
+	"testing"
 )
 
 func TestIndexApi(t *testing.T) {

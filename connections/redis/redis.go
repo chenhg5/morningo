@@ -1,8 +1,8 @@
 package redis
 
 import (
-	"morningo/config"
 	"github.com/go-redis/redis"
+	"morningo/config"
 	"time"
 )
 

@@ -4,8 +4,8 @@ import (
 	"morningo/config"
 	"morningo/controllers"
 	//"morningo/filters"
-	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/pprof"
+	"github.com/gin-gonic/gin"
 )
 
 func initRouter() *gin.Engine {
@@ -13,7 +13,7 @@ func initRouter() *gin.Engine {
 
 	if config.GetEnv().DEBUG {
 		router.Use(gin.Logger()) // 开发模式下使用，console打印请求记录
-		pprof.Register(router) // 性能分析工具
+		pprof.Register(router)   // 性能分析工具
 	}
 
 	router.Use(handleErrors()) // 错误处理

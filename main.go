@@ -1,19 +1,19 @@
 package main
 
 import (
-	"morningo/config"
-	"github.com/gin-gonic/gin"
-	"runtime"
-	"os"
-	"log"
-	"io"
-	_ "morningo/module/schedule"  // 定时任务
 	"context"
-	"net/http"
-	"os/signal"
-	"time"
-	"io/ioutil"
 	"fmt"
+	"github.com/gin-gonic/gin"
+	"io"
+	"io/ioutil"
+	"log"
+	"morningo/config"
+	_ "morningo/module/schedule" // 定时任务
+	"net/http"
+	"os"
+	"os/signal"
+	"runtime"
+	"time"
 )
 
 func main() {

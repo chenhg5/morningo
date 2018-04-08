@@ -1,11 +1,11 @@
 package database
 
 import (
-	"morningo/config"
+	"context"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"log"
-	"context"
+	"morningo/config"
 )
 
 var SqlDB *sql.DB

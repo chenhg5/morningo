@@ -1,15 +1,15 @@
 package controllers
 
 import (
-	db "morningo/connections/database/mysql"
-	"morningo/module/cache"
-	"morningo/module/session"
-	m "morningo/models"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"
+	db "morningo/connections/database/mysql"
+	m "morningo/models"
+	"morningo/module/cache"
+	"morningo/module/session"
 	"net/http"
 	"time"
-	"fmt"
 )
 
 func IndexApi(c *gin.Context) {
@@ -51,7 +51,7 @@ func DBexample(c *gin.Context) {
 	})
 }
 
-func StoreExample(c *gin.Context)  {
+func StoreExample(c *gin.Context) {
 
 	// session存储
 	session.GetStore().Set("key", "value", 0) // 0表示不过期
@@ -71,7 +71,7 @@ func StoreExample(c *gin.Context)  {
 	})
 }
 
-func OrmExample(c *gin.Context)  {
+func OrmExample(c *gin.Context) {
 
 	// Create
 	m.Model.Create(&m.User{Name: "L1212", Avatar: "unknown", Sex: 1})

@@ -1,13 +1,13 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
 	"fmt"
+	"github.com/gin-gonic/gin"
 	"io"
-	"runtime/debug"
-	"time"
 	"morningo/config"
 	"os"
+	"runtime/debug"
+	"time"
 )
 
 var (
@@ -38,7 +38,7 @@ func handleErrors() gin.HandlerFunc {
 
 					fmt.Fprintf(DefaultWriter, "%s", "\n")
 					//fmt.Fprintf(DefaultWriter, "%s %3d %s", red, "Error Msg: ", reset)
-					fmt.Fprintf(DefaultWriter, "%s", "[" + time.Now().Format("2006-01-02 15:04:05") + "] app.ERROR: ")
+					fmt.Fprintf(DefaultWriter, "%s", "["+time.Now().Format("2006-01-02 15:04:05")+"] app.ERROR: ")
 					fmt.Fprintf(DefaultWriter, "%s", err)
 					fmt.Fprintf(DefaultWriter, "%s", "\nStack trace:\n")
 					fmt.Fprintf(DefaultWriter, "%s", debug.Stack())

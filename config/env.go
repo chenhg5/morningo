@@ -17,7 +17,7 @@ type Env struct {
 	REDIS_DB          int
 	REDIS_SESSION_DB  int
 	REDIS_CACHE_DB    int
-	ACCESS_LOG		  bool
+	ACCESS_LOG        bool
 }
 
 var env = Env{
