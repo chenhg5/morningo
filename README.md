@@ -1,5 +1,7 @@
 # MorningGo : Gin WebApp Project Skeleton
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/chenhg5/morningo)](https://goreportcard.com/report/github.com/chenhg5/morningo)
+
 基于[Gin](https://github.com/gin-gonic/gin)的web项目开发框架。仅供参考。
 
 更高的开发效率，<br>
