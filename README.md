@@ -127,14 +127,15 @@ kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行�
 
 ## TODO
 
-- [X] 日志分析
+- [X] 日志
 - [X] 测试
+- [ ] 队列任务支持
+- [ ] cache/session多存储支持
 - [ ] mysql读写分离
 - [ ] redis集群
-- [ ] cache/session多存储支持
-- [ ] 队列任务
 - [ ] 框架性能分析（对标laravel/swoole_php;beego_go）
-- [ ] 脚手架命令行工具 sword
+- [ ] 命令行工具
+- [ ] 命令行交互环境
 
 ## ChangeLog
 
