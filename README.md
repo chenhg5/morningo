@@ -22,6 +22,7 @@
 ```
 cd $GOPATH/src
 wget https://github.com/chenhg5/morningo-installer/raw/master/morningo-installer
+# 国内同学 wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer 
 chmod +x morningo-installer
 ./morningo-installer --project-name web
 ```
