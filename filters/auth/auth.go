@@ -9,7 +9,7 @@ type Auth interface {
 	Check(http *http.Request) bool
 	User(http *http.Request) map[interface{}]interface{}
 	Login(http *http.Request, w http.ResponseWriter, user map[interface{}]interface{}) bool
-	Logout() bool
+	Logout(http *http.Request, w http.ResponseWriter) bool
 }
 
 func AuthSetMiddleware(auth *Auth, key string) gin.HandlerFunc {

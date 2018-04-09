@@ -56,7 +56,13 @@ func (cache *cacheAuthManager) Login(http *http.Request, w http.ResponseWriter, 
 	return true
 }
 
-func (cache *cacheAuthManager) Logout() bool  {
+func (cache *cacheAuthManager) Logout(http *http.Request, w http.ResponseWriter) bool  {
 	// del cookie
-	return false
+	session, err := store.Get(http, cache.name)
+	if err != nil {
+		return false
+	}
+	session.Values["id"] = nil
+	session.Save(http, w)
+	return true
 }
