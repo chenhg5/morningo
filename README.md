@@ -100,10 +100,6 @@ kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行�
 ├── models                      模型
 │   └── User.go
 ├── module                      项目模块
-│   ├── cache
-│   │   └── cache.go
-│   └── session
-│       └── session.go
 │   └── schedule
 │       └── schedule.go         定时任务模块
 ├── routers.go                  路由

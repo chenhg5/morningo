@@ -140,3 +140,85 @@ net/http.(*conn).serve(0xc42034c000, 0x17c1080, 0xc4201d86c0)
 created by net/http.(*Server).Serve
 	/usr/local/go/src/net/http/server.go:2795 +0x27b
 
+
+[2018-04-09 13:28:13] app.ERROR: interface conversion: *persistence.CacheStore is not persistence.CacheStore: missing method Add
+Stack trace:
+goroutine 7 [running]:
+runtime/debug.Stack(0x1793120, 0xc42032e140, 0x170a56c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x163c860, 0xc4203282c0)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/controllers.StoreExample(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:64 +0x164
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42039e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420356000, 0xc42039e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420356000, 0x1797300, 0xc420398000, 0xc420304a00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc42034c5b0, 0x1797300, 0xc420398000, 0xc420304a00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc420198be0, 0x1797dc0, 0xc420306900)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-09 13:39:48] app.ERROR: runtime error: invalid memory address or nil pointer dereference
+Stack trace:
+goroutine 38 [running]:
+runtime/debug.Stack(0x1793120, 0xc42032e080, 0x170a56c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x1638080, 0x1a655a0)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/controllers.StoreExample(0xc420372000)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:65 +0x178
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc42030c360, 0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc42030c360, 0x1797300, 0xc42036e000, 0xc42035e000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420308750, 0x1797300, 0xc42036e000, 0xc42035e000)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42030a280, 0x1797dc0, 0xc4203280c0)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+

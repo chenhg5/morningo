@@ -3,6 +3,12 @@
 	"ignore": "test",
 	"package": [
 		{
+			"checksumSHA1": "nB4SVW6evKR8QoZ9ca9z6yZ7kGU=",
+			"path": "github.com/boj/redistore",
+			"revision": "4562487a4bee9a7c272b72bfaeda4917d0a47ab9",
+			"revisionTime": "2017-04-19T03:05:11Z"
+		},
+		{
 			"checksumSHA1": "fvVoeETRxg13N2GlxydO+5slZdM=",
 			"path": "github.com/bradfitz/gomemcache/memcache",
 			"revision": "1952afaa557dc08e8e0d89eafab110fb501c1a2b",
@@ -27,6 +33,24 @@
 			"revisionTime": "2018-03-20T13:09:17Z"
 		},
 		{
+			"checksumSHA1": "Pgy7zYeTND6vbU5ficv5lRqDTWk=",
+			"path": "github.com/gin-contrib/cache",
+			"revision": "a8e2fb11ffd40f9a4bbb2606db19a4500949227f",
+			"revisionTime": "2018-03-08T05:16:54Z"
+		},
+		{
+			"checksumSHA1": "8cpHFf0DaG2QqrGEgYGpnrRDIB0=",
+			"path": "github.com/gin-contrib/cache/persistence",
+			"revision": "a8e2fb11ffd40f9a4bbb2606db19a4500949227f",
+			"revisionTime": "2018-03-08T05:16:54Z"
+		},
+		{
+			"checksumSHA1": "NDh5MuQeIW05zTQzpY5kEmrWKiU=",
+			"path": "github.com/gin-contrib/cache/utils",
+			"revision": "a8e2fb11ffd40f9a4bbb2606db19a4500949227f",
+			"revisionTime": "2018-03-08T05:16:54Z"
+		},
+		{
 			"checksumSHA1": "WkZSRf5rVTG7XJyra5VMZ81U5p8=",
 			"path": "github.com/gin-contrib/pprof",
 			"revision": "3c13bbb13dd4feba12e689c0041fe13394e014e8",
@@ -37,6 +61,12 @@
 			"path": "github.com/gin-contrib/sse",
 			"revision": "22d885f9ecc78bf4ee5d72b937e4bbcdc58e8cae",
 			"revisionTime": "2017-01-09T09:34:21Z"
+		},
+		{
+			"checksumSHA1": "NZxsVvdfuvaztRyLPz43rOIBAN8=",
+			"path": "github.com/gin-gonic/contrib/sessions",
+			"revision": "9b830a15f6abcf9e160f47ee01fc00691cc1981a",
+			"revisionTime": "2018-03-20T08:42:56Z"
 		},
 		{
 			"checksumSHA1": "XdXz9sT0/4GITl4zETpuptOX7Fc=",
@@ -123,6 +153,24 @@
 			"revisionTime": "2018-02-02T18:43:18Z"
 		},
 		{
+			"checksumSHA1": "g/V4qrXjUGG9B+e3hB+4NAYJ5Gs=",
+			"path": "github.com/gorilla/context",
+			"revision": "08b5f424b9271eedf6f9f0ce86cb9396ed337a42",
+			"revisionTime": "2016-08-17T18:46:32Z"
+		},
+		{
+			"checksumSHA1": "ucTBCc7dDRKLGPsYfAzu/Gq63qA=",
+			"path": "github.com/gorilla/securecookie",
+			"revision": "e59506cc896acb7f7bf732d4fdf5e25f7ccd8983",
+			"revisionTime": "2017-02-24T19:38:04Z"
+		},
+		{
+			"checksumSHA1": "/jOLCzAcN8p1GakgUYaWOs4tjw8=",
+			"path": "github.com/gorilla/sessions",
+			"revision": "a2f2a3de9a4a575047f73e3e36bc85ecc3546391",
+			"revisionTime": "2018-03-21T16:38:55Z"
+		},
+		{
 			"checksumSHA1": "lYUMiQOLvV+Okxcm1RQnot+c0ho=",
 			"path": "github.com/jinzhu/gorm",
 			"revision": "52c5c8127cf4aeffde3e0aa9222640832075a90f",
@@ -171,82 +219,10 @@
 			"revisionTime": "2017-11-01T20:10:47Z"
 		},
 		{
-			"checksumSHA1": "u/AnjLifqJUv3TvngVlqWSOo2xg=",
-			"path": "github.com/silenceper/wechat",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "/3fzQ2T2A9g0+U5BKTSh++h4RzI=",
-			"path": "github.com/silenceper/wechat/cache",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "BHMzkkmsmTGIeWER22sj8pVXeEM=",
-			"path": "github.com/silenceper/wechat/context",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "irMPArUY7PB3hsIhHWbGP909NgQ=",
-			"path": "github.com/silenceper/wechat/js",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "VTNo1Olym6BcEfs6AGLDFHYd5FU=",
-			"path": "github.com/silenceper/wechat/material",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "1kDZ76ozhSqMbqX7hpChXI4KHjc=",
-			"path": "github.com/silenceper/wechat/menu",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "dEzcnB61d6p1lgfNHt9FpHEpnwE=",
-			"path": "github.com/silenceper/wechat/message",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "vUUGIr6e8j+Sqvz12kXzFhPvRMQ=",
-			"path": "github.com/silenceper/wechat/oauth",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "yYuom4bMPCLmhT5+FGTj6Fq1BDM=",
-			"path": "github.com/silenceper/wechat/pay",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "Bib/6eLU8vi2c3s97rLsMyOiCVY=",
-			"path": "github.com/silenceper/wechat/server",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "RDTWgKPbLHrHlc4TY4AyZQe3eYQ=",
-			"path": "github.com/silenceper/wechat/template",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "5wwyft5KL39KdZR0l28sawajxZY=",
-			"path": "github.com/silenceper/wechat/user",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
-		},
-		{
-			"checksumSHA1": "JAU1UNciroK9ypRnRW71fKJZmBM=",
-			"path": "github.com/silenceper/wechat/util",
-			"revision": "0b71d9565099de0ca5948f786f7528c4b5349737",
-			"revisionTime": "2018-02-23T08:31:59Z"
+			"checksumSHA1": "XzHDmND/Rq9/RLKBP2fnAtBJu2M=",
+			"path": "github.com/robfig/go-cache",
+			"revision": "9fc39e0dbf62c034ec4e45e6120fc69433a3ec51",
+			"revisionTime": "2013-03-06T15:13:11Z"
 		},
 		{
 			"checksumSHA1": "6LwXZI7kXm1C0h4Ui0Y52p9uQhk=",

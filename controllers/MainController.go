@@ -2,12 +2,12 @@ package controllers
 
 import (
 	"fmt"
+	"github.com/gin-contrib/cache"
+	"github.com/gin-contrib/cache/persistence"
+	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"log"
 	db "morningo/connections/database/mysql"
 	m "morningo/models"
-	"morningo/module/cache"
-	"morningo/module/session"
 	"net/http"
 	"time"
 )
@@ -54,13 +54,16 @@ func DBexample(c *gin.Context) {
 func StoreExample(c *gin.Context) {
 
 	// session存储
-	session.GetStore().Set("key", "value", 0) // 0表示不过期
-	str, _ := session.GetStore().Get("key")
-	log.Println("session key: " + str)
+	session := sessions.Default(c)
+	session.Set("key", "value") // 0表示不过期
+
+	str := session.Get("key")
+	fmt.Printf("session key: %s", str)
 
 	// cache存储
-	cache.GetStore().Set("key", "value", time.Minute)
-	cache.GetStore().Del("key")
+	cacheStore, _ := c.MustGet(cache.CACHE_MIDDLEWARE_KEY).(*persistence.CacheStore)
+	(*cacheStore).Set("key", "value", time.Minute)
+	(*cacheStore).Delete("key")
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,
