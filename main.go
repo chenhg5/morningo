@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 	"log"
 	"morningo/config"
-	_ "morningo/module/schedule" // 定时任务
+	//_ "morningo/module/schedule" // 定时任务
 	"net/http"
 	"os"
 	"os/signal"

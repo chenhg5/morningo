@@ -18,6 +18,7 @@ type Env struct {
 	REDIS_SESSION_DB  int
 	REDIS_CACHE_DB    int
 	ACCESS_LOG        bool
+	APP_SECRET        string
 }
 
 var env = Env{
@@ -39,6 +40,9 @@ var env = Env{
 	REDIS_CACHE_DB:   2,
 
 	ACCESS_LOG: true,
+
+	//APP_SECRET: "YbskZqLNT6TEVLUA9HWdnHmZErypNJpL",
+	APP_SECRET: "something-very-secret",
 }
 
 func GetEnv() *Env {

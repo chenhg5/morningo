@@ -8,6 +8,8 @@ import (
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/cache"
+	"morningo/filters/auth"
+	"morningo/filters/auth/drivers"
 	"github.com/gin-contrib/cache/persistence"
 	"time"
 )
@@ -29,16 +31,26 @@ func initRouter() *gin.Engine {
 	cacheStore = persistence.NewRedisCache(config.GetEnv().REDIS_IP+":"+config.GetEnv().REDIS_PORT, config.GetEnv().REDIS_PASSWORD, time.Minute)
 	router.Use(cache.Cache(&cacheStore))
 
+	//cookie := sessions.NewCookieStore([]byte("12323"))
+	//router.Use(sessions.Sessions("mysession", cookie))
+
+	var authDriver auth.Auth
+	authDriver = drivers.NewCacheAuthDriver()
+	router.Use(auth.AuthSetMiddleware(&authDriver, "web_auth"))
+
 	router.LoadHTMLGlob("frontend/templates/*") // html模板
 
 	// router.Use(filters.AuthMiddleware()) // 中间件使用
 
 	api := router.Group("/api")
+	api.GET("/cookie/set/:userid", controllers.CookieSetExample)
+	api.Use(auth.AuthMiddleware(&authDriver))
 	{
 		api.GET("/orm", controllers.OrmExample)
 		api.GET("/store", controllers.StoreExample)
 		api.GET("/db", controllers.DBexample)
 		api.GET("/index", controllers.IndexApi)
+		api.GET("/cookie/get", controllers.CookieGetExample)
 	}
 
 	return router

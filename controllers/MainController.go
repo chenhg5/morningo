@@ -10,6 +10,8 @@ import (
 	m "morningo/models"
 	"net/http"
 	"time"
+	"log"
+	"morningo/filters/auth"
 )
 
 func IndexApi(c *gin.Context) {
@@ -96,6 +98,50 @@ func OrmExample(c *gin.Context) {
 		"msg":  "ok",
 		"data": gin.H{
 			"orm_result": user,
+		},
+	})
+}
+
+func CookieSetExample(c *gin.Context)  {
+	authDr, _ := c.MustGet("web_auth").(*auth.Auth)
+
+	id := c.Param("userid")
+
+	rs, con := db.Query("select name,avatar,id from users where id = ?", id)
+	defer con.Close() // 函数结束时关闭数据库连接
+
+	log.Printf("len(rs): %d", len(rs))
+	if len(rs) == 0 {
+		c.HTML(http.StatusOK, "index.tpl", gin.H{
+			"title": "wrong user id",
+		})
+		return
+	}
+
+	(*authDr).Login(c.Request, c.Writer, map[interface{}]interface{}{"id":id})
+
+	// 返回html
+	c.HTML(http.StatusOK, "index.tpl", gin.H{
+		"title": "login success!",
+	})
+}
+
+func CookieGetExample(c *gin.Context)  {
+	authDr, _ := c.MustGet("web_auth").(*auth.Auth)
+
+	userInfo := (*authDr).User(c.Request)
+	id, _ := userInfo["id"].(string)
+	log.Println("id: " + id)
+
+	rs, con := db.Query("select name,avatar,id from users where id = ?", id)
+	defer con.Close() // 函数结束时关闭数据库连接
+
+	// 返回html
+	c.JSON(http.StatusOK, gin.H{
+		"code": 0,
+		"msg":  "ok",
+		"data": gin.H{
+			"user": rs,
 		},
 	})
 }
