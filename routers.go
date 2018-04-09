@@ -43,13 +43,13 @@ func initRouter() *gin.Engine {
 	// router.Use(filters.AuthMiddleware()) // 中间件使用
 
 	api := router.Group("/api")
+	api.GET("/index", controllers.IndexApi)
 	api.GET("/cookie/set/:userid", controllers.CookieSetExample)
 	api.Use(auth.AuthMiddleware(&authDriver))
 	{
 		api.GET("/orm", controllers.OrmExample)
 		api.GET("/store", controllers.StoreExample)
 		api.GET("/db", controllers.DBexample)
-		api.GET("/index", controllers.IndexApi)
 		api.GET("/cookie/get", controllers.CookieGetExample)
 	}
 
