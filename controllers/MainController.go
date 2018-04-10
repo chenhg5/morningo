@@ -118,7 +118,7 @@ func CookieSetExample(c *gin.Context)  {
 		return
 	}
 
-	(*authDr).Login(c.Request, c.Writer, map[interface{}]interface{}{"id":id})
+	(*authDr).Login(c.Request, c.Writer, map[string]interface{}{"id":id})
 
 	// 返回html
 	c.HTML(http.StatusOK, "index.tpl", gin.H{
@@ -129,7 +129,7 @@ func CookieSetExample(c *gin.Context)  {
 func CookieGetExample(c *gin.Context)  {
 	authDr, _ := c.MustGet("web_auth").(*auth.Auth)
 
-	userInfo := (*authDr).User(c.Request)
+	userInfo := (*authDr).User(c.Request).(map[interface{}]interface{})
 	id, _ := userInfo["id"].(string)
 	log.Println("id: " + id)
 
@@ -142,6 +142,34 @@ func CookieGetExample(c *gin.Context)  {
 		"msg":  "ok",
 		"data": gin.H{
 			"user": rs,
+		},
+	})
+}
+
+func JwtSetExample(c *gin.Context)  {
+	authDr, _ := c.MustGet("jwt_auth").(*auth.Auth)
+
+	token, _ := (*authDr).Login(c.Request, c.Writer, map[string]interface{}{"id":"123"}).(string)
+
+	c.JSON(http.StatusOK, gin.H{
+		"code": 0,
+		"msg":  "ok",
+		"data": gin.H{
+			"token": token,
+		},
+	})
+}
+
+func JwtGetExample(c *gin.Context)  {
+	authDr, _ := c.MustGet("jwt_auth").(*auth.Auth)
+
+	info := (*authDr).User(c.Request).(map[string]interface{})
+
+	c.JSON(http.StatusOK, gin.H{
+		"code": 0,
+		"msg":  "ok",
+		"data": gin.H{
+			"id": info["id"],
 		},
 	})
 }

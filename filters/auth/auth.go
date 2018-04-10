@@ -7,8 +7,8 @@ import (
 
 type Auth interface {
 	Check(http *http.Request) bool
-	User(http *http.Request) map[interface{}]interface{}
-	Login(http *http.Request, w http.ResponseWriter, user map[interface{}]interface{}) bool
+	User(http *http.Request) interface{}
+	Login(http *http.Request, w http.ResponseWriter, user map[string]interface{}) interface{}
 	Logout(http *http.Request, w http.ResponseWriter) bool
 }
 

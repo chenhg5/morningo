@@ -38,6 +38,10 @@ func initRouter() *gin.Engine {
 	authDriver = drivers.NewCacheAuthDriver()
 	router.Use(auth.AuthSetMiddleware(&authDriver, "web_auth"))
 
+	var authJwtDriver auth.Auth
+	authJwtDriver = drivers.NewJwtAuthDriver()
+	router.Use(auth.AuthSetMiddleware(&authJwtDriver, "jwt_auth"))
+
 	router.LoadHTMLGlob("frontend/templates/*") // html模板
 
 	// router.Use(filters.AuthMiddleware()) // 中间件使用
@@ -45,6 +49,8 @@ func initRouter() *gin.Engine {
 	api := router.Group("/api")
 	api.GET("/index", controllers.IndexApi)
 	api.GET("/cookie/set/:userid", controllers.CookieSetExample)
+	api.GET("/jwt/set/:userid", controllers.JwtSetExample)
+	api.GET("/jwt/get", controllers.JwtGetExample)
 	api.Use(auth.AuthMiddleware(&authDriver))
 	{
 		api.GET("/orm", controllers.OrmExample)

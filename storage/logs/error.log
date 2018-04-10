@@ -363,3 +363,613 @@ net/http.(*conn).serve(0xc420198dc0, 0x1799be0, 0xc420306940)
 created by net/http.(*Server).Serve
 	/usr/local/go/src/net/http/server.go:2795 +0x27b
 
+
+[2018-04-10 08:47:38] app.ERROR: runtime error: invalid memory address or nil pointer dereference
+Stack trace:
+goroutine 38 [running]:
+runtime/debug.Stack(0x17993c0, 0xc4203205c0, 0x171006c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x163d000, 0x1a6f590)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).User(0xc420208420, 0xc420340400, 0x8)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:51 +0xca
+morningo/controllers.JwtGetExample(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:167 +0x7d
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc42032a000, 0xc42035c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc42032a000, 0x179d780, 0xc4203281c0, 0xc420340400)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc42031a680, 0x179d780, 0xc4203281c0, 0xc420340400)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc4203340a0, 0x179e200, 0xc420202800)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 08:48:41] app.ERROR: runtime error: invalid memory address or nil pointer dereference
+Stack trace:
+goroutine 7 [running]:
+runtime/debug.Stack(0x17994a0, 0xc4200fbe20, 0x171012c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x163d0c0, 0x1a6f590)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).User(0xc4201d8400, 0xc420126800, 0x8)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:53 +0x180
+morningo/controllers.JwtGetExample(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:167 +0x7d
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc42031c000, 0xc4200c0580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc42031c000, 0x179d860, 0xc420342000, 0xc420126800)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc42030c680, 0x179d860, 0xc420342000, 0xc420126800)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42018ac80, 0x179e2e0, 0xc42019a7c0)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 08:49:22] app.ERROR: runtime error: invalid memory address or nil pointer dereference
+Stack trace:
+goroutine 20 [running]:
+runtime/debug.Stack(0x1799580, 0xc42011fd00, 0x17101ec)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x163d180, 0x1a6f590)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).User(0xc4201fa520, 0xc42014a700, 0x8)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:54 +0x235
+morningo/controllers.JwtGetExample(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:167 +0x7d
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420334000, 0xc4200e2580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420334000, 0x179d940, 0xc42035a000, 0xc42014a700)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc42031a820, 0x179d940, 0xc42035a000, 0xc42014a700)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc4201bcc80, 0x179e3c0, 0xc4201ca680)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 09:20:25] app.ERROR: interface conversion: interface {} is nil, not string
+Stack trace:
+goroutine 39 [running]:
+runtime/debug.Stack(0x17996e0, 0xc4201ec780, 0x17103cc)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x1641ba0, 0xc4201ee880)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).User(0xc4201ec380, 0xc42034c400, 0x8)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:59 +0x348
+morningo/controllers.JwtGetExample(0xc420372000)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:166 +0x7d
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420336000, 0xc420372000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420336000, 0x179daa0, 0xc4203341c0, 0xc42034c400)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc42032a750, 0x179daa0, 0xc4203341c0, 0xc42034c400)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc420340140, 0x179e520, 0xc4201ee7c0)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 09:23:53] app.ERROR: interface conversion: interface {} is nil, not string
+Stack trace:
+goroutine 23 [running]:
+runtime/debug.Stack(0x17996e0, 0xc4203580c0, 0x17103cc)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x1641ba0, 0xc4201ca980)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).User(0xc4202f27a0, 0xc42014aa00, 0x8)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:59 +0x348
+morningo/controllers.JwtGetExample(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:166 +0x7d
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc4200e24d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179daa0, 0xc4203520e0, 0xc42014aa00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc42020ea90, 0x179daa0, 0xc4203520e0, 0xc42014aa00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc4201bcf00, 0x179e520, 0xc4201ca8c0)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 09:31:42] app.ERROR: runtime error: slice bounds out of range
+Stack trace:
+goroutine 51 [running]:
+runtime/debug.Stack(0x1799800, 0xc420326840, 0x17104cc)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x163d3c0, 0x1a6f5e0)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).Login(0xc420326720, 0xc420322b00, 0x1d65130, 0xc42032e840, 0xc420332b40, 0x0, 0xc420360720)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:78 +0x512
+morningo/controllers.JwtSetExample(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:152 +0x173
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420268fc0, 0xc42032e840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420268fc0, 0x179dbc0, 0xc4203480e0, 0xc420322b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420228a90, 0x179dbc0, 0xc4203480e0, 0xc420322b00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42033a0a0, 0x179e640, 0xc420324e40)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 09:33:31] app.ERROR: runtime error: slice bounds out of range
+Stack trace:
+goroutine 34 [running]:
+runtime/debug.Stack(0x1799880, 0xc4201f00c0, 0x171054c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc420338000)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x163d440, 0x1a6f5e0)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).Login(0xc420316060, 0xc420134a00, 0x1fa0000, 0xc420338000, 0xc4201d46c0, 0x0, 0xc420064720)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:79 +0x586
+morningo/controllers.JwtSetExample(0xc420338000)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:152 +0x173
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc420338000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc420338000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc420338000)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc4200bd200, 0xc420338000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc4200bd200, 0x179dc40, 0xc420334000, 0xc420134a00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc4201cea90, 0x179dc40, 0xc420334000, 0xc420134a00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc420324000, 0x179e6c0, 0xc4201a8b80)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 09:36:34] app.ERROR: runtime error: slice bounds out of range
+Stack trace:
+goroutine 24 [running]:
+runtime/debug.Stack(0x1799840, 0xc42010be60, 0x171052c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x163d420, 0x1a6f5e0)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).Login(0xc4201ee320, 0xc4202e2b00, 0x1e280a0, 0xc4200d04d0, 0xc4201a5170, 0x105379d, 0x1636a20)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:79 +0x586
+morningo/controllers.JwtSetExample(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:152 +0x15d
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420314000, 0xc4200d04d0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420314000, 0x179dc00, 0xc42034a000, 0xc4202e2b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420308680, 0x179dc00, 0xc42034a000, 0xc4202e2b00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc4202da3c0, 0x179e680, 0xc4202e4ac0)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 09:43:11] app.ERROR: runtime error: slice bounds out of range
+Stack trace:
+goroutine 34 [running]:
+runtime/debug.Stack(0x1799740, 0xc4201de180, 0x171044c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x163d340, 0x1a6f5e0)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).Login(0xc4202e8760, 0xc420134800, 0x1fa0000, 0xc42033c000, 0xc4201dc5a0, 0x105379d, 0x1636940)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:79 +0x4ab
+morningo/controllers.JwtSetExample(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:152 +0x15d
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc4202350e0, 0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc4202350e0, 0x179db00, 0xc420338000, 0xc420134800)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc4201f8b60, 0x179db00, 0xc420338000, 0xc420134800)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc420326000, 0x179e580, 0xc4201a8680)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 09:50:02] app.ERROR: interface conversion: interface {} is nil, not string
+Stack trace:
+goroutine 37 [running]:
+runtime/debug.Stack(0x1799740, 0xc4201e8460, 0x171046c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x1641c40, 0xc4201d8580)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).User(0xc4202ea780, 0xc4201f6400, 0x8)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:60 +0x348
+morningo/controllers.JwtGetExample(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:166 +0x7d
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420234fc0, 0xc42033c000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420234fc0, 0x179db00, 0xc4203380e0, 0xc4201f6400)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc4201fca90, 0x179db00, 0xc4203380e0, 0xc4201f6400)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42030a140, 0x179e580, 0xc4201d84c0)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 09:51:50] app.ERROR: interface conversion: interface {} is string, not []uint8
+Stack trace:
+goroutine 21 [running]:
+runtime/debug.Stack(0x1799720, 0xc4203640a0, 0x171044c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x1641c20, 0xc4201d0840)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth/drivers.(*jwtAuthManager).User(0xc4202fc860, 0xc420150900, 0x8)
+	/Users/chenhg5/go/src/morningo/filters/auth/drivers/jwt.go:60 +0x326
+morningo/controllers.JwtGetExample(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:166 +0x7d
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc42024b0e0, 0xc4200e8580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc42024b0e0, 0x179dae0, 0xc4203580e0, 0xc420150900)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420216b60, 0x179dae0, 0xc4203580e0, 0xc420150900)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc4201c2c80, 0x179e560, 0xc4201d0780)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-10 10:00:39] app.ERROR: interface conversion: interface {} is map[string]interface {}, not map[interface {}]interface {}
+Stack trace:
+goroutine 23 [running]:
+runtime/debug.Stack(0x1799840, 0xc420358100, 0x171056c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4cd
+panic(0x1641d40, 0xc4201d0a00)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/controllers.JwtGetExample(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/controllers/MainController.go:166 +0x2f5
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/filters/auth.AuthSetMiddleware.func1(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:18 +0x9b
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420246fc0, 0xc4200e8630)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420246fc0, 0x179dc00, 0xc4203520e0, 0xc420150b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420210a90, 0x179dc00, 0xc4203520e0, 0xc420150b00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc4201c2d20, 0x179e680, 0xc4201d0940)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+

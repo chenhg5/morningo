@@ -36,7 +36,7 @@ func (cache *cacheAuthManager) Check(http *http.Request) bool  {
 	return true
 }
 
-func (cache *cacheAuthManager) User(http *http.Request) map[interface{}]interface{}  {
+func (cache *cacheAuthManager) User(http *http.Request) interface{}  {
 	// get model user
 	session, err := store.Get(http, cache.name)
 	if err != nil {
@@ -45,7 +45,7 @@ func (cache *cacheAuthManager) User(http *http.Request) map[interface{}]interfac
 	return session.Values
 }
 
-func (cache *cacheAuthManager) Login(http *http.Request, w http.ResponseWriter, user map[interface{}]interface{}) bool  {
+func (cache *cacheAuthManager) Login(http *http.Request, w http.ResponseWriter, user map[string]interface{}) interface{}  {
 	// write cookie
 	session, err := store.Get(http, cache.name)
 	if err != nil {
