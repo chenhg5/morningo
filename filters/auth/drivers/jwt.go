@@ -14,18 +14,18 @@ import (
 
 type jwtAuthManager struct {
 	name string
-	exp  int64
+	exp  time.Duration
 }
 
 func NewJwtAuthDriver() *jwtAuthManager{
 	return &jwtAuthManager{
 		name: config.GetCookieConfig().NAME,
-		exp: time.Now().Add(time.Hour * 1).Unix(),
+		exp: time.Hour * 1,
 	}
 }
 
 func (jwtAuth *jwtAuthManager) Check(http *http.Request) bool  {
-	token := http.Header.Get("Authentication")
+	token := http.Header.Get("Authorization")
 	token = strings.Replace(token, "Bearer ", "", -1)
 	if token == "" {
 		return false
@@ -38,6 +38,7 @@ func (jwtAuth *jwtAuthManager) Check(http *http.Request) bool  {
 	_, err := request.ParseFromRequest(http, request.OAuth2Extractor, keyFun)
 
 	if err != nil {
+		fmt.Println(err)
 		return false
 	}
 	return true
@@ -77,7 +78,7 @@ func (jwtAuth *jwtAuthManager) Login(http *http.Request, w http.ResponseWriter, 
 	log.Println(string(userStr))
 	token.Claims = jwt.MapClaims{
 		"user":  string(userStr),
-		"exp": time.Now().Add(time.Hour * 1).Unix(),
+		"exp": time.Now().Add(jwtAuth.exp).Unix(),
 	}
 	// Sign and get the complete encoded token as a string
 	tokenString, err := token.SignedString([]byte(jwtAuth.name))

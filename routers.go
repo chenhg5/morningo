@@ -49,14 +49,18 @@ func initRouter() *gin.Engine {
 	api := router.Group("/api")
 	api.GET("/index", controllers.IndexApi)
 	api.GET("/cookie/set/:userid", controllers.CookieSetExample)
-	api.GET("/jwt/set/:userid", controllers.JwtSetExample)
-	api.GET("/jwt/get", controllers.JwtGetExample)
 	api.Use(auth.AuthMiddleware(&authDriver))
 	{
 		api.GET("/orm", controllers.OrmExample)
 		api.GET("/store", controllers.StoreExample)
 		api.GET("/db", controllers.DBexample)
 		api.GET("/cookie/get", controllers.CookieGetExample)
+	}
+	jwtApi := router.Group("/api")
+	jwtApi.GET("/jwt/set/:userid", controllers.JwtSetExample)
+	jwtApi.Use(auth.AuthMiddleware(&authJwtDriver))
+	{
+		jwtApi.GET("/jwt/get", controllers.JwtGetExample)
 	}
 
 	return router
