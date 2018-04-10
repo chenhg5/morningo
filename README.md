@@ -147,6 +147,7 @@ kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行�
 ### ORM(基于[gorm](https://github.com/jinzhu/gorm))
 
 ### 测试
+- api 测试
 
 ## 项目依赖
 
