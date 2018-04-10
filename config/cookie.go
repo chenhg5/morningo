@@ -1,7 +1,7 @@
 package config
 
 type CookieConfig struct {
-	NAME  string
+	NAME string
 }
 
 func GetCookieConfig() *CookieConfig {
