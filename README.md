@@ -116,6 +116,38 @@ kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行�
 
 ```
 
+## 箱子里有什么 what`s in the box
+
+### HTTP 层(基于[Gin](https://github.com/gin-gonic/gin))
+- 路由
+- 中间件
+- 控制器
+- 请求
+- 响应
+- 视图
+- Session
+
+### 前端
+- tpl模板
+
+### 安全
+- 用户认证
+- 用户授权
+- 加密解密
+- 哈希
+
+### 综合话题
+- dancer 命令行
+- 缓存系统
+- 错误与日志
+- 任务调度
+
+### 数据库
+
+### ORM(基于[gorm](https://github.com/jinzhu/gorm))
+
+### 测试
+
 ## 项目依赖
 
 - web框架：github.com/gin-gonic/gin
