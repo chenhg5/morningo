@@ -8,19 +8,19 @@ import (
 
 var store = sessions.NewCookieStore([]byte(config.GetEnv().APP_SECRET))
 
-type cacheAuthManager struct {
+type cookieAuthManager struct {
 	name string
 }
 
-func NewCacheAuthDriver() *cacheAuthManager {
-	return &cacheAuthManager{
+func NewCookieAuthDriver() *cookieAuthManager {
+	return &cookieAuthManager{
 		name: config.GetCookieConfig().NAME,
 	}
 }
 
-func (cache *cacheAuthManager) Check(http *http.Request) bool {
+func (cookie *cookieAuthManager) Check(http *http.Request) bool {
 	// read cookie
-	session, err := store.Get(http, cache.name)
+	session, err := store.Get(http, cookie.name)
 	if err != nil {
 		return false
 	}
@@ -36,18 +36,18 @@ func (cache *cacheAuthManager) Check(http *http.Request) bool {
 	return true
 }
 
-func (cache *cacheAuthManager) User(http *http.Request) interface{} {
+func (cookie *cookieAuthManager) User(http *http.Request) interface{} {
 	// get model user
-	session, err := store.Get(http, cache.name)
+	session, err := store.Get(http, cookie.name)
 	if err != nil {
 		return session.Values
 	}
 	return session.Values
 }
 
-func (cache *cacheAuthManager) Login(http *http.Request, w http.ResponseWriter, user map[string]interface{}) interface{} {
+func (cookie *cookieAuthManager) Login(http *http.Request, w http.ResponseWriter, user map[string]interface{}) interface{} {
 	// write cookie
-	session, err := store.Get(http, cache.name)
+	session, err := store.Get(http, cookie.name)
 	if err != nil {
 		return false
 	}
@@ -56,9 +56,9 @@ func (cache *cacheAuthManager) Login(http *http.Request, w http.ResponseWriter, 
 	return true
 }
 
-func (cache *cacheAuthManager) Logout(http *http.Request, w http.ResponseWriter) bool {
+func (cookie *cookieAuthManager) Logout(http *http.Request, w http.ResponseWriter) bool {
 	// del cookie
-	session, err := store.Get(http, cache.name)
+	session, err := store.Get(http, cookie.name)
 	if err != nil {
 		return false
 	}
