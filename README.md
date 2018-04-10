@@ -143,6 +143,9 @@ kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行�
 - 任务调度
 
 ### 数据库
+- mysql
+- mongodb
+- redis
 
 ### ORM(基于[gorm](https://github.com/jinzhu/gorm))
 
