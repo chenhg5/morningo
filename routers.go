@@ -11,6 +11,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"morningo/filters/auth"
 	"morningo/filters/auth/drivers"
+	"morningo/routes"
 	"time"
 )
 
@@ -66,6 +67,8 @@ func initRouter() *gin.Engine {
 	{
 		jwtApi.GET("/jwt/get", controllers.JwtGetExample)
 	}
+
+	routes.RegisterApiRouter(router)
 
 	return router
 }
