@@ -26,7 +26,7 @@ func main() {
 	}
 
 	if config.GetEnv().ACCESS_LOG {
-		file, err := os.OpenFile("storage/logs/access.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+		file, err := os.OpenFile(config.GetEnv().ACCESS_LOG_PATH, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 		if err != nil {
 			log.Fatalln(err)
 		}

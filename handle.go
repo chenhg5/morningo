@@ -19,7 +19,7 @@ func handleErrors() gin.HandlerFunc {
 		defer func() {
 			if err := recover(); err != nil {
 
-				file, openErr := os.OpenFile("storage/logs/error.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+				file, openErr := os.OpenFile(config.GetEnv().ERROR_LOG_PATH, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 				if openErr == nil {
 					if config.GetEnv().DEBUG {
 						defaultWriter = io.MultiWriter(file, os.Stdout)

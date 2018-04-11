@@ -44,7 +44,7 @@ func initRouter() *gin.Engine {
 	authJwtDriver = drivers.NewJwtAuthDriver()
 	router.Use(auth.AuthSetMiddleware(&authJwtDriver, "jwt_auth"))
 
-	router.LoadHTMLGlob("frontend/templates/*") // html模板
+	router.LoadHTMLGlob(config.GetEnv().TEMPLATE_PATH + "/*") // html模板
 
 	api := router.Group("/api")
 	api.GET("/index", controllers.IndexApi)
