@@ -23,7 +23,11 @@
 
 ```
 cd $GOPATH/src
-wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer
+
+wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer       # mac
+wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer-linus # linus
+wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer.exe   # windows
+
 chmod +x morningo-installer
 ./morningo-installer --project-name web
 ```
