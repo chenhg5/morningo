@@ -15,6 +15,12 @@
 			"revisionTime": "2017-02-08T21:30:04Z"
 		},
 		{
+			"checksumSHA1": "SUEEWTLgH+y5Oin4tIPtU25jXjE=",
+			"path": "github.com/chenhg5/gin-reverseproxy",
+			"revision": "b3b2fb34bb3f13d38222a5c0f7215900300f829a",
+			"revisionTime": "2018-04-13T05:33:52Z"
+		},
+		{
 			"checksumSHA1": "CSPbwbyzqA6sfORicn4HFtIhF/c=",
 			"path": "github.com/davecgh/go-spew/spew",
 			"revision": "8991bc29aa16c548c550c7ff78260e27b9ab7c73",

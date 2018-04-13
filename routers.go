@@ -3,7 +3,6 @@ package main
 import (
 	"morningo/config"
 	"morningo/controllers"
-	//"morningo/filters"
 	"github.com/gin-contrib/cache"
 	"github.com/gin-contrib/cache/persistence"
 	"github.com/gin-contrib/pprof"
@@ -13,6 +12,7 @@ import (
 	"morningo/filters/auth/drivers"
 	"morningo/routes"
 	"time"
+	// proxy "github.com/chenhg5/gin-reverseproxy"
 )
 
 func initRouter() *gin.Engine {
@@ -45,6 +45,11 @@ func initRouter() *gin.Engine {
 	router.Use(auth.AuthSetMiddleware(&authJwtDriver, "jwt_auth"))
 
 	router.LoadHTMLGlob(config.GetEnv().TEMPLATE_PATH + "/*") // html模板
+
+	// ReverseProxy
+	// router.Use(proxy.ReverseProxy(map[string] string {
+	// 	"localhost:4000" : "localhost:9090",
+	// }))
 
 	api := router.Group("/api")
 	api.GET("/index", controllers.IndexApi)
