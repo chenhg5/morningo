@@ -1,0 +1,7 @@
+.git
+vendor/**
+!vendor/vendor.json
+pid
+pro_binary
+.idea
+build/*
