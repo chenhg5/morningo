@@ -2,24 +2,23 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/chenhg5/morningo)](https://goreportcard.com/report/github.com/chenhg5/morningo)
 
-基于[Gin](https://github.com/gin-gonic/gin)的web项目开发框架。仅供参考。
+A Web develop project skeleton base on [Gin](https://github.com/gin-gonic/gin) which just for reference.
 
-更高的开发效率，<br>
-更好的性能，<br>
-更简单整洁的项目组织结构，<br>
-更快的部署。
+More efficiency，<br>
+Faster and clear，<br>
+Easier to deploy
 
-适合于小型项目，大中型项目(pv高、需求复杂度高)移步 [kit](https://github.com/go-kit/kit)、[go-micro](https://github.com/micro/go-micro)、[kite](https://github.com/koding/kite)
+Suitable for simple project. [kit](https://github.com/go-kit/kit)、[go-micro](https://github.com/micro/go-micro)、[kite](https://github.com/koding/kite) are better choice for the middle and large project.
 
-## 环境要求
+## Environment Requirements
 
 - [GO >= 1.8](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
 
-## 项目安装运行
+## Installation And Run
 
-使用安装器安装
+Via moroingo installer
 
-### 安装项目
+### Install
 
 ```
 cd $GOPATH/src
@@ -32,45 +31,45 @@ chmod +x morningo-installer
 ./morningo-installer --project-name web
 ```
 
-### 加载依赖
+### Load Dependency
 
 ```
 cd web
 make deps
 ```
 
-### 测试
+### Test
 
 ```
 make test
 ```
 
-### 平滑重启
+### Smooth Restart
 
 ```
 make restart
 ```
 
-### 运行
+### Run It
 
 ```
 make
 ```
-浏览器访问 http://localhost:4000/api/index
+visit by browser: http://localhost:4000/api/index
 
-## 项目部署
+## Deploy
 
-生成可执行文件
+build the executable file
 ```
-make build # linus用户
-make cross # mac/windows用户
+make build # for linus
+make cross # for mac/windows
 ```
-将```build```下文件上传到生产环境服务器，并设置好日志文件路径以及静态文件路径，然后直接运行即可。如端口不为80端口或有多个域名，可以配置nginx代理，或者采用反向代理中间件[gin-reverseproxy](https://github.com/chenhg5/gin-reverseproxy), 关于代理的使用，```routers.go```中有示例。运行的同时会在文件夹下生成```pid```文件，每次更新完文件后执行如下命令即可平滑热更。
+put the file in the ```build``` in your server and set the path of log and static file(html/css/js)，run the executable file。If 80 port is not useful，consider the nginx proxy，or use the gin middleware [gin-reverseproxy](https://github.com/chenhg5/gin-reverseproxy), which has some example in ```routers.go```. When the project running, it will generate the ```pid```file in the root path of project. Excute the following command to update your project. 
 ```
-kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行文件
+kill -INT $(cat pid) && ./morningo # smooth stop the process and restart
 ```
 
-## 项目结构
+## Project Structure
 
 ```
 
@@ -79,21 +78,21 @@ kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行�
 ├── README.md
 ├── command                     
 │   └── sword.go
-├── config                      全局配置
+├── config                      global config
 │   └── env.go
-├── connections                 存储连接
+├── connections                 store connection
 │   ├── database
 │   │   ├── mongodb
 │   │   └── mysql
 │   └── redis
 │       └── redis.go
-├── controllers                 控制器
+├── controllers                 controller
 │   └── MainController.go
-├── filters                     中间件
-│   └── auth                    认证中间件
-│       ├── drivers             认证引擎
+├── filters                     middleware
+│   └── auth                    auth middleware
+│       ├── drivers             auth engine
 │       └── auth.go             
-├── frontend                    前端资源
+├── frontend                    frontend resource
 │   ├── assets
 │   │   ├── css
 │   │   ├── images
@@ -101,90 +100,90 @@ kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行�
 │   ├── dist
 │   └── templates
 │       └── index.tpl
-├── handle.go                   全局错误处理
+├── handle.go                   global error handler
 ├── main.go                     
-├── models                      模型
+├── models                      model
 │   └── User.go
-├── module                      项目模块
+├── module                      module of project
 │   └── schedule
-│       └── schedule.go         定时任务模块
-├── routers.go                  路由
-├── routers_test.go             api测试
+│       └── schedule.go         
+├── routers.go                  router
+├── routers_test.go             test for api
 ├── storage                     
-│   ├── cache                   缓存文件
-│   └── logs                    项目日志
+│   ├── cache                   cache file
+│   └── logs                    log file
 │       ├── access.log          
 │       └── error.log
-└── vendor                      govendor 第三方包
+└── vendor                      govendor vendor
 
 
 ```
 
-## 箱子里有什么 what`s in the box
+## What`s in the box
 
-### HTTP 层(基于[Gin](https://github.com/gin-gonic/gin))
-- 路由
-- 中间件
-- 控制器
-- 请求
-- 响应
-- 视图
+### HTTP (based on [Gin](https://github.com/gin-gonic/gin))
+- Router
+- Middleware
+- Controller
+- Request
+- Response
+- View
 - Session
 
-### 前端
-- tpl模板
+### Frontend
+- Go template
 
-### 安全
-- 用户认证
-- 用户授权
-- 加密解密
-- 哈希
+### Security
+- Authentication
+- Authorization
+- Encryption
+- Hash
 
-### 综合话题
-- dancer 命令行
-- 缓存系统
-- 错误与日志
-- 任务调度
+### Digging Deeper
+- Dancer Command
+- Cache System
+- Error and Log
+- Schedule
 
-### 数据库
-- mysql
-- mongodb
-- redis
+### Database
+- Mysql
+- Mongodb
+- Redis
 
-### ORM(基于[gorm](https://github.com/jinzhu/gorm))
+### ORM(based on [gorm](https://github.com/jinzhu/gorm))
 
-### 测试
-- api 测试
+### test
+- Api test
 
-## 项目依赖
+## Project Dependency
 
-- web框架：github.com/gin-gonic/gin
-- ORM包：github.com/jinzhu/gorm
-- Redis：github.com/go-redis/redis
-- Mysql：github.com/go-sql-driver/mysql
-- Wechat：github.com/silenceper/wechat
-- 任务调度：github.com/robfig/cron
+- web framework：github.com/gin-gonic/gin
+- orm：github.com/jinzhu/gorm
+- redis：github.com/go-redis/redis
+- mysql：github.com/go-sql-driver/mysql
+- wechat：github.com/silenceper/wechat
+- schedule：github.com/robfig/cron
 
 ## TODO
 
-- [X] 日志
-- [X] 测试
-- [ ] 队列任务支持
-- [ ] cache/session多存储支持
-- [ ] mysql读写分离
-- [ ] redis集群
-- [ ] 框架性能分析（对标laravel/swoole_php;beego_go）
-- [ ] 命令行工具
-- [ ] 命令行交互环境
+- [X] logger
+- [X] Test
+- [ ] Queue of task
+- [ ] Cache/Session
+- [ ] Read & Write Connections
+- [ ] Redis cluster
+- [ ] Profiling(Laravel/Swoole;beego）
+- [ ] Command tool
+- [ ] Interaction command env
 
 ## ChangeLog
 
-- 增加反向代理示例
-- 修复文件相对路径问题
-- 增加session、cache、认证中间件
-- 增加测试文件
-- 增加平滑重启
-- 增加定时任务
-- 增加项目安装器
-- 增加access.log与error.log
-- 增加数据库事务
+- Add Reverse Proxy
+- Fixed the path
+- Add session/cache and Auth middleware
+- Add test
+- Add smooth restart
+- Add schedule module
+- Add installer of project
+- Add access.log and error.log
+- Add database transcation
