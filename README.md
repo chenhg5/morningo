@@ -168,7 +168,7 @@ kill -INT $(cat pid) && ./morningo # smooth stop the process and restart
 
 ## TODO
 
-- [X] logger
+- [X] Logger
 - [X] Test
 - [ ] Queue of task
 - [ ] Cache/Session
