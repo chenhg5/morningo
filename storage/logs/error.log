@@ -973,3 +973,413 @@ net/http.(*conn).serve(0xc4201c2d20, 0x179e680, 0xc4201d0940)
 created by net/http.(*Server).Serve
 	/usr/local/go/src/net/http/server.go:2795 +0x27b
 
+
+[2018-04-21 06:31:44] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 34 [running]:
+runtime/debug.Stack(0x179a940, 0xc4201ec120, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc420342000)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4201d83c0)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc420342000)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc420342000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc420342000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc420342000)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420342000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc420342000)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc42033e000, 0xc4202f6c00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc42033e000, 0xc4202f6c00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42032e000, 0x179f780, 0xc4202f8fc0)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-21 06:31:44] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 35 [running]:
+runtime/debug.Stack(0x179a940, 0xc420109d60, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4201a66c0)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc4200cc420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc420366000, 0xc4201fe200)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc420366000, 0xc4201fe200)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42032e0a0, 0x179f780, 0xc4201d8200)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-21 06:31:44] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 28 [running]:
+runtime/debug.Stack(0x179a940, 0xc4202fa800, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc420302840)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4202f9280)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc420302840)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc420302840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc420302840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc420302840)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420302840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc420302840)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc42030a0e0, 0xc4202f6d00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc42030a0e0, 0xc4202f6d00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc4202f0500, 0x179f780, 0xc4202f90c0)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-21 06:31:44] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 30 [running]:
+runtime/debug.Stack(0x179a940, 0xc4201ec260, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc420342160)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4201d8600)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc420342160)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342160)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc420342160)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342160)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc420342160)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342160)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc420342160)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342160)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420342160)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342160)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc420342160)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc42033e0e0, 0xc4202f6e00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc42033e0e0, 0xc4202f6e00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc4202f05a0, 0x179f780, 0xc4202f9300)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-21 06:31:44] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 37 [running]:
+runtime/debug.Stack(0x179a940, 0xc4202fa8a0, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4202f9400)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc4203029a0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc42030a1c0, 0xc4201fe300)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc42030a1c0, 0xc4201fe300)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42032e140, 0x179f780, 0xc4201d8500)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-21 06:31:44] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 7 [running]:
+runtime/debug.Stack(0x179a940, 0xc4202fa940, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4202f9500)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420302b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc420302b00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc42030a2a0, 0xc420132700)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc42030a2a0, 0xc420132700)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc420198be0, 0x179f780, 0xc4201a6740)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-21 06:32:16] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 39 [running]:
+runtime/debug.Stack(0x179a940, 0xc4201ec300, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4201d8800)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc4203422c0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc42033e1c0, 0xc4201fe400)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc42033e1c0, 0xc4201fe400)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42032e1e0, 0x179f780, 0xc4201d8680)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-21 06:33:12] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 42 [running]:
+runtime/debug.Stack(0x179a940, 0xc420109e00, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4201a68c0)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc4200cc580)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc4203660e0, 0xc4201fe600)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc4203660e0, 0xc4201fe600)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42032e320, 0x179f780, 0xc4201d8880)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-21 06:34:00] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 33 [running]:
+runtime/debug.Stack(0x179a940, 0xc420109ea0, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4201a6a40)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc4200cc6e0)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc4203661c0, 0xc4202f6f00)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc4203661c0, 0xc4202f6f00)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc4202f0640, 0x179f780, 0xc4202f9580)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+
+
+[2018-04-21 06:37:07] app.ERROR: interface conversion: interface {} is *drivers.cookieAuthManager, not *auth.Auth
+Stack trace:
+goroutine 43 [running]:
+runtime/debug.Stack(0x179a940, 0xc4201ec3a0, 0x171166c)
+	/usr/local/go/src/runtime/debug/stack.go:24 +0xa7
+main.handleErrors.func1.1(0xc420342420)
+	/Users/chenhg5/go/src/morningo/handle.go:35 +0x4d0
+panic(0x1642b00, 0xc4201d8a00)
+	/usr/local/go/src/runtime/panic.go:505 +0x229
+morningo/filters/auth.RegisterGlobalAuthDriver.func1(0xc420342420)
+	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:27 +0x148
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-contrib/cache.Cache.func1(0xc420342420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-contrib/cache/cache.go:116 +0x9e
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/contrib/sessions.Sessions.func1(0xc420342420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/contrib/sessions/sessions.go:65 +0x1be
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+main.handleErrors.func1(0xc420342420)
+	/Users/chenhg5/go/src/morningo/handle.go:45 +0x51
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.LoggerWithWriter.func1(0xc420342420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/logger.go:83 +0xcc
+morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420342420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0xc420244fc0, 0xc420342420)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:359 +0x586
+morningo/vendor/github.com/gin-gonic/gin.(*Engine).ServeHTTP(0xc420244fc0, 0x179ed00, 0xc42033e2a0, 0xc4201fe700)
+	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/gin.go:326 +0x153
+net/http.serverHandler.ServeHTTP(0xc420202dd0, 0x179ed00, 0xc42033e2a0, 0xc4201fe700)
+	/usr/local/go/src/net/http/server.go:2694 +0xbc
+net/http.(*conn).serve(0xc42032e3c0, 0x179f780, 0xc4201d8900)
+	/usr/local/go/src/net/http/server.go:1830 +0x651
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:2795 +0x27b
+

@@ -3,7 +3,17 @@ package auth
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"morningo/filters/auth/drivers"
 )
+
+var driverList = map[string]func()Auth {
+	"cookie" : func() Auth {
+		return drivers.NewCookieAuthDriver()
+	},
+	"jwt" : func() Auth {
+		return drivers.NewJwtAuthDriver()
+	},
+}
 
 type Auth interface {
 	Check(http *http.Request) bool
@@ -12,17 +22,18 @@ type Auth interface {
 	Logout(http *http.Request, w http.ResponseWriter) bool
 }
 
-func AuthSetMiddleware(auth *Auth, key string) gin.HandlerFunc {
+func RegisterGlobalAuthDriver(authKey string, key string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		c.Set(key, auth)
+		driver := GenerateAuthDriver(authKey).(*Auth)
+		c.Set(key, driver)
 		c.Next()
 	}
 }
 
-
-func AuthMiddleware(auth *Auth) gin.HandlerFunc {
+func AuthMiddleware(authKey string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		if !(*auth).Check(c.Request) {
+		driver := GenerateAuthDriver(authKey).(*Auth)
+		if !(*driver).Check(c.Request) {
 			c.HTML(http.StatusOK, "index.tpl", gin.H{
 				"title": "尚未登录，请登录",
 			})
@@ -30,4 +41,10 @@ func AuthMiddleware(auth *Auth) gin.HandlerFunc {
 		}
 		c.Next()
 	}
+}
+
+func GenerateAuthDriver(string string) interface{} {
+	var authDriver Auth
+	authDriver = driverList[string]()
+	return &authDriver
 }

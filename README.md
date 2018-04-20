@@ -18,7 +18,7 @@ Suitable for simple project. [kit](https://github.com/go-kit/kit)、[go-micro](h
 
 ## Installation And Run
 
-Via moroingo installer
+Via moroingo installer or use docker
 
 ### Install
 
@@ -46,7 +46,7 @@ make deps
 make test
 ```
 
-### Smooth Restart
+### Graceful Restart
 
 ```
 make restart
@@ -68,7 +68,7 @@ make cross # for mac/windows
 ```
 Then put files of the ```build``` in your server and set the path of log and static file(html/css/js),and run the executable file.If 80 port is not allowed to use,consider the nginx proxy,or use the gin middleware [gin-reverseproxy](https://github.com/chenhg5/gin-reverseproxy) instead, which has some example in ```routers.go```. When the project start running, it will generate the ```pid```file in the root path of the project. Excute the following command to update your project. 
 ```
-kill -INT $(cat pid) && ./morningo # smooth stop the process and restart
+kill -INT $(cat pid) && ./morningo # graceful stop the process and restart
 ```
 
 ## Project Structure
@@ -91,9 +91,10 @@ kill -INT $(cat pid) && ./morningo # smooth stop the process and restart
 ├── controllers                 controller
 │   └── MainController.go
 ├── filters                     middleware
-│   └── auth                    auth middleware
-│       ├── drivers             auth engine
-│       └── auth.go             
+│   ├── auth                    auth middleware
+│   │   ├── drivers             auth engine
+│   │   └── auth.go   
+│   └── filter.go               middleware initer                  
 ├── frontend                    frontend resource
 │   ├── assets
 │   │   ├── css
@@ -107,10 +108,16 @@ kill -INT $(cat pid) && ./morningo # smooth stop the process and restart
 ├── models                      model
 │   └── User.go
 ├── module                      module of project
-│   └── schedule
-│       └── schedule.go         
-├── routers.go                  router
-├── routers_test.go             test for api
+│   │── schedule
+│   │   └── schedule.go   
+│   │── logger
+│   │   └── logger.go 
+│   └── server
+│       └── server.go 
+├── routers                     routers
+│   └── api_routers.go       
+├── routers.go                  router initer
+├── routers_test.go             unit test for api
 ├── storage                     
 │   ├── cache                   cache file
 │   └── logs                    log file
@@ -184,7 +191,7 @@ kill -INT $(cat pid) && ./morningo # smooth stop the process and restart
 - Fixed the path
 - Add session/cache and Auth middleware
 - Add test
-- Add smooth restart
+- Add graceful restart
 - Add schedule module
 - Add installer of project
 - Add access.log and error.log
