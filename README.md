@@ -6,8 +6,8 @@
 
 A Web develop project skeleton base on [Gin](https://github.com/gin-gonic/gin) which just for reference.
 
-More efficiency，<br>
-Faster and clear，<br>
+More efficiency,<br>
+Faster and clear,<br>
 Easier to deploy
 
 Suitable for simple project. [kit](https://github.com/go-kit/kit)、[go-micro](https://github.com/micro/go-micro)、[kite](https://github.com/koding/kite) are better choice for the middle and large project.
@@ -66,7 +66,7 @@ First build the executable file
 make build # for linus
 make cross # for mac/windows
 ```
-Then put files of the ```build``` in your server and set the path of log and static file(html/css/js)，and run the executable file。If 80 port is not allowed to use，consider the nginx proxy，or use the gin middleware [gin-reverseproxy](https://github.com/chenhg5/gin-reverseproxy) instead, which has some example in ```routers.go```. When the project start running, it will generate the ```pid```file in the root path of the project. Excute the following command to update your project. 
+Then put files of the ```build``` in your server and set the path of log and static file(html/css/js),and run the executable file.If 80 port is not allowed to use,consider the nginx proxy,or use the gin middleware [gin-reverseproxy](https://github.com/chenhg5/gin-reverseproxy) instead, which has some example in ```routers.go```. When the project start running, it will generate the ```pid```file in the root path of the project. Excute the following command to update your project. 
 ```
 kill -INT $(cat pid) && ./morningo # smooth stop the process and restart
 ```
