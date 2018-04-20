@@ -2,6 +2,8 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/chenhg5/morningo)](https://goreportcard.com/report/github.com/chenhg5/morningo)
 
+[中文文档](./README_CN.md)
+
 A Web develop project skeleton base on [Gin](https://github.com/gin-gonic/gin) which just for reference.
 
 More efficiency，<br>
@@ -59,12 +61,12 @@ visit by browser: http://localhost:4000/api/index
 
 ## Deploy
 
-build the executable file
+First build the executable file
 ```
 make build # for linus
 make cross # for mac/windows
 ```
-put the file in the ```build``` in your server and set the path of log and static file(html/css/js)，run the executable file。If 80 port is not useful，consider the nginx proxy，or use the gin middleware [gin-reverseproxy](https://github.com/chenhg5/gin-reverseproxy), which has some example in ```routers.go```. When the project running, it will generate the ```pid```file in the root path of project. Excute the following command to update your project. 
+Then put files of the ```build``` in your server and set the path of log and static file(html/css/js)，and run the executable file。If 80 port is not allowed to use，consider the nginx proxy，or use the gin middleware [gin-reverseproxy](https://github.com/chenhg5/gin-reverseproxy) instead, which has some example in ```routers.go```. When the project start running, it will generate the ```pid```file in the root path of the project. Excute the following command to update your project. 
 ```
 kill -INT $(cat pid) && ./morningo # smooth stop the process and restart
 ```
