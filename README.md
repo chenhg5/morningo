@@ -177,13 +177,14 @@ kill -INT $(cat pid) && ./morningo # graceful stop the process and restart
 
 - [X] Logger
 - [X] Test
+- [X] Cache/Session
 - [ ] Queue of task
-- [ ] Cache/Session
 - [ ] Read & Write Connections
 - [ ] Redis cluster
 - [ ] Profiling(Laravel/Swoole;beego）
 - [ ] Command tool
 - [ ] Interaction command env
+- [ ] Fast CRUD Generator
 
 ## ChangeLog
 
