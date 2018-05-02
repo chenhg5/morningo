@@ -10,7 +10,7 @@ More efficiency,<br>
 Faster and clear,<br>
 Easier to deploy
 
-Suitable for simple project. [kit](https://github.com/go-kit/kit)、[go-micro](https://github.com/micro/go-micro)、[kite](https://github.com/koding/kite) are better choice for the middle and large project.
+Suitable for simple project. [ko](https://github.com/chenhg5/ko)、[kit](https://github.com/go-kit/kit)、[go-micro](https://github.com/micro/go-micro)、[kite](https://github.com/koding/kite) are better choice for the middle and large project.
 
 ## Environment Requirements
 
