@@ -1,0 +1,7 @@
+language: go
+go:
+  - "1.10"
+before_script:
+  - make deps
+script:
+  - make test
