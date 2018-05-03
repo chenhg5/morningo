@@ -1,6 +1,7 @@
 language: go
 go:
   - "1.10"
+go_import_path: github.com/chenhg5/morningo
 before_script:
   - make deps
 script:
