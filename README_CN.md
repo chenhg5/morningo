@@ -172,6 +172,22 @@ kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行�
 - Wechat：github.com/silenceper/wechat
 - 任务调度：github.com/robfig/cron
 
+## 压测
+
+```
+wrk -c100 -d30s -t4 http://localhost:4000/api/index
+
+Running 30s test @ http://localhost:4000/api/index
+  4 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.03ms    4.17ms  72.72ms   89.95%
+    Req/Sec     7.40k     1.67k   11.20k    67.75%
+  884816 requests in 30.03s, 107.17MB read
+  Non-2xx or 3xx responses: 884816
+Requests/sec:  29462.96
+Transfer/sec:  3.57MB
+```
+
 ## TODO
 
 - [X] 日志
