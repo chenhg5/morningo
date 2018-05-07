@@ -2,6 +2,8 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/chenhg5/morningo)](https://goreportcard.com/report/github.com/chenhg5/morningo)
 
+![doggy](https://ws2.sinaimg.cn/large/006tKfTcgy1fr2um9hwduj303u03w0sv.jpg)
+
 [中文文档](./README_CN.md)
 
 A Web develop project skeleton base on [Gin](https://github.com/gin-gonic/gin) which just for reference.

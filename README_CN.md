@@ -2,6 +2,8 @@
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/chenhg5/morningo)](https://goreportcard.com/report/github.com/chenhg5/morningo)
 
+![doggy](https://ws2.sinaimg.cn/large/006tKfTcgy1fr2um9hwduj303u03w0sv.jpg)
+
 基于[Gin](https://github.com/gin-gonic/gin)的web项目开发框架。仅供参考。
 
 更高的开发效率，<br>
