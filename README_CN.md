@@ -53,9 +53,11 @@ make restart
 
 ### 运行
 
+先配置```config/env.go```中相关配置，并导入数据sql```connections/migrations/example.sql```，然后运行：
 ```
 make
 ```
+
 浏览器访问 http://localhost:4000/api/index
 
 ## 项目部署

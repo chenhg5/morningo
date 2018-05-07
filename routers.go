@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"morningo/filters/auth"
 	"morningo/filters"
-	"morningo/routes"
+	routeRegister "morningo/routes"
 	// proxy "github.com/chenhg5/gin-reverseproxy"
 )
 
@@ -27,7 +27,7 @@ func initRouter() *gin.Engine {
 	router.Use(auth.RegisterGlobalAuthDriver("cookie", "web_auth")) // 全局auth cookie
 	router.Use(auth.RegisterGlobalAuthDriver("jwt", "jwt_auth"))    // 全局auth jwt
 
-	routes.RegisterApiRouter(router)
+	routeRegister.RegisterApiRouter(router)
 
 	// ReverseProxy
 	// router.Use(proxy.ReverseProxy(map[string] string {
