@@ -73,7 +73,7 @@ func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Ro
 			panic(scanErr)
 		}
 		for j := 0; j < len(col); j++ {
-			result[col[j]] = colVar[j]
+			result[col[j]] = *(colVar[j].(*string))
 		}
 		results = append(results, result)
 	}
