@@ -21,7 +21,7 @@ func init() {
 	var err error
 	SqlDB, err = sql.Open("mysql", config.GetEnv().DATABASE_USERNAME+
 		":"+config.GetEnv().DATABASE_PASSWORD+"@tcp("+config.GetEnv().DATABASE_IP+
-		":"+config.GetEnv().DATABASE_PORT+")/"+config.GetEnv().DATABASE_NAME)
+		":"+config.GetEnv().DATABASE_PORT+")/"+config.GetEnv().DATABASE_NAME + "?charset=utf8mb4")
 	if err != nil {
 		log.Fatal(err.Error())
 		panic(err.Error())
