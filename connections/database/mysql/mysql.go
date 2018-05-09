@@ -58,7 +58,7 @@ func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Ro
 	for rs.Next() {
 		var colVar = make([]interface{}, len(col))
 		for i := 0; i < len(col); i++ {
-			// Tips: string类型如果为interface返回乱字符串
+			// TODO: 避免反射用了switch 需要改优雅一点
 			switch typeVal[i].DatabaseTypeName() {
 			case "INT":
 				var s int

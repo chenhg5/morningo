@@ -1,6 +1,9 @@
 package drivers
 
 import (
+	// TODO: encoding/json运用了反射，略慢，需要考虑改进为：
+	// https://github.com/pquerna/ffjson
+	// https://github.com/tidwall/gjson
 	"encoding/json"
 	"fmt"
 	jwt_lib "github.com/dgrijalva/jwt-go"
