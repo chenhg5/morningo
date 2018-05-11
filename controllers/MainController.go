@@ -129,7 +129,7 @@ func CookieSetExample(c *gin.Context) {
 func CookieGetExample(c *gin.Context) {
 	authDr, _ := c.MustGet("web_auth").(*auth.Auth)
 
-	userInfo := (*authDr).User(c.Request).(map[interface{}]interface{})
+	userInfo := (*authDr).User(c).(map[interface{}]interface{})
 	id, _ := userInfo["id"].(string)
 	log.Println("id: " + id)
 
@@ -163,7 +163,7 @@ func JwtSetExample(c *gin.Context) {
 func JwtGetExample(c *gin.Context) {
 	authDr, _ := c.MustGet("jwt_auth").(*auth.Auth)
 
-	info := (*authDr).User(c.Request).(map[string]interface{})
+	info := (*authDr).User(c).(map[string]interface{})
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,
