@@ -1,10 +1,7 @@
 package drivers
 
 import (
-	// TODO: encoding/json运用了反射，略慢，需要考虑改进为：
-	// https://github.com/pquerna/ffjson
-	// https://github.com/tidwall/gjson
-	"encoding/json"
+	"encoding/json" // TODO: encoding/json运用了反射，略慢，需要考虑改进为：
 	"fmt"
 	jwt_lib "github.com/dgrijalva/jwt-go"
 	"github.com/dgrijalva/jwt-go/request"
@@ -13,6 +10,7 @@ import (
 	"net/http"
 	"strings"
 	"time"
+	"github.com/gin-gonic/gin"
 )
 
 type jwtAuthManager struct {
@@ -29,8 +27,9 @@ func NewJwtAuthDriver() *jwtAuthManager {
 	}
 }
 
-func (jwtAuth *jwtAuthManager) Check(http *http.Request) bool {
-	token := http.Header.Get("Authorization")
+// Check the token of request header is valid or not.
+func (jwtAuth *jwtAuthManager) Check(c *gin.Context) bool {
+	token := c.Request.Header.Get("Authorization")
 	token = strings.Replace(token, "Bearer ", "", -1)
 	if token == "" {
 		return false
@@ -40,26 +39,43 @@ func (jwtAuth *jwtAuthManager) Check(http *http.Request) bool {
 		b := ([]byte(jwtAuth.secret))
 		return b, nil
 	}
-	_, err := request.ParseFromRequest(http, request.OAuth2Extractor, keyFun)
+	authJwtToken, err := request.ParseFromRequest(c.Request, request.OAuth2Extractor, keyFun)
 
 	if err != nil {
 		fmt.Println(err)
 		return false
 	}
-	return true
+
+	c.Set("User", map[string]interface{}{
+		"token" : authJwtToken,
+	})
+
+	return authJwtToken.Valid
 }
 
-func (jwtAuth *jwtAuthManager) User(http *http.Request) interface{} {
-	// get model user
-	tokenStr := http.Header.Get("Authorization")
-	tokenStr = strings.Replace(tokenStr, "Bearer ", "", -1)
-	if tokenStr == "" {
-		return map[interface{}]interface{}{}
+// User is get the auth user from token string of the request header which
+// contains the user ID. The token string must start with "Bearer "
+func (jwtAuth *jwtAuthManager) User(c *gin.Context) interface{} {
+
+	var jwtToken *jwt_lib.Token
+	if jwtUser, exist := c.Get("User"); !exist {
+		tokenStr := c.Request.Header.Get("Authorization")
+		tokenStr = strings.Replace(tokenStr, "Bearer ", "", -1)
+		if tokenStr == "" {
+			return map[interface{}]interface{}{}
+		}
+		var err error
+		jwtToken, err = jwt_lib.Parse(tokenStr, func(token *jwt_lib.Token) (interface{}, error) {
+			b := ([]byte(jwtAuth.secret))
+			return b, nil
+		})
+		if err != nil {
+			fmt.Println(err)
+			return map[interface{}]interface{}{}
+		}
+	} else {
+		jwtToken = jwtUser.(map[string]interface{})["token"].(*jwt_lib.Token)
 	}
-	jwtToken, err := jwt_lib.Parse(tokenStr, func(token *jwt_lib.Token) (interface{}, error) {
-		b := ([]byte(jwtAuth.secret))
-		return b, nil
-	})
 
 	if claims, ok := jwtToken.Claims.(jwt_lib.MapClaims); ok && jwtToken.Valid {
 		var user map[string]interface{}
@@ -67,12 +83,15 @@ func (jwtAuth *jwtAuthManager) User(http *http.Request) interface{} {
 			fmt.Println(err)
 			return map[interface{}]interface{}{}
 		}
+		c.Set("User", map[string]interface{}{
+			"token" : jwtToken,
+			"user" : user,
+		})
 		return user
 	} else {
-		fmt.Println(err)
+		fmt.Println(ok)
 		return map[interface{}]interface{}{}
 	}
-
 }
 
 func (jwtAuth *jwtAuthManager) Login(http *http.Request, w http.ResponseWriter, user map[string]interface{}) interface{} {

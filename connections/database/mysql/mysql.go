@@ -59,65 +59,7 @@ func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Ro
 		var colVar = make([]interface{}, len(col))
 		for i := 0; i < len(col); i++ {
 			// TODO: 避免反射用了switch 需要改优雅一点
-			switch typeVal[i].DatabaseTypeName() {
-			case "INT":
-				var s int
-				colVar[i] = &s
-			case "TINYINT":
-				var s int
-				colVar[i] = &s
-			case "MEDIUMINT":
-				var s int
-				colVar[i] = &s
-			case "SMALLINT":
-				var s int
-				colVar[i] = &s
-			case "BIGINT":
-				var s int
-				colVar[i] = &s
-			case "FLOAT":
-				var s float32
-				colVar[i] = &s
-			case "DOUBLE":
-				var s float32
-				colVar[i] = &s
-			case "DECIMAL":
-				var s int
-				colVar[i] = &s
-			case "DATE":
-				var s string
-				colVar[i] = &s
-			case "TIME":
-				var s string
-				colVar[i] = &s
-			case "YEAR":
-				var s string
-				colVar[i] = &s
-			case "DATETIME":
-				var s string
-				colVar[i] = &s
-			case "TIMESTAMP":
-				var s string
-				colVar[i] = &s
-			case "VARCHAR":
-				var s string
-				colVar[i] = &s
-			case "MEDIUMTEXT":
-				var s string
-				colVar[i] = &s
-			case "LONGTEXT":
-				var s string
-				colVar[i] = &s
-			case "TINYTEXT":
-				var s string
-				colVar[i] = &s
-			case "TEXT":
-				var s string
-				colVar[i] = &s
-			default:
-				var s interface{}
-				colVar[i] = &s
-			}
+			setType(colVar, i, typeVal[i].DatabaseTypeName())
 		}
 		result := make(map[string]interface{})
 		if scanErr := rs.Scan(colVar...); scanErr != nil {
@@ -273,4 +215,66 @@ func (SqlTx *sqlTx) Query(query string, args ...interface{}) ([]map[string]inter
 		return nil, err
 	}
 	return results, nil
+}
+
+func setType(colVar []interface{}, i int, typeName string)  {
+	switch typeName {
+	case "INT":
+		var s int
+		colVar[i] = &s
+	case "TINYINT":
+		var s int
+		colVar[i] = &s
+	case "MEDIUMINT":
+		var s int
+		colVar[i] = &s
+	case "SMALLINT":
+		var s int
+		colVar[i] = &s
+	case "BIGINT":
+		var s int
+		colVar[i] = &s
+	case "FLOAT":
+		var s float32
+		colVar[i] = &s
+	case "DOUBLE":
+		var s float32
+		colVar[i] = &s
+	case "DECIMAL":
+		var s int
+		colVar[i] = &s
+	case "DATE":
+		var s string
+		colVar[i] = &s
+	case "TIME":
+		var s string
+		colVar[i] = &s
+	case "YEAR":
+		var s string
+		colVar[i] = &s
+	case "DATETIME":
+		var s string
+		colVar[i] = &s
+	case "TIMESTAMP":
+		var s string
+		colVar[i] = &s
+	case "VARCHAR":
+		var s string
+		colVar[i] = &s
+	case "MEDIUMTEXT":
+		var s string
+		colVar[i] = &s
+	case "LONGTEXT":
+		var s string
+		colVar[i] = &s
+	case "TINYTEXT":
+		var s string
+		colVar[i] = &s
+	case "TEXT":
+		var s string
+		colVar[i] = &s
+	default:
+		var s interface{}
+		colVar[i] = &s
+	}
 }

@@ -4,6 +4,7 @@ import (
 	"github.com/gorilla/sessions"
 	"morningo/config"
 	"net/http"
+	"github.com/gin-gonic/gin"
 )
 
 var store = sessions.NewCookieStore([]byte(config.GetEnv().APP_SECRET))
@@ -18,9 +19,9 @@ func NewCookieAuthDriver() *cookieAuthManager {
 	}
 }
 
-func (cookie *cookieAuthManager) Check(http *http.Request) bool {
+func (cookie *cookieAuthManager) Check(c *gin.Context) bool {
 	// read cookie
-	session, err := store.Get(http, cookie.name)
+	session, err := store.Get(c.Request, cookie.name)
 	if err != nil {
 		return false
 	}
@@ -36,9 +37,9 @@ func (cookie *cookieAuthManager) Check(http *http.Request) bool {
 	return true
 }
 
-func (cookie *cookieAuthManager) User(http *http.Request) interface{} {
+func (cookie *cookieAuthManager) User(c *gin.Context) interface{} {
 	// get model user
-	session, err := store.Get(http, cookie.name)
+	session, err := store.Get(c.Request, cookie.name)
 	if err != nil {
 		return session.Values
 	}
