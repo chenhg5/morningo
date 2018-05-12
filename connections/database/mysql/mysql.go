@@ -58,8 +58,65 @@ func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Ro
 	for rs.Next() {
 		var colVar = make([]interface{}, len(col))
 		for i := 0; i < len(col); i++ {
-			// TODO: 避免反射用了switch 需要改优雅一点
-			setType(colVar, i, typeVal[i].DatabaseTypeName())
+			switch typeVal[i].DatabaseTypeName() {
+			case "INT":
+				var s sql.NullInt64
+				colVar[i] = &s
+			case "TINYINT":
+				var s sql.NullInt64
+				colVar[i] = &s
+			case "MEDIUMINT":
+				var s sql.NullInt64
+				colVar[i] = &s
+			case "SMALLINT":
+				var s sql.NullInt64
+				colVar[i] = &s
+			case "BIGINT":
+				var s sql.NullInt64
+				colVar[i] = &s
+			case "FLOAT":
+				var s sql.NullFloat64
+				colVar[i] = &s
+			case "DOUBLE":
+				var s sql.NullFloat64
+				colVar[i] = &s
+			case "DECIMAL":
+				var s sql.NullInt64
+				colVar[i] = &s
+			case "DATE":
+				var s sql.NullString
+				colVar[i] = &s
+			case "TIME":
+				var s sql.NullString
+				colVar[i] = &s
+			case "YEAR":
+				var s sql.NullString
+				colVar[i] = &s
+			case "DATETIME":
+				var s sql.NullString
+				colVar[i] = &s
+			case "TIMESTAMP":
+				var s sql.NullString
+				colVar[i] = &s
+			case "VARCHAR":
+				var s sql.NullString
+				colVar[i] = &s
+			case "MEDIUMTEXT":
+				var s sql.NullString
+				colVar[i] = &s
+			case "LONGTEXT":
+				var s sql.NullString
+				colVar[i] = &s
+			case "TINYTEXT":
+				var s sql.NullString
+				colVar[i] = &s
+			case "TEXT":
+				var s sql.NullString
+				colVar[i] = &s
+			default:
+				var s interface{}
+				colVar[i] = &s
+			}
 		}
 		result := make(map[string]interface{})
 		if scanErr := rs.Scan(colVar...); scanErr != nil {
@@ -69,41 +126,131 @@ func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Ro
 		for j := 0; j < len(col); j++ {
 			switch typeVal[j].DatabaseTypeName() {
 			case "INT":
-				result[col[j]] = *(colVar[j].(*int))
+				temp := *(colVar[j].(*sql.NullInt64))
+				if temp.Valid {
+					result[col[j]] = temp.Int64
+				} else {
+					result[col[j]] = nil
+				}
 			case "TINYINT":
-				result[col[j]] = *(colVar[j].(*int))
+				temp := *(colVar[j].(*sql.NullInt64))
+				if temp.Valid {
+					result[col[j]] = temp.Int64
+				} else {
+					result[col[j]] = nil
+				}
 			case "MEDIUMINT":
-				result[col[j]] = *(colVar[j].(*int))
+				temp := *(colVar[j].(*sql.NullInt64))
+				if temp.Valid {
+					result[col[j]] = temp.Int64
+				} else {
+					result[col[j]] = nil
+				}
 			case "SMALLINT":
-				result[col[j]] = *(colVar[j].(*int))
+				temp := *(colVar[j].(*sql.NullInt64))
+				if temp.Valid {
+					result[col[j]] = temp.Int64
+				} else {
+					result[col[j]] = nil
+				}
 			case "BIGINT":
-				result[col[j]] = *(colVar[j].(*int))
+				temp := *(colVar[j].(*sql.NullInt64))
+				if temp.Valid {
+					result[col[j]] = temp.Int64
+				} else {
+					result[col[j]] = nil
+				}
 			case "FLOAT":
-				result[col[j]] = *(colVar[j].(*float32))
+				temp := *(colVar[j].(*sql.NullFloat64))
+				if temp.Valid {
+					result[col[j]] = temp.Float64
+				} else {
+					result[col[j]] = nil
+				}
 			case "DOUBLE":
-				result[col[j]] = *(colVar[j].(*float32))
+				temp := *(colVar[j].(*sql.NullFloat64))
+				if temp.Valid {
+					result[col[j]] = temp.Float64
+				} else {
+					result[col[j]] = nil
+				}
 			case "DECIMAL":
-				result[col[j]] = *(colVar[j].(*int))
+				temp := *(colVar[j].(*sql.NullInt64))
+				if temp.Valid {
+					result[col[j]] = temp.Int64
+				} else {
+					result[col[j]] = nil
+				}
 			case "DATE":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			case "TIME":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			case "YEAR":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			case "DATETIME":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			case "TIMESTAMP":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			case "VARCHAR":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			case "MEDIUMTEXT":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			case "LONGTEXT":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			case "TINYTEXT":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			case "TEXT":
-				result[col[j]] = *(colVar[j].(*string))
+				temp := *(colVar[j].(*sql.NullString))
+				if temp.Valid {
+					result[col[j]] = temp.String
+				} else {
+					result[col[j]] = nil
+				}
 			default:
 				result[col[j]] = colVar[j]
 			}

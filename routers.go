@@ -7,6 +7,7 @@ import (
 	"morningo/filters/auth"
 	"morningo/filters"
 	routeRegister "morningo/routes"
+	"net/http"
 	// proxy "github.com/chenhg5/gin-reverseproxy"
 )
 
@@ -26,6 +27,22 @@ func initRouter() *gin.Engine {
 
 	router.Use(auth.RegisterGlobalAuthDriver("cookie", "web_auth")) // 全局auth cookie
 	router.Use(auth.RegisterGlobalAuthDriver("jwt", "jwt_auth"))    // 全局auth jwt
+
+	router.NoRoute(func(c *gin.Context) {
+		c.JSON(http.StatusNotFound, gin.H{
+			"code": 404,
+			"msg":  "找不到该路由",
+		})
+		return
+	})
+
+	router.NoMethod(func(c *gin.Context) {
+		c.JSON(http.StatusNotFound, gin.H{
+			"code": 404,
+			"msg":  "找不到该方法",
+		})
+		return
+	})
 
 	routeRegister.RegisterApiRouter(router)
 
