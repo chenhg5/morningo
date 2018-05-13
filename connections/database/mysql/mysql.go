@@ -4,7 +4,6 @@ import (
 	"context"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
-	"log"
 	"morningo/config"
 )
 
