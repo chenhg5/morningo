@@ -34,6 +34,7 @@ func DBexample(c *gin.Context) {
 
 	// 数据库查询
 	rs, con := db.Query("select name,avatar,id from users where id < ?", 100)
+	fmt.Println(rs[0]["name"])
 	defer con.Close() // 函数结束时关闭数据库连接
 
 	// 数据库事务

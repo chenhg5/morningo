@@ -23,7 +23,6 @@ func init() {
 		":"+config.GetEnv().DATABASE_PASSWORD+"@tcp("+config.GetEnv().DATABASE_IP+
 		":"+config.GetEnv().DATABASE_PORT+")/"+config.GetEnv().DATABASE_NAME + "?charset=utf8mb4")
 	if err != nil {
-		log.Fatal(err.Error())
 		panic(err.Error())
 	}
 
@@ -33,23 +32,21 @@ func init() {
 }
 
 func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Rows) {
+
 	rs, err := SqlDB.Query(query, args...)
 
 	if err != nil {
-		log.Fatalln(err)
 		panic(err)
 	}
 
 	col, colErr := rs.Columns()
 
 	if colErr != nil {
-		log.Fatalln(colErr)
 		panic(colErr)
 	}
 
 	typeVal, err := rs.ColumnTypes()
 	if err != nil {
-		log.Fatalln(err)
 		panic(err)
 	}
 
@@ -120,7 +117,6 @@ func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Ro
 		}
 		result := make(map[string]interface{})
 		if scanErr := rs.Scan(colVar...); scanErr != nil {
-			log.Fatalln(scanErr)
 			panic(scanErr)
 		}
 		for j := 0; j < len(col); j++ {
@@ -258,16 +254,20 @@ func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Ro
 		results = append(results, result)
 	}
 	if err := rs.Err(); err != nil {
-		log.Fatalln(err)
 		panic(err)
 	}
 	return results, rs
 }
 
 func Exec(query string, args ...interface{}) sql.Result {
+	// handle connections error
+	stmtIns, err := SqlDB.Prepare(query)
+	if err != nil {
+		panic(err.Error())
+	}
+	defer stmtIns.Close()
 	rs, err := SqlDB.Exec(query, args...)
 	if err != nil {
-		log.Fatalln(err)
 		panic(err)
 	}
 	return rs
@@ -306,7 +306,6 @@ func BeginTransactions() *sqlTx {
 func (SqlTx *sqlTx) Exec(query string, args ...interface{}) (sql.Result, error) {
 	rs, err := SqlDB.Exec(query, args...)
 	if err != nil {
-		log.Fatalln(err)
 		return nil, err
 	}
 	return rs, nil
@@ -316,20 +315,17 @@ func (SqlTx *sqlTx) Query(query string, args ...interface{}) ([]map[string]inter
 	rs, err := SqlTx.Tx.Query(query, args...)
 
 	if err != nil {
-		log.Fatalln(err)
 		return nil, err
 	}
 
 	col, colErr := rs.Columns()
 
 	if colErr != nil {
-		log.Fatalln(colErr)
 		panic(colErr)
 	}
 
 	typeVal, err := rs.ColumnTypes()
 	if err != nil {
-		log.Fatalln(err)
 		return nil, err
 	}
 
@@ -349,7 +345,6 @@ func (SqlTx *sqlTx) Query(query string, args ...interface{}) ([]map[string]inter
 		}
 		result := make(map[string]interface{})
 		if scanErr := rs.Scan(colVar...); scanErr != nil {
-			log.Fatalln(scanErr)
 			panic(scanErr)
 		}
 		for j := 0; j < len(col); j++ {
@@ -358,70 +353,7 @@ func (SqlTx *sqlTx) Query(query string, args ...interface{}) ([]map[string]inter
 		results = append(results, result)
 	}
 	if err := rs.Err(); err != nil {
-		log.Fatalln(err)
 		return nil, err
 	}
 	return results, nil
-}
-
-func setType(colVar []interface{}, i int, typeName string)  {
-	switch typeName {
-	case "INT":
-		var s int
-		colVar[i] = &s
-	case "TINYINT":
-		var s int
-		colVar[i] = &s
-	case "MEDIUMINT":
-		var s int
-		colVar[i] = &s
-	case "SMALLINT":
-		var s int
-		colVar[i] = &s
-	case "BIGINT":
-		var s int
-		colVar[i] = &s
-	case "FLOAT":
-		var s float32
-		colVar[i] = &s
-	case "DOUBLE":
-		var s float32
-		colVar[i] = &s
-	case "DECIMAL":
-		var s int
-		colVar[i] = &s
-	case "DATE":
-		var s string
-		colVar[i] = &s
-	case "TIME":
-		var s string
-		colVar[i] = &s
-	case "YEAR":
-		var s string
-		colVar[i] = &s
-	case "DATETIME":
-		var s string
-		colVar[i] = &s
-	case "TIMESTAMP":
-		var s string
-		colVar[i] = &s
-	case "VARCHAR":
-		var s string
-		colVar[i] = &s
-	case "MEDIUMTEXT":
-		var s string
-		colVar[i] = &s
-	case "LONGTEXT":
-		var s string
-		colVar[i] = &s
-	case "TINYTEXT":
-		var s string
-		colVar[i] = &s
-	case "TEXT":
-		var s string
-		colVar[i] = &s
-	default:
-		var s interface{}
-		colVar[i] = &s
-	}
 }
