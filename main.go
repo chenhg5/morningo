@@ -18,7 +18,7 @@ func main() {
 		gin.SetMode(gin.ReleaseMode)
 	}
 
-	router := initRouter() // 初始化路由
+	router := initRouter()
 
 	server.Run(router)
 }
