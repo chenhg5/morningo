@@ -8,6 +8,8 @@ import (
 	"os"
 	"runtime/debug"
 	"time"
+	"net/http"
+	"github.com/go-sql-driver/mysql"
 )
 
 var (
@@ -36,10 +38,30 @@ func handleErrors() gin.HandlerFunc {
 					fmt.Fprintf(defaultWriter, "%s", "\n")
 				}
 
-				c.JSON(200, gin.H{
-					"code": 10500,
-					"msg":  err,
-				})
+				var (
+					errMsg string
+					mysqlError *mysql.MySQLError
+					ok bool
+				)
+				if errMsg, ok = err.(string); ok {
+					c.JSON(http.StatusInternalServerError, gin.H{
+						"code": 500,
+						"msg": "系统错误，错误代码为10000，错误信息：" + errMsg,
+					})
+					return
+				} else if mysqlError, ok = err.(*mysql.MySQLError); ok {
+					c.JSON(http.StatusInternalServerError, gin.H{
+						"code": 500,
+						"msg": "系统错误，错误代码为10000，错误信息：" + mysqlError.Error(),
+					})
+					return
+				} else {
+					c.JSON(http.StatusInternalServerError, gin.H{
+						"code": 500,
+						"msg": "系统错误，错误代码为10000",
+					})
+					return
+				}
 			}
 		}()
 		c.Next()
