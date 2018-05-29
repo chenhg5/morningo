@@ -17,9 +17,10 @@ func initRouter() *gin.Engine {
 	router.LoadHTMLGlob(config.GetEnv().TEMPLATE_PATH + "/*") // html模板
 
 	if config.GetEnv().DEBUG {
-		router.Use(gin.Logger()) // 开发模式下使用，console打印请求记录
 		pprof.Register(router)   // 性能分析工具
 	}
+
+	router.Use(gin.Logger())
 
 	router.Use(handleErrors()) // 错误处理
 	router.Use(filters.RegisterSession())  // 全局session
