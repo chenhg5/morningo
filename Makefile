@@ -10,7 +10,7 @@ BINARY_UNIX=$(BINARY_NAME)_unix
 all: run
 
 build:
-	$(GOBUILD) -o ./build/$(BINARY_NAME) -v ./
+	$(GOBUILD) -o ./build/$(BINARY_NAME) -tags=jsoniter -v ./
 
 test:
 	$(GOTEST) -v ./
@@ -21,12 +21,12 @@ clean:
 	rm -f ./build/$(BINARY_UNIX)
 
 run:
-	$(GOBUILD) -o ./build/$(BINARY_NAME) -v ./
+	$(GOBUILD) -o ./build/$(BINARY_NAME) -tags=jsoniter -v ./
 	./build/$(BINARY_NAME)
 
 restart:
 	kill -INT $$(cat pid)
-	$(GOBUILD) -o ./build/$(BINARY_NAME) -v ./
+	$(GOBUILD) -o ./build/$(BINARY_NAME) -tags=jsoniter -v ./
 	./build/$(BINARY_NAME)
 
 deps:
@@ -34,4 +34,4 @@ deps:
 	govendor sync
 
 cross:
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o ./build/$(BINARY_NAME) -v ./
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) -o ./build/$(BINARY_NAME) -tags=jsoniter -v ./
