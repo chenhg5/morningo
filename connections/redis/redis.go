@@ -25,15 +25,21 @@ func (client *ClientType) Set(key string, value interface{}, expiration time.Dur
 	if err != nil {
 		panic(err)
 	}
-	return client.RedisCon
+	return (*client).RedisCon
 }
 
 func (client *ClientType) Get(key string) (string, *redis.Client) {
-	val, err := client.RedisCon.Get(key).Result()
+	val, err := (*client).RedisCon.Get(key).Result()
+
+	if err == redis.Nil {
+		return "", (*client).RedisCon
+	}
+
 	if err != nil {
 		panic(err)
 	}
-	return val, client.RedisCon
+
+	return val, (*client).RedisCon
 }
 
 func (client *ClientType) Del(key string) *redis.Client {
@@ -41,5 +47,5 @@ func (client *ClientType) Del(key string) *redis.Client {
 	if err != nil {
 		panic(err)
 	}
-	return client.RedisCon
+	return (*client).RedisCon
 }
