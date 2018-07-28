@@ -1,8 +1,14 @@
 language: go
 go:
   - "1.10"
+addons:
+  sonarcloud:
+    organization: "$SONAR_ORG"
+    token:
+      secure: "$SONAR_TOKEN"
 before_script:
   - git clone --depth=50 --branch=master https://github.com/chenhg5/morningo.git /home/travis/gopath/src/morningo
   - cd /home/travis/gopath/src/morningo && make deps
 script:
   - make test
+  - sonar-scanner
