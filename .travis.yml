@@ -3,7 +3,7 @@ go:
   - "1.10"
 go_import_path: github.com/chenhg5/morningo
 before_script:
-  - make deps
   - git clone https://github.com/chenhg5/morningo /home/travis/gopath/src/morningo
+  - cd /home/travis/gopath/src/morningo && make deps
 script:
   - make test
