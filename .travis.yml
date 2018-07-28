@@ -4,5 +4,6 @@ go:
 go_import_path: github.com/chenhg5/morningo
 before_script:
   - make deps
+  - cd /home/travis/gopath/src && git clone https://github.com/chenhg5/morningo
 script:
   - make test
