@@ -14,6 +14,6 @@ func init() {
 		":"+config.GetEnv().DATABASE_PORT+")/"+config.GetEnv().DATABASE_NAME)
 
 	if err != nil {
-		panic(err)
+		//panic(err)
 	}
 }
