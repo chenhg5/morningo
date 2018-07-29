@@ -14,7 +14,7 @@ Easier to deploy
 
 Suitable for simple project. [ko](https://github.com/chenhg5/ko)、[kit](https://github.com/go-kit/kit)、[go-micro](https://github.com/micro/go-micro)、[kite](https://github.com/koding/kite) are better choice for the middle and large project.
 
-## Environment Requirements
+## Environment Requirements 
 
 - [GO >= 1.8](https://github.com/Unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
 
