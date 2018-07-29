@@ -1,6 +1,6 @@
 # MorningGo : Gin WebApp Project Skeleton
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/chenhg5/morningo)](https://goreportcard.com/report/github.com/chenhg5/morningo) [![Build Status](https://api.travis-ci.org/chenhg5/morningo.svg?branch=master)](https://api.travis-ci.org/chenhg5/morningo)
+[![Go Report Card](https://goreportcard.com/badge/github.com/chenhg5/morningo)](https://goreportcard.com/report/github.com/chenhg5/morningo) [![Build Status](https://api.travis-ci.org/chenhg5/morningo.svg?branch=master)](https://api.travis-ci.org/chenhg5/morningo) [![sonarcloud](https://sonarcloud.io/api/project_badges/measure?project=morningo&metric=alert_status)](https://sonarcloud.io/dashboard?id=morningo)
 
 ![doggy](https://ws2.sinaimg.cn/large/006tKfTcgy1fr2um9hwduj303u03w0sv.jpg)
 
