@@ -11,4 +11,4 @@ before_script:
   - cd /home/travis/gopath/src/morningo && make deps
 script:
   - make test
-  - sonar-scanner -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -X
+  - sonar-scanner -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=morningo -X
