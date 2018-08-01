@@ -7,14 +7,13 @@ import (
 	"morningo/config"
 )
 
-type sqlTx struct {
+type SqlTxStruct struct {
 	Tx *sql.Tx
 }
 
 var (
 	sqlDBmap map[string]*sql.DB
 	SqlDB *sql.DB
-	SqlTx sqlTx
 )
 
 // 只会执行一次在执行程序启动的时候
@@ -178,7 +177,7 @@ func Exec(query string, args ...interface{}) sql.Result {
 	return rs
 }
 
-func BeginTransactionsByLevel() *sqlTx {
+func BeginTransactionsByLevel() *SqlTxStruct {
 
 	//LevelDefault IsolationLevel = iota
 	//LevelReadUncommitted
@@ -189,26 +188,31 @@ func BeginTransactionsByLevel() *sqlTx {
 	//LevelSerializable
 	//LevelLinearizable
 
+	SqlTx := new(SqlTxStruct)
+
 	tx, err := SqlDB.BeginTx(context.Background(),
 		&sql.TxOptions{Isolation: sql.LevelReadUncommitted})
 	if err != nil {
 		panic(err)
 	}
-	SqlTx.Tx = tx
-	return &SqlTx
+	(*SqlTx).Tx = tx
+	return SqlTx
 }
 
-func BeginTransactions() *sqlTx {
+func BeginTransactions() *SqlTxStruct {
 	tx, err := SqlDB.BeginTx(context.Background(),
 		&sql.TxOptions{Isolation: sql.LevelDefault})
 	if err != nil {
 		panic(err)
 	}
-	SqlTx.Tx = tx
-	return &SqlTx
+
+	SqlTx := new(SqlTxStruct)
+
+	(*SqlTx).Tx = tx
+	return SqlTx
 }
 
-func (SqlTx *sqlTx) Exec(query string, args ...interface{}) (sql.Result, error) {
+func (SqlTx *SqlTxStruct) Exec(query string, args ...interface{}) (sql.Result, error) {
 	rs, err := SqlTx.Tx.Exec(query, args...)
 	if err != nil {
 		return nil, err
@@ -216,7 +220,7 @@ func (SqlTx *sqlTx) Exec(query string, args ...interface{}) (sql.Result, error) 
 	return rs, nil
 }
 
-func (SqlTx *sqlTx) Query(query string, args ...interface{}) ([]map[string]interface{}, error) {
+func (SqlTx *SqlTxStruct) Query(query string, args ...interface{}) ([]map[string]interface{}, error) {
 	rs, err := SqlTx.Tx.Query(query, args...)
 
 	if err != nil {
@@ -260,7 +264,29 @@ func (SqlTx *sqlTx) Query(query string, args ...interface{}) ([]map[string]inter
 	return results, nil
 }
 
+type TxFn func(*SqlTxStruct) (error, map[string]interface{})
 
+func WithTransaction(fn TxFn) (err error, res map[string]interface{}) {
+
+	SqlTx := BeginTransactions()
+
+	defer func() {
+		if p := recover(); p != nil {
+			// a panic occurred, rollback and repanic
+			SqlTx.Tx.Rollback()
+			panic(p)
+		} else if err != nil {
+			// something went wrong, rollback
+			SqlTx.Tx.Rollback()
+		} else {
+			// all good, commit
+			err = SqlTx.Tx.Commit()
+		}
+	}()
+
+	err, res = fn(SqlTx)
+	return
+}
 
 func SetColVarType(colVar *[]interface{}, i int, typeName string)  {
 	switch typeName {
