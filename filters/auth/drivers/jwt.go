@@ -113,6 +113,7 @@ func (jwtAuth *jwtAuthManager) Login(http *http.Request, w http.ResponseWriter, 
 	return tokenString
 }
 
-func (cache *jwtAuthManager) Logout(http *http.Request, w http.ResponseWriter) bool {
+func (jwtAuth *jwtAuthManager) Logout(http *http.Request, w http.ResponseWriter) bool {
+	// TODO: implement
 	return true
 }
