@@ -24,7 +24,7 @@ type Auth interface {
 
 func RegisterGlobalAuthDriver(authKey string, key string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		driver := GenerateAuthDriver(authKey).(*Auth)
+		driver := GenerateAuthDriver(authKey)
 		c.Set(key, driver)
 		c.Next()
 	}
@@ -32,7 +32,7 @@ func RegisterGlobalAuthDriver(authKey string, key string) gin.HandlerFunc {
 
 func AuthMiddleware(authKey string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		driver := GenerateAuthDriver(authKey).(*Auth)
+		driver := GenerateAuthDriver(authKey)
 		if !(*driver).Check(c) {
 			c.HTML(http.StatusOK, "index.tpl", gin.H{
 				"title": "尚未登录，请登录",
@@ -43,7 +43,7 @@ func AuthMiddleware(authKey string) gin.HandlerFunc {
 	}
 }
 
-func GenerateAuthDriver(string string) interface{} {
+func GenerateAuthDriver(string string) *Auth {
 	var authDriver Auth
 	authDriver = driverList[string]()
 	return &authDriver
