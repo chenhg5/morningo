@@ -30,7 +30,7 @@ func RegisterGlobalAuthDriver(authKey string, key string) gin.HandlerFunc {
 	}
 }
 
-func AuthMiddleware(authKey string) gin.HandlerFunc {
+func Middleware(authKey string) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		driver := GenerateAuthDriver(authKey)
 		if !(*driver).Check(c) {

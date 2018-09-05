@@ -238,7 +238,7 @@ morningo/controllers.CookieGetExample(0xc420390000)
 	/Users/chenhg5/go/src/morningo/controllers/MainController.go:118 +0x7d
 morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420390000)
 	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-morningo/filters/auth.AuthMiddleware.func1(0xc420390000)
+morningo/filters/auth.Middleware.func1(0xc420390000)
 	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:21 +0x9e
 morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc420390000)
 	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
@@ -285,7 +285,7 @@ morningo/controllers.CookieGetExample(0xc4200d04d0)
 	/Users/chenhg5/go/src/morningo/controllers/MainController.go:117 +0x47
 morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
 	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-morningo/filters/auth.AuthMiddleware.func1(0xc4200d04d0)
+morningo/filters/auth.Middleware.func1(0xc4200d04d0)
 	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:22 +0xdb
 morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
 	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
@@ -332,7 +332,7 @@ morningo/controllers.CookieGetExample(0xc4200d04d0)
 	/Users/chenhg5/go/src/morningo/controllers/MainController.go:117 +0x47
 morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
 	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
-morningo/filters/auth.AuthMiddleware.func1(0xc4200d04d0)
+morningo/filters/auth.Middleware.func1(0xc4200d04d0)
 	/Users/chenhg5/go/src/morningo/filters/auth/auth.go:22 +0xdb
 morningo/vendor/github.com/gin-gonic/gin.(*Context).Next(0xc4200d04d0)
 	/Users/chenhg5/go/src/morningo/vendor/github.com/gin-gonic/gin/context.go:107 +0x43
