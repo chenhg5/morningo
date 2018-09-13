@@ -7,6 +7,7 @@ import (
 	"strings"
 	"morningo/config"
 	"morningo/module/logger"
+	"sync"
 )
 
 type Where struct {
@@ -42,18 +43,25 @@ type Sql struct {
 	statement string
 }
 
+var SqlPool = sync.Pool{
+	New: func() interface{} {
+		return &Sql{
+			fields:    make([]string, 0),
+			table:     "",
+			args:      make([]interface{}, 0),
+			wheres:    make([]Where, 0),
+			leftjoins: make([]Join, 0),
+			updateRaw: make([]RawUpdate, 0),
+			whereRaw:  "",
+			tx:        nil,
+		}
+	},
+}
+
 type H map[string]interface{}
 
 func newSql() *Sql {
-	return &Sql{
-		fields:    make([]string, 0),
-		table:     "",
-		args:      make([]interface{}, 0),
-		wheres:    make([]Where, 0),
-		leftjoins: make([]Join, 0),
-		updateRaw: make([]RawUpdate, 0),
-		tx:        nil,
-	}
+	return SqlPool.Get().(*Sql)
 }
 
 // *******************************
@@ -185,7 +193,7 @@ func (sql *Sql) LeftJoin(table string, fieldA string, operation string, fieldB s
 // *******************************
 
 func (sql *Sql) First() (map[string]interface{}, error) {
-	defer sql.log()
+	defer RecycleSql(sql)
 
 	sql.statement = "select " + sql.getFields() + " from " + sql.table + sql.getJoins() + sql.getWheres() +
 		sql.getOrderBy() + sql.getLimit() + sql.getOffset()
@@ -199,7 +207,7 @@ func (sql *Sql) First() (map[string]interface{}, error) {
 }
 
 func (sql *Sql) All() ([]map[string]interface{}, error) {
-	defer sql.log()
+	defer RecycleSql(sql)
 
 	sql.statement = "select " + sql.getFields() + " from " + sql.table + sql.getJoins() + sql.getWheres() +
 		sql.getOrderBy() + sql.getLimit() + sql.getOffset()
@@ -210,7 +218,7 @@ func (sql *Sql) All() ([]map[string]interface{}, error) {
 }
 
 func (sql *Sql) Update(values H) (int64, error) {
-	defer sql.log()
+	defer RecycleSql(sql)
 
 	sql.prepareUpdate(values)
 
@@ -234,7 +242,7 @@ func (sql *Sql) Update(values H) (int64, error) {
 }
 
 func (sql *Sql) Exec() (int64, error) {
-	defer sql.log()
+	defer RecycleSql(sql)
 
 	sql.prepareUpdate(H{})
 
@@ -258,7 +266,7 @@ func (sql *Sql) Exec() (int64, error) {
 }
 
 func (sql *Sql) Insert(values H) (int64, error) {
-	defer sql.log()
+	defer RecycleSql(sql)
 
 	sql.prepareInsert(values)
 
@@ -432,10 +440,29 @@ func (sql *Sql) empty() *Sql {
 func (sql *Sql) log() {
 	if config.GetEnv().SQL_LOG {
 		logger.Info(logger.E{
-			Info:logger.M{
+			Info: logger.M{
 				"statement": sql.statement,
-				"args": sql.args,
+				"args":      sql.args,
 			},
 		})
 	}
+}
+
+func RecycleSql(sql *Sql) {
+	sql.log()
+
+	sql.fields    = make([]string, 0)
+	sql.table     = ""
+	sql.wheres    = make([]Where, 0)
+	sql.leftjoins = make([]Join, 0)
+	sql.args      = make([]interface{}, 0)
+	sql.order     = ""
+	sql.offset    = ""
+	sql.limit     = ""
+	sql.whereRaw  = ""
+	sql.updateRaw = make([]RawUpdate, 0)
+	sql.tx        = nil
+	sql.statement = ""
+
+	SqlPool.Put(sql)
 }
