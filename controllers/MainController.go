@@ -12,6 +12,7 @@ import (
 	m "morningo/models"
 	"net/http"
 	"time"
+	"morningo/connections/database"
 )
 
 func IndexApi(c *gin.Context) {
@@ -31,6 +32,11 @@ func DBexample(c *gin.Context) {
 
 	// 数据库更新
 	db.Exec("update users set name = ? where id = ?", "饭桶", insertId)
+
+	// 数据库中间件
+	database.Table("users").Where("id", "=", insertId).Update(database.H{
+		"name": "你好",
+	})
 
 	// 数据库查询
 	rs, con := db.Query("select name,avatar,id from users where id < ?", 100)
