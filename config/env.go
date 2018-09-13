@@ -55,6 +55,9 @@ var env = Env{
 	ERROR_LOG:      true,
 	ERROR_LOG_PATH: "storage/logs/error.log",
 
+	INFO_LOG:      true,
+	INFO_LOG_PATH: "storage/logs/info.log",
+
 	TEMPLATE_PATH: "frontend/templates",
 
 	//APP_SECRET: "YbskZqLNT6TEVLUA9HWdnHmZErypNJpL",
