@@ -212,7 +212,7 @@ func (sql *Sql) All() ([]map[string]interface{}, error) {
 func (sql *Sql) Update(values H) (int64, error) {
 	defer sql.log()
 
-	sql.prepareUpdate(values)
+	sql.prepareUpdate(values) 
 
 	if sql.tx != nil {
 		res, err := sql.tx.Exec(sql.statement, sql.args...)
