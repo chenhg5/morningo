@@ -187,10 +187,10 @@ func (sql *Sql) LeftJoin(table string, fieldA string, operation string, fieldB s
 func (sql *Sql) First() (map[string]interface{}, error) {
 	defer sql.log()
 
-	var statement = "select " + sql.getFields() + " from " + sql.table + sql.getJoins() + sql.getWheres() +
+	sql.statement = "select " + sql.getFields() + " from " + sql.table + sql.getJoins() + sql.getWheres() +
 		sql.getOrderBy() + sql.getLimit() + sql.getOffset()
 
-	res, _ := db.Query(statement, sql.args...)
+	res, _ := db.Query(sql.statement, sql.args...)
 
 	if len(res) < 1 {
 		return nil, errors.New("out of index")
@@ -201,10 +201,10 @@ func (sql *Sql) First() (map[string]interface{}, error) {
 func (sql *Sql) All() ([]map[string]interface{}, error) {
 	defer sql.log()
 
-	var statement = "select " + sql.getFields() + " from " + sql.table + sql.getJoins() + sql.getWheres() +
+	sql.statement = "select " + sql.getFields() + " from " + sql.table + sql.getJoins() + sql.getWheres() +
 		sql.getOrderBy() + sql.getLimit() + sql.getOffset()
 
-	res, _ := db.Query(statement, sql.args...)
+	res, _ := db.Query(sql.statement, sql.args...)
 
 	return res, nil
 }
