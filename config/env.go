@@ -17,12 +17,18 @@ type Env struct {
 	REDIS_DB          int
 	REDIS_SESSION_DB  int
 	REDIS_CACHE_DB    int
-	ACCESS_LOG        bool
 	APP_SECRET        string
-	ACCESS_LOG_PATH   string   // 相对路径
-	ERROR_LOG         bool
-	ERROR_LOG_PATH    string   // 相对路径
-	TEMPLATE_PATH     string   // 静态文件相对路径
+
+	ACCESS_LOG      bool
+	ACCESS_LOG_PATH string
+	ERROR_LOG       bool
+	ERROR_LOG_PATH  string
+	INFO_LOG        bool
+	INFO_LOG_PATH   string
+
+	SQL_LOG bool
+
+	TEMPLATE_PATH string // 静态文件相对路径
 }
 
 var env = Env{
@@ -43,10 +49,10 @@ var env = Env{
 	REDIS_SESSION_DB: 1,
 	REDIS_CACHE_DB:   2,
 
-	ACCESS_LOG: true,
+	ACCESS_LOG:      true,
 	ACCESS_LOG_PATH: "storage/logs/access.log",
 
-	ERROR_LOG: true,
+	ERROR_LOG:      true,
 	ERROR_LOG_PATH: "storage/logs/error.log",
 
 	TEMPLATE_PATH: "frontend/templates",
