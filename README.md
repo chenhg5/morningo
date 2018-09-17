@@ -80,9 +80,12 @@ kill -INT $(cat pid) && ./morningo # graceful stop the process and restart
 .
 ├── Makefile
 ├── README.md
-├── command                     
-│   └── sword.go
+├── cli                     
+│   └── cli.go
 ├── config                      global config
+│   ├── connections.go
+│   ├── cookie.go
+│   ├── jwt.go
 │   └── env.go
 ├── connections                 store connection
 │   ├── database
@@ -123,7 +126,8 @@ kill -INT $(cat pid) && ./morningo # graceful stop the process and restart
 ├── storage                     
 │   ├── cache                   cache file
 │   └── logs                    log file
-│       ├── access.log          
+│       ├── access.log 
+│       ├── info.log          
 │       └── error.log
 └── vendor                      govendor vendor
 
