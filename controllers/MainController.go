@@ -39,17 +39,17 @@ func DBexample(c *gin.Context) {
 	})
 
 	// 数据库查询
-	rs, con := db.Query("select name,avatar,id from users where id < ?", 100)
+	rs, _ := db.Query("select name,avatar,id from users where id < ?", 100)
 	fmt.Println(rs[0]["name"])
-	defer con.Close() // 函数结束时关闭数据库连接
 
 	// 数据库事务
-	Tx := db.BeginTransactions()
-	_, err := Tx.Query("select name,avatar,id from users where id < ?", 100)
-	if err != nil {
-		Tx.Tx.Rollback()
-	}
-	Tx.Tx.Commit()
+	db.WithTransaction(func(tx *db.SqlTxStruct) (error, map[string]interface{}) {
+		_, err := tx.Query("select name,avatar,id from users where id < ?", 100)
+		if err != nil {
+			return err, map[string]interface{}{}
+		}
+		return nil, map[string]interface{}{}
+	})
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,

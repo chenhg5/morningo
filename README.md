@@ -170,6 +170,10 @@ kill -INT $(cat pid) && ./morningo # graceful stop the process and restart
 ### test
 - Api test
 
+### Example
+
+[https://github.com/chenhg5/morningo/blob/master/controllers/MainController.go](https://github.com/chenhg5/morningo/blob/master/controllers/MainController.go)
+
 ## Project Dependency
 
 - web framework：github.com/gin-gonic/gin

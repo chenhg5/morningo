@@ -171,6 +171,11 @@ kill -INT $(cat pid) && ./morningo # 即停止旧的进程，重启新的执行�
 ### 测试
 - api 测试
 
+### 控制器例子
+
+[https://github.com/chenhg5/morningo/blob/master/controllers/MainController.go](https://github.com/chenhg5/morningo/blob/master/controllers/MainController.go)
+
+
 ## 项目依赖
 
 - web框架：github.com/gin-gonic/gin
