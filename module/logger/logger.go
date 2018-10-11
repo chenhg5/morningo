@@ -11,14 +11,15 @@ import (
 	"runtime/debug"
 )
 
-// --------------------------------------------------------------------
+// ---------------------------------------------------------------
 // Logger
-// --------------------------------------------------------------------
+// ---------------------------------------------------------------
 //
 // there is three kinds of logger：
 //
 // 1） access logger
-//     log every request visited which used to counts the ip and other indicators
+//     log every request visited which used to counts the ip
+//     and other indicators
 //
 // 2） error logger
 //	   record the panic error
@@ -26,7 +27,7 @@ import (
 // 3） info logger
 //     log something the developer wants to output
 //
-// --------------------------------------------------------------------
+// ---------------------------------------------------------------
 
 var (
 	ErrorWriter io.Writer
