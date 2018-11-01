@@ -48,3 +48,12 @@ func GenerateAuthDriver(string string) *Auth {
 	authDriver = driverList[string]()
 	return &authDriver
 }
+
+func GetCurUser(c *gin.Context, key string) map[string]interface{} {
+	authDriver, _ := c.MustGet(key).(*Auth)
+	return (*authDriver).User(c).(map[string]interface{})
+}
+
+func User(c *gin.Context) map[string]interface{} {
+	return GetCurUser(c, "jwt_auth")
+}
