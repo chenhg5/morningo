@@ -25,14 +25,9 @@ Via moroingo installer or use docker
 ### Install
 
 ```
+go get github.com/chenhg5/morningo-installer
 cd $GOPATH/src
-
-wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer       # mac
-wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer-linus # linus
-wget https://gitee.com/cg33/morningo-installer/raw/master/morningo-installer.exe   # windows
-
-chmod +x morningo-installer
-./morningo-installer --project-name web
+$GOPATH/bin/morningo-installer --project-name web
 ```
 
 ### Load Dependency
