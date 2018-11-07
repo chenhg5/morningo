@@ -114,8 +114,7 @@ func CookieSetExample(c *gin.Context) {
 
 	id := c.Param("userid")
 
-	rs, con := db.Query("select name,avatar,id from users where id = ?", id)
-	defer con.Close() // 函数结束时关闭数据库连接
+	rs, _ := db.Query("select name,avatar,id from users where id = ?", id)
 
 	log.Printf("len(rs): %d", len(rs))
 	if len(rs) == 0 {
