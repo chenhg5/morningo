@@ -116,6 +116,9 @@ func (sql *Sql) Where(field string, operation string, arg interface{}) *Sql {
 }
 
 func (sql *Sql) WhereIn(field string, arg []interface{}) *Sql {
+	if len(arg) == 0 {
+		return sql
+	}
 	qmark := "("
 	for i := 0; i < len(arg); i++ {
 		qmark += "?, "
@@ -132,6 +135,9 @@ func (sql *Sql) WhereIn(field string, arg []interface{}) *Sql {
 }
 
 func (sql *Sql) WhereNotIn(field string, arg []interface{}) *Sql {
+	if len(arg) == 0 {
+		return sql
+	}
 	qmark := "("
 	for i := 0; i < len(arg); i++ {
 		qmark += "?, "
@@ -263,6 +269,30 @@ func (sql *Sql) Exec() (int64, error) {
 	}
 
 	return res.LastInsertId()
+}
+
+func (sql *Sql) Delete() error {
+	defer RecycleSql(sql)
+
+	sql.statement = "delete from " + sql.table + sql.getWheres()
+
+	if sql.tx != nil {
+		_, err := sql.tx.Exec(sql.statement, sql.args...)
+
+		if err != nil {
+			return err
+		}
+
+		return nil
+	}
+
+	res := db.Exec(sql.statement, sql.args...)
+
+	if affectRow, _ := res.RowsAffected(); affectRow < 1 {
+		return errors.New("no affect row")
+	}
+
+	return nil
 }
 
 func (sql *Sql) Insert(values H) (int64, error) {
