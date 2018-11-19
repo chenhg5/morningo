@@ -365,15 +365,31 @@ func (sql *Sql) getFields() string {
 	fields := ""
 	if len(sql.leftjoins) == 0 {
 		for _, field := range sql.fields {
-			fields += "`" + field + "`,"
+			fieldArr := strings.Split(field, " as")
+			if len(fieldArr) == 1 {
+				fields += "`" + field + "`,"
+			} else {
+				fields += "`" + fieldArr[0] + "` as" + fieldArr[1] + ","
+			}
 		}
 	} else {
 		for _, field := range sql.fields {
-			arr := strings.Split(field, ".")
-			if len(arr) > 1 {
-				fields += arr[0] + ".`" + arr[1] + "`,"
+
+			fieldArr := strings.Split(field, " as")
+			if len(fieldArr) == 1 {
+				arr := strings.Split(field, ".")
+				if len(arr) > 1 {
+					fields += arr[0] + ".`" + arr[1] + "`,"
+				} else {
+					fields += "`" + field + "`,"
+				}
 			} else {
-				fields += "`" + field + "`,"
+				arr := strings.Split(fieldArr[0], ".")
+				if len(arr) > 1 {
+					fields += arr[0] + ".`" + arr[1] + "` as" + fieldArr[1] + ","
+				} else {
+					fields += "`" + fieldArr[0] + "` as" + fieldArr[1] + ","
+				}
 			}
 		}
 	}
@@ -481,17 +497,17 @@ func (sql *Sql) log() {
 func RecycleSql(sql *Sql) {
 	sql.log()
 
-	sql.fields    = make([]string, 0)
-	sql.table     = ""
-	sql.wheres    = make([]Where, 0)
+	sql.fields = make([]string, 0)
+	sql.table = ""
+	sql.wheres = make([]Where, 0)
 	sql.leftjoins = make([]Join, 0)
-	sql.args      = make([]interface{}, 0)
-	sql.order     = ""
-	sql.offset    = ""
-	sql.limit     = ""
-	sql.whereRaw  = ""
+	sql.args = make([]interface{}, 0)
+	sql.order = ""
+	sql.offset = ""
+	sql.limit = ""
+	sql.whereRaw = ""
 	sql.updateRaw = make([]RawUpdate, 0)
-	sql.tx        = nil
+	sql.tx = nil
 	sql.statement = ""
 
 	SqlPool.Put(sql)
