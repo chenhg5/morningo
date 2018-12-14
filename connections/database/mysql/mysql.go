@@ -36,23 +36,21 @@ func init() {
 		}
 
 		// 设置数据库最大连接 减少timewait 正式环境调大
-		SqlDB.SetMaxIdleConns(config.GetEnv().MaxIdleConns) // 连接池连接数 = mysql最大连接数/2
-		SqlDB.SetMaxOpenConns(config.GetEnv().MaxOpenConns) // 最大打开连接 = mysql最大连接数
+		SqlDB.SetMaxIdleConns(config.GetEnv().MAXIDLECONNS) // 连接池连接数 = mysql最大连接数/2
+		SqlDB.SetMaxOpenConns(config.GetEnv().MAXOPENCONNS) // 最大打开连接 = mysql最大连接数
 	}
 
 	// 初始化其他连接
 
 	cons := config.GetCons()
 	for k, v := range cons {
-		tempSql, openErr := sql.Open("mysql", v.DATABASE_USERNAME+
-			":"+ v.DATABASE_PASSWORD+ "@tcp("+ v.DATABASE_IP+
-			":"+ v.DATABASE_PORT+ ")/"+ v.DATABASE_NAME+ "?charset=utf8mb4")
+		tempSql, openErr := sql.Open("mysql", v.FormatDSN())
 		if openErr != nil {
 			tempSql.Close()
 			panic(openErr.Error())
 		}
-		tempSql.SetMaxIdleConns(50)  // 连接池连接数 = mysql最大连接数/2
-		tempSql.SetMaxOpenConns(150) // 最大打开连接 = mysql最大连接数
+		tempSql.SetMaxIdleConns(v.MaxIdleConns) // 连接池连接数 = mysql最大连接数/2
+		tempSql.SetMaxOpenConns(v.MaxOpenConns) // 最大打开连接 = mysql最大连接数
 		sqlDBmap[k] = tempSql
 	}
 }

@@ -8,8 +8,8 @@ import "github.com/go-sql-driver/mysql"
 type Env struct {
 	DEBUG            bool
 	DATABASE         mysql.Config
-	MaxIdleConns     int
-	MaxOpenConns     int
+	MAXIDLECONNS     int
+	MAXOPENCONNS     int
 	SERVER_PORT      string
 	REDIS_IP         string
 	REDIS_PORT       string
@@ -43,8 +43,8 @@ var env = Env{
 		DBName:    "gin-template",
 		Collation: "utf8mb4",
 	},
-	MaxIdleConns: 50,
-	MaxOpenConns: 100,
+	MAXIDLECONNS: 50,
+	MAXOPENCONNS: 100,
 
 	REDIS_IP:       "127.0.0.1",
 	REDIS_PORT:     "6379",

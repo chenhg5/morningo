@@ -1,14 +1,14 @@
 package config
 
-type Connections struct {
-	DATABASE_IP       string
-	DATABASE_PORT     string
-	DATABASE_USERNAME string
-	DATABASE_PASSWORD string
-	DATABASE_NAME     string
+import "github.com/go-sql-driver/mysql"
+
+type Connection struct {
+	mysql.Config
+	MaxIdleConns int
+	MaxOpenConns int
 }
 
-func GetCons() map[string]*Connections {
+func GetCons() map[string]Connection {
 
 	//return map[string]*Connections{
 	//	"official_account": &Connections{
@@ -20,5 +20,5 @@ func GetCons() map[string]*Connections {
 	//	},
 	//}
 
-	return map[string]*Connections{}
+	return map[string]Connection{}
 }
