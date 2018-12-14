@@ -37,11 +37,13 @@ var env = Env{
 	SERVER_PORT: "4000",
 
 	DATABASE: mysql.Config{
-		User:      "root",
-		Passwd:    "root",
-		Addr:      "127.0.0.1:3306",
-		DBName:    "gin-template",
-		Collation: "utf8mb4",
+		User:                 "root",
+		Passwd:               "root",
+		Addr:                 "127.0.0.1:3306",
+		DBName:               "gin-template",
+		Collation:            "utf8mb4",
+		Net:                  "tcp",
+		AllowNativePasswords: true,
 	},
 	MAXIDLECONNS: 50,
 	MAXOPENCONNS: 100,
