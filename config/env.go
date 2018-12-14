@@ -34,7 +34,7 @@ type Env struct {
 var env = Env{
 	DEBUG: true,
 
-	SERVER_PORT:       "4000",
+	SERVER_PORT: "4000",
 
 	DATABASE: mysql.Config{
 		User:      "root",
@@ -43,8 +43,8 @@ var env = Env{
 		DBName:    "gin-template",
 		Collation: "utf8mb4",
 	},
-	MaxIdleConns:   50,
-	MaxOpenConns:   100,
+	MaxIdleConns: 50,
+	MaxOpenConns: 100,
 
 	REDIS_IP:       "127.0.0.1",
 	REDIS_PORT:     "6379",
