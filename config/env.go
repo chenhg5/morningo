@@ -1,23 +1,23 @@
 package config
 
+import "github.com/go-sql-driver/mysql"
+
 // 环境配置文件
 // 可配置多个环境配置，进行切换
 
 type Env struct {
-	DEBUG             bool
-	DATABASE_IP       string
-	DATABASE_PORT     string
-	DATABASE_USERNAME string
-	DATABASE_PASSWORD string
-	DATABASE_NAME     string
-	SERVER_PORT       string
-	REDIS_IP          string
-	REDIS_PORT        string
-	REDIS_PASSWORD    string
-	REDIS_DB          int
-	REDIS_SESSION_DB  int
-	REDIS_CACHE_DB    int
-	APP_SECRET        string
+	DEBUG            bool
+	DATABASE         mysql.Config
+	MaxIdleConns     int
+	MaxOpenConns     int
+	SERVER_PORT      string
+	REDIS_IP         string
+	REDIS_PORT       string
+	REDIS_PASSWORD   string
+	REDIS_DB         int
+	REDIS_SESSION_DB int
+	REDIS_CACHE_DB   int
+	APP_SECRET       string
 
 	ACCESS_LOG      bool
 	ACCESS_LOG_PATH string
@@ -35,11 +35,16 @@ var env = Env{
 	DEBUG: true,
 
 	SERVER_PORT:       "4000",
-	DATABASE_IP:       "127.0.0.1",
-	DATABASE_PORT:     "3306",
-	DATABASE_USERNAME: "root",
-	DATABASE_PASSWORD: "root",
-	DATABASE_NAME:     "gin-template",
+
+	DATABASE: mysql.Config{
+		User:      "root",
+		Passwd:    "root",
+		Addr:      "127.0.0.1:3306",
+		DBName:    "gin-template",
+		Collation: "utf8mb4",
+	},
+	MaxIdleConns:   50,
+	MaxOpenConns:   100,
 
 	REDIS_IP:       "127.0.0.1",
 	REDIS_PORT:     "6379",

@@ -24,9 +24,7 @@ func init() {
 	// 初始化默认连接
 
 	var err error
-	SqlDB, err = sql.Open("mysql", config.GetEnv().DATABASE_USERNAME+
-		":"+ config.GetEnv().DATABASE_PASSWORD+ "@tcp("+ config.GetEnv().DATABASE_IP+
-		":"+ config.GetEnv().DATABASE_PORT+ ")/"+ config.GetEnv().DATABASE_NAME+ "?charset=utf8mb4")
+	SqlDB, err = sql.Open("mysql", config.GetEnv().DATABASE.FormatDSN())
 
 	if err != nil {
 		SqlDB.Close()
@@ -38,8 +36,8 @@ func init() {
 		}
 
 		// 设置数据库最大连接 减少timewait 正式环境调大
-		SqlDB.SetMaxIdleConns(50)  // 连接池连接数 = mysql最大连接数/2
-		SqlDB.SetMaxOpenConns(150) // 最大打开连接 = mysql最大连接数
+		SqlDB.SetMaxIdleConns(config.GetEnv().MaxIdleConns) // 连接池连接数 = mysql最大连接数/2
+		SqlDB.SetMaxOpenConns(config.GetEnv().MaxOpenConns) // 最大打开连接 = mysql最大连接数
 	}
 
 	// 初始化其他连接
