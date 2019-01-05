@@ -1,6 +1,5 @@
 .idea
 pro_binary
-config/env.go
 vendor/**
 !vendor/vendor.json
 storage
