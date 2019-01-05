@@ -54,7 +54,10 @@ type E struct {
 type M map[string]interface{}
 
 func init() {
+	InitAllLogger()
+}
 
+func InitAllLogger()  {
 	// init access.log
 	if config.GetEnv().ACCESS_LOG {
 		gin.DefaultWriter = InitLogger(config.GetEnv().ACCESS_LOG_PATH)
