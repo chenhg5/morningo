@@ -61,7 +61,7 @@ make
 
 生成可执行文件
 ```
-make build # linus用户
+make build # Linux用户
 make cross # mac/windows用户
 ```
 将```build```下文件上传到生产环境服务器，并设置好日志文件路径以及静态文件路径，然后直接运行即可。如端口不为80端口或有多个域名，可以配置nginx代理，或者采用反向代理中间件[gin-reverseproxy](https://github.com/chenhg5/gin-reverseproxy), 关于代理的使用，```routers.go```中有示例。运行的同时会在文件夹下生成```pid```文件，每次更新完文件后执行如下命令即可平滑热更。
