@@ -42,6 +42,12 @@ func DBexample(c *gin.Context) {
 	rs, _ := db.Query("select name,avatar,id from users where id < ?", 100)
 	fmt.Println(rs[0]["name"])
 
+	rs1, _ := database.Table("users").
+		Select("name", "avatar", "id").
+		Where("id", "<", 100).
+		All()
+	fmt.Println(rs1[0])
+
 	// 数据库事务
 	db.WithTransaction(func(tx *db.SqlTxStruct) (error, map[string]interface{}) {
 		_, err := tx.Query("select name,avatar,id from users where id < ?", 100)
