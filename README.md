@@ -60,7 +60,7 @@ visit by browser: http://localhost:4000/api/index
 
 First build the executable file
 ```
-make build # for linus
+make build # for Linux
 make cross # for mac/windows
 ```
 Then put files of the ```build``` in your server and set the path of log and static file(html/css/js),and run the executable file.If 80 port is not allowed to use,consider the nginx proxy,or use the gin middleware [gin-reverseproxy](https://github.com/chenhg5/gin-reverseproxy) instead, which has some example in ```routers.go```. When the project start running, it will generate the ```pid```file in the root path of the project. Excute the following command to update your project. 
