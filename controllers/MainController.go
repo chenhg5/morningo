@@ -26,7 +26,7 @@ func IndexApi(c *gin.Context) {
 func DBexample(c *gin.Context) {
 
 	// 数据库插入
-	insertRs := db.Exec("insert into users (name, avatar, sex) values (?, ?, ?)", "人才", "unknown", 1)
+	insertRs, _ := db.Exec("insert into users (name, avatar, sex) values (?, ?, ?)", "人才", "unknown", 1)
 	insertId, _ := insertRs.LastInsertId()
 	fmt.Printf("insert id: %d\n", insertId)
 
@@ -39,7 +39,7 @@ func DBexample(c *gin.Context) {
 	})
 
 	// 数据库查询
-	rs, _ := db.Query("select name,avatar,id from users where id < ?", 100)
+	rs := db.Query("select name,avatar,id from users where id < ?", 100)
 	fmt.Println(rs[0]["name"])
 
 	rs1, _ := database.Table("users").
@@ -120,7 +120,7 @@ func CookieSetExample(c *gin.Context) {
 
 	id := c.Param("userid")
 
-	rs, _ := db.Query("select name,avatar,id from users where id = ?", id)
+	rs := db.Query("select name,avatar,id from users where id = ?", id)
 
 	log.Printf("len(rs): %d", len(rs))
 	if len(rs) == 0 {
@@ -145,8 +145,7 @@ func CookieGetExample(c *gin.Context) {
 	id, _ := userInfo["id"].(string)
 	log.Println("id: " + id)
 
-	rs, con := db.Query("select name,avatar,id from users where id = ?", id)
-	defer con.Close() // 函数结束时关闭数据库连接
+	rs := db.Query("select name,avatar,id from users where id = ?", id)
 
 	// 返回html
 	c.JSON(http.StatusOK, gin.H{

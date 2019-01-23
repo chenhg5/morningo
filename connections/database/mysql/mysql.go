@@ -110,7 +110,7 @@ func QueryWithConnection(con string, query string, args ...interface{}) ([]map[s
 	return results, rs
 }
 
-func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Rows) {
+func Query(query string, args ...interface{}) []map[string]interface{} {
 
 	rs, err := sqlDBmap["default"].Query(query, args...)
 
@@ -162,16 +162,21 @@ func Query(query string, args ...interface{}) ([]map[string]interface{}, *sql.Ro
 		panic(err)
 	}
 	rs.Close()
-	return results, rs
+	return results
 }
 
-func Exec(query string, args ...interface{}) sql.Result {
+func Exec(query string, args ...interface{}) (sql.Result, error) {
 
 	rs, err := sqlDBmap["default"].Exec(query, args...)
 	if err != nil {
-		panic(err.Error())
+		return nil, err
 	}
-	return rs
+
+	if rows, execError := rs.RowsAffected(); execError != nil || rows == 0 {
+		return nil, errors.New("exec fail")
+	}
+
+	return rs, nil
 }
 
 func BeginTransactionsWithReadUncommitted() *SqlTxStruct {
@@ -203,17 +208,19 @@ func BeginTransactionsWithLevel(level sql.IsolationLevel) *SqlTxStruct {
 	return SqlTx
 }
 
-func (SqlTx *SqlTxStruct) Exec(query string, args ...interface{}) (sql.Result, error) {
+func (SqlTx *SqlTxStruct) Exec(query string, args ...interface{}) (sql.Result, int64) {
 	rs, err := SqlTx.Tx.Exec(query, args...)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
-	if rows, execError := rs.RowsAffected(); execError != nil || rows == 0 {
-		return nil, errors.New("exec fail")
+	rows, execError := rs.RowsAffected()
+
+	if execError != nil {
+		panic(execError)
 	}
 
-	return rs, nil
+	return rs, rows
 }
 
 func (SqlTx *SqlTxStruct) Query(query string, args ...interface{}) ([]map[string]interface{}, error) {
