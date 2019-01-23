@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 	"morningo/config"
-	"morningo/module/logger"
+	"morningo/modules/logger"
 	"sync"
 )
 
@@ -204,7 +204,7 @@ func (sql *Sql) First() (map[string]interface{}, error) {
 	sql.statement = "select " + sql.getFields() + " from " + sql.table + sql.getJoins() + sql.getWheres() +
 		sql.getOrderBy() + sql.getLimit() + sql.getOffset()
 
-	res, _ := db.Query(sql.statement, sql.args...)
+	res := db.Query(sql.statement, sql.args...)
 
 	if len(res) < 1 {
 		return nil, errors.New("out of index")
@@ -218,7 +218,7 @@ func (sql *Sql) All() ([]map[string]interface{}, error) {
 	sql.statement = "select " + sql.getFields() + " from " + sql.table + sql.getJoins() + sql.getWheres() +
 		sql.getOrderBy() + sql.getLimit() + sql.getOffset()
 
-	res, _ := db.Query(sql.statement, sql.args...)
+	res := db.Query(sql.statement, sql.args...)
 
 	return res, nil
 }
@@ -229,18 +229,18 @@ func (sql *Sql) Update(values H) (int64, error) {
 	sql.prepareUpdate(values)
 
 	if sql.tx != nil {
-		res, err := sql.tx.Exec(sql.statement, sql.args...)
+		res, rows := sql.tx.Exec(sql.statement, sql.args...)
 
-		if err != nil {
-			return 0, err
+		if rows == 0 {
+			return 0, errors.New("no affect row")
 		}
 
 		return res.LastInsertId()
 	}
 
-	res := db.Exec(sql.statement, sql.args...)
+	res, rows := db.Exec(sql.statement, sql.args...)
 
-	if affectRow, _ := res.RowsAffected(); affectRow < 1 {
+	if rows == 0 {
 		return 0, errors.New("no affect row")
 	}
 
@@ -253,18 +253,18 @@ func (sql *Sql) Exec() (int64, error) {
 	sql.prepareUpdate(H{})
 
 	if sql.tx != nil {
-		res, err := sql.tx.Exec(sql.statement, sql.args...)
+		res, rows := sql.tx.Exec(sql.statement, sql.args...)
 
-		if err != nil {
-			return 0, err
+		if rows == 0 {
+			return 0, errors.New("no affect row")
 		}
 
 		return res.LastInsertId()
 	}
 
-	res := db.Exec(sql.statement, sql.args...)
+	res, rows := db.Exec(sql.statement, sql.args...)
 
-	if affectRow, _ := res.RowsAffected(); affectRow < 1 {
+	if rows == 0 {
 		return 0, errors.New("no affect row")
 	}
 
@@ -277,18 +277,18 @@ func (sql *Sql) Delete() error {
 	sql.statement = "delete from " + sql.table + sql.getWheres()
 
 	if sql.tx != nil {
-		_, err := sql.tx.Exec(sql.statement, sql.args...)
+		_, rows := sql.tx.Exec(sql.statement, sql.args...)
 
-		if err != nil {
-			return err
+		if rows == 0 {
+			return errors.New("no affect row")
 		}
 
 		return nil
 	}
 
-	res := db.Exec(sql.statement, sql.args...)
+	_, rows := db.Exec(sql.statement, sql.args...)
 
-	if affectRow, _ := res.RowsAffected(); affectRow < 1 {
+	if rows == 0 {
 		return errors.New("no affect row")
 	}
 
@@ -301,18 +301,18 @@ func (sql *Sql) Insert(values H) (int64, error) {
 	sql.prepareInsert(values)
 
 	if sql.tx != nil {
-		res, err := sql.tx.Exec(sql.statement, sql.args...)
+		res, rows := sql.tx.Exec(sql.statement, sql.args...)
 
-		if err != nil {
+		if rows == 0 {
 			return 0, errors.New("no affect row")
 		}
 
 		return res.LastInsertId()
 	}
 
-	res := db.Exec(sql.statement, sql.args...)
+	res, rows := db.Exec(sql.statement, sql.args...)
 
-	if affectRow, _ := res.RowsAffected(); affectRow < 1 {
+	if rows == 0 {
 		return 0, errors.New("no affect row")
 	}
 

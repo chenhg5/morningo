@@ -14,7 +14,7 @@ var env = Env{
 		Passwd:               "root",
 		Addr:                 "127.0.0.1:3306",
 		DBName:               "gin-template",
-		Collation:            "utf8mb4",
+		Collation:            "utf8mb4_unicode_ci",
 		Net:                  "tcp",
 		AllowNativePasswords: true,
 	},

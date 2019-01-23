@@ -2,11 +2,11 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	_ "morningo/module/logger" // 日志
-	// _ "morningo/module/schedule" // 定时任务
+	_ "morningo/modules/logger" // 日志
+	// _ "morningo/modules/schedule" // 定时任务
 	"runtime"
 	"morningo/config"
-	"morningo/module/server"
+	"morningo/modules/server"
 )
 
 func main() {

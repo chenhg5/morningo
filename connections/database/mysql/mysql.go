@@ -5,7 +5,6 @@ import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"morningo/config"
-	"errors"
 	"strconv"
 )
 
@@ -165,18 +164,20 @@ func Query(query string, args ...interface{}) []map[string]interface{} {
 	return results
 }
 
-func Exec(query string, args ...interface{}) (sql.Result, error) {
+func Exec(query string, args ...interface{}) (sql.Result, int64) {
 
 	rs, err := sqlDBmap["default"].Exec(query, args...)
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
-	if rows, execError := rs.RowsAffected(); execError != nil || rows == 0 {
-		return nil, errors.New("exec fail")
+	rows, execError := rs.RowsAffected()
+
+	if execError != nil {
+		panic(execError)
 	}
 
-	return rs, nil
+	return rs, rows
 }
 
 func BeginTransactionsWithReadUncommitted() *SqlTxStruct {

@@ -6,7 +6,7 @@ import (
 	"time"
 	"os"
 	"morningo/config"
-	"morningo/module/logger"
+	"morningo/modules/logger"
 )
 
 func init() {
