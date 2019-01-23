@@ -1,9 +1,9 @@
 package drivers
 
 import (
-	"encoding/json" // TODO: encoding/json运用了反射，略慢，需要考虑改进为：
+	"encoding/json"
 	"fmt"
-	jwt_lib "github.com/dgrijalva/jwt-go"
+	jwtLib "github.com/dgrijalva/jwt-go"
 	"github.com/dgrijalva/jwt-go/request"
 	"log"
 	"morningo/config"
@@ -34,9 +34,9 @@ func (jwtAuth *jwtAuthManager) Check(c *gin.Context) bool {
 	if token == "" {
 		return false
 	}
-	var keyFun jwt_lib.Keyfunc
-	keyFun = func(token *jwt_lib.Token) (interface{}, error) {
-		b := ([]byte(jwtAuth.secret))
+	var keyFun jwtLib.Keyfunc
+	keyFun = func(token *jwtLib.Token) (interface{}, error) {
+		b := []byte(jwtAuth.secret)
 		return b, nil
 	}
 	authJwtToken, err := request.ParseFromRequest(c.Request, request.OAuth2Extractor, keyFun)
@@ -57,7 +57,7 @@ func (jwtAuth *jwtAuthManager) Check(c *gin.Context) bool {
 // contains the user ID. The token string must start with "Bearer "
 func (jwtAuth *jwtAuthManager) User(c *gin.Context) interface{} {
 
-	var jwtToken *jwt_lib.Token
+	var jwtToken *jwtLib.Token
 	if jwtUser, exist := c.Get("User"); !exist {
 		tokenStr := c.Request.Header.Get("Authorization")
 		tokenStr = strings.Replace(tokenStr, "Bearer ", "", -1)
@@ -65,8 +65,8 @@ func (jwtAuth *jwtAuthManager) User(c *gin.Context) interface{} {
 			return map[interface{}]interface{}{}
 		}
 		var err error
-		jwtToken, err = jwt_lib.Parse(tokenStr, func(token *jwt_lib.Token) (interface{}, error) {
-			b := ([]byte(jwtAuth.secret))
+		jwtToken, err = jwtLib.Parse(tokenStr, func(token *jwtLib.Token) (interface{}, error) {
+			b := []byte(jwtAuth.secret)
 			return b, nil
 		})
 		if err != nil {
@@ -74,10 +74,10 @@ func (jwtAuth *jwtAuthManager) User(c *gin.Context) interface{} {
 			return map[interface{}]interface{}{}
 		}
 	} else {
-		jwtToken = jwtUser.(map[string]interface{})["token"].(*jwt_lib.Token)
+		jwtToken = jwtUser.(map[string]interface{})["token"].(*jwtLib.Token)
 	}
 
-	if claims, ok := jwtToken.Claims.(jwt_lib.MapClaims); ok && jwtToken.Valid {
+	if claims, ok := jwtToken.Claims.(jwtLib.MapClaims); ok && jwtToken.Valid {
 		var user map[string]interface{}
 		if err := json.Unmarshal([]byte(claims["user"].(string)), &user); err != nil {
 			fmt.Println(err)
@@ -96,11 +96,11 @@ func (jwtAuth *jwtAuthManager) User(c *gin.Context) interface{} {
 
 func (jwtAuth *jwtAuthManager) Login(http *http.Request, w http.ResponseWriter, user map[string]interface{}) interface{} {
 
-	token := jwt_lib.New(jwt_lib.GetSigningMethod(jwtAuth.alg))
+	token := jwtLib.New(jwtLib.GetSigningMethod(jwtAuth.alg))
 	// Set some claims
 	userStr, err := json.Marshal(user)
 	log.Println(string(userStr))
-	token.Claims = jwt_lib.MapClaims{
+	token.Claims = jwtLib.MapClaims{
 		"user": string(userStr),
 		"exp":  time.Now().Add(jwtAuth.exp).Unix(),
 	}
