@@ -53,6 +53,8 @@ func (logger DefaultLogger) Log(i ...interface{}) error {
 	return err
 }
 
+// TODO: 将一下方法改为构造成三种logger
+
 type E struct {
 	Function string
 	Error    error
