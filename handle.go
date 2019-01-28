@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"github.com/go-sql-driver/mysql"
-	"morningo/modules/logger"
+	"morningo/modules/log"
 )
 
 func handleErrors() gin.HandlerFunc {
@@ -12,7 +12,7 @@ func handleErrors() gin.HandlerFunc {
 		defer func() {
 			if err := recover(); err != nil {
 
-				logger.Error(err)
+				log.Error(err)
 
 				var (
 					errMsg string

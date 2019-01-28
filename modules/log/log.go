@@ -1,4 +1,4 @@
-package logger
+package log
 
 import (
 	"os"
@@ -41,6 +41,17 @@ const (
 	LeveL_ERROR   = "error"
 	LeveL_SERIOUS = "serious"
 )
+
+type Logger interface {
+	Log(i ...interface{}) error
+}
+
+type DefaultLogger struct {}
+
+func (logger DefaultLogger) Log(i ...interface{}) error {
+	_, err := fmt.Println(i...)
+	return err
+}
 
 type E struct {
 	Function string

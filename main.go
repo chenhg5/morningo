@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	_ "morningo/modules/logger" // 日志
+	_ "morningo/modules/log" // 日志
 	// _ "morningo/modules/schedule" // 定时任务
 	"runtime"
 	"morningo/config"

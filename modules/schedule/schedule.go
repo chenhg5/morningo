@@ -6,7 +6,7 @@ import (
 	"time"
 	"os"
 	"morningo/config"
-	"morningo/modules/logger"
+	"morningo/modules/log"
 )
 
 func init() {
@@ -17,7 +17,7 @@ func init() {
 		cutLog(config.GetEnv().ACCESS_LOG_PATH)
 		cutLog(config.GetEnv().INFO_LOG_PATH)
 		cutLog(config.GetEnv().ERROR_LOG_PATH)
-		logger.InitAllLogger()
+		log.InitAllLogger()
 	})
 
 	c.AddFunc("0 30 * * * *", func() { fmt.Println("Every hour on the half hour") })

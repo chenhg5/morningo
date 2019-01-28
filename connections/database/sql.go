@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 	"morningo/config"
-	"morningo/modules/logger"
+	"morningo/modules/log"
 	"sync"
 )
 
@@ -485,8 +485,8 @@ func (sql *Sql) empty() *Sql {
 
 func (sql *Sql) log() {
 	if config.GetEnv().SQL_LOG {
-		logger.Info(logger.E{
-			Info: logger.M{
+		log.Info(log.E{
+			Info: log.M{
 				"statement": sql.statement,
 				"args":      sql.args,
 			},
