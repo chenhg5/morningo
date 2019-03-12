@@ -42,21 +42,6 @@ const (
 	LeveL_SERIOUS = "serious"
 )
 
-type Logger interface {
-	Info(i ...interface{}) error
-}
-
-type DefaultLogger struct {
-	Fields E
-}
-
-func (logger DefaultLogger) Info(i ...interface{}) error {
-	_, err := fmt.Println(i...)
-	return err
-}
-
-// TODO: 将一下方法改为构造成三种logger
-
 type E struct {
 	Function string
 	Error    error
