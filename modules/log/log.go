@@ -15,7 +15,7 @@ import (
 // Logger
 // ---------------------------------------------------------------
 //
-// there is three kinds of logger：
+// there are three kinds of logger：
 //
 // 1） access logger
 //     log every request visited which used to counts the ip
@@ -43,12 +43,14 @@ const (
 )
 
 type Logger interface {
-	Log(i ...interface{}) error
+	Info(i ...interface{}) error
 }
 
-type DefaultLogger struct {}
+type DefaultLogger struct {
+	Fields E
+}
 
-func (logger DefaultLogger) Log(i ...interface{}) error {
+func (logger DefaultLogger) Info(i ...interface{}) error {
 	_, err := fmt.Println(i...)
 	return err
 }
@@ -70,7 +72,7 @@ func init() {
 	InitAllLogger()
 }
 
-func InitAllLogger()  {
+func InitAllLogger() {
 	// init access.log
 	if config.GetEnv().ACCESS_LOG {
 		gin.DefaultWriter = InitLogger(config.GetEnv().ACCESS_LOG_PATH)
