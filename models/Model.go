@@ -10,7 +10,7 @@ var Model *gorm.DB
 
 func init() {
 	var err error
-	fmt.Println(config.GetEnv().DATABASE.FormatDSN())
+	log.Println(config.GetEnv().DATABASE.FormatDSN())
 	Model, err = gorm.Open("mysql", config.GetEnv().DATABASE.FormatDSN())
 
 	if err != nil {

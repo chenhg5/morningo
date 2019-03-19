@@ -129,3 +129,15 @@ func Info(info E) {
 		fmt.Fprintf(InfoWriter, "\n")
 	}
 }
+
+func Println(a ...interface{}) {
+	if config.GetEnv().DEBUG {
+		log.Println(a...)
+	}
+}
+
+func Printf(format string, a ...interface{}) {
+	if config.GetEnv().DEBUG {
+		log.Printf(format, a...)
+	}
+}

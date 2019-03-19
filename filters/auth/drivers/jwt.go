@@ -46,7 +46,7 @@ func (jwtAuth *jwtAuthManager) Check(c *gin.Context) bool {
 
 	if err != nil {
 		jwtAuth.logger.Log(err)
-		fmt.Println(err)
+		log.Println(err)
 		return false
 	}
 

@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	fmt.Println("\nGood Morning☀️ ☀️")
+	log.Println("\nGood Morning☀️ ☀️")
 }

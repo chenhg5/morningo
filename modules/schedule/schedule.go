@@ -20,10 +20,10 @@ func init() {
 		log.InitAllLogger()
 	})
 
-	c.AddFunc("0 30 * * * *", func() { fmt.Println("Every hour on the half hour") })
-	c.AddFunc("@hourly", func() { fmt.Println("Every hour") })
-	c.AddFunc("@every 1h30m", func() { fmt.Println("Every hour thirty") })
-	c.AddFunc("@every 5s", func() { fmt.Println("Every five seconds") })
+	c.AddFunc("0 30 * * * *", func() { log.Println("Every hour on the half hour") })
+	c.AddFunc("@hourly", func() { log.Println("Every hour") })
+	c.AddFunc("@every 1h30m", func() { log.Println("Every hour thirty") })
+	c.AddFunc("@every 5s", func() { log.Println("Every five seconds") })
 	c.Start()
 }
 
@@ -31,8 +31,8 @@ func cutLog(path string) {
 	date := time.Now().Format("20060102")
 	err := os.Rename(path, path+"."+date+".log")
 	if err != nil {
-		fmt.Println(path + " rename Error!")
+		log.Println(path + " rename Error!")
 	} else {
-		fmt.Println(path + " rename OK!")
+		log.Println(path + " rename OK!")
 	}
 }

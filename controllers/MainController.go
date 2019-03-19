@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"github.com/gin-contrib/cache"
 	"github.com/gin-contrib/cache/persistence"
 	"github.com/gin-gonic/contrib/sessions"
@@ -28,7 +27,7 @@ func DBexample(c *gin.Context) {
 	// 数据库插入
 	insertRs, _ := db.Exec("insert into users (name, avatar, sex) values (?, ?, ?)", "人才", "unknown", 1)
 	insertId, _ := insertRs.LastInsertId()
-	fmt.Printf("insert id: %d\n", insertId)
+	log.Printf("insert id: %d\n", insertId)
 
 	// 数据库更新
 	db.Exec("update users set name = ? where id = ?", "饭桶", insertId)
@@ -40,13 +39,13 @@ func DBexample(c *gin.Context) {
 
 	// 数据库查询
 	rs := db.Query("select name,avatar,id from users where id < ?", 100)
-	fmt.Println(rs[0]["name"])
+	log.Println(rs[0]["name"])
 
 	rs1, _ := database.Table("users").
 		Select("name", "avatar", "id").
 		Where("id", "<", 100).
 		All()
-	fmt.Println(rs1[0])
+	log.Println(rs1[0])
 
 	// 数据库事务
 	db.WithTransaction(func(tx *db.SqlTxStruct) (error, map[string]interface{}) {
@@ -73,7 +72,7 @@ func StoreExample(c *gin.Context) {
 	session.Set("key", "value") // 0表示不过期
 
 	str := session.Get("key")
-	fmt.Printf("session key: %s", str)
+	log.Printf("session key: %s", str)
 
 	// cache存储
 	cacheStore, _ := c.MustGet(cache.CACHE_MIDDLEWARE_KEY).(*persistence.CacheStore)
@@ -97,7 +96,7 @@ func OrmExample(c *gin.Context) {
 	// Read
 	var user m.User
 	m.Model.First(&user, 1) // find user with id 1
-	//fmt.Printf("user model insert %d\n", user.Model.ID)
+	//log.Printf("user model insert %d\n", user.Model.ID)
 	// m.Model.First(&user, "name = ?", "L1212") // find user with name l1212
 
 	// Update
