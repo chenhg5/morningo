@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"morningo/modules/log"
 )
 
 func main() {

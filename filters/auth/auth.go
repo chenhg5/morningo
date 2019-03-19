@@ -4,7 +4,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"morningo/filters/auth/drivers"
-	"morningo/modules/log"
 )
 
 var driverList = map[string]func() Auth{
@@ -21,7 +20,6 @@ type Auth interface {
 	User(c *gin.Context) interface{}
 	Login(http *http.Request, w http.ResponseWriter, user map[string]interface{}) interface{}
 	Logout(http *http.Request, w http.ResponseWriter) bool
-	SetLogger(log log.Logger)
 }
 
 func RegisterGlobalAuthDriver(authKey string, key string) gin.HandlerFunc {

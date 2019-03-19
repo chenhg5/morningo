@@ -5,20 +5,17 @@ import (
 	"morningo/config"
 	"net/http"
 	"github.com/gin-gonic/gin"
-	"morningo/modules/log"
 )
 
 var store = sessions.NewCookieStore([]byte(config.GetEnv().APP_SECRET))
 
 type cookieAuthManager struct {
 	name   string
-	logger log.Logger
 }
 
 func NewCookieAuthDriver() *cookieAuthManager {
 	return &cookieAuthManager{
 		name:   config.GetCookieConfig().NAME,
-		logger: log.DefaultLogger{},
 	}
 }
 
@@ -69,8 +66,4 @@ func (cookie *cookieAuthManager) Logout(http *http.Request, w http.ResponseWrite
 	session.Values["id"] = nil
 	session.Save(http, w)
 	return true
-}
-
-func (cookie *cookieAuthManager) SetLogger(log log.Logger) {
-	cookie.logger = log
 }

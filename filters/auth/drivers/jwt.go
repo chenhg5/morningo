@@ -2,7 +2,7 @@ package drivers
 
 import (
 	"encoding/json"
-	"fmt"
+	"morningo/modules/log"
 	jwtLib "github.com/dgrijalva/jwt-go"
 	"github.com/dgrijalva/jwt-go/request"
 	"morningo/config"
@@ -11,14 +11,12 @@ import (
 	"time"
 	"github.com/gin-gonic/gin"
 	"errors"
-	"morningo/modules/log"
 )
 
 type jwtAuthManager struct {
 	secret string
 	exp    time.Duration
 	alg    string
-	logger log.Logger
 }
 
 func NewJwtAuthDriver() *jwtAuthManager {
@@ -26,7 +24,6 @@ func NewJwtAuthDriver() *jwtAuthManager {
 		secret: config.GetJwtConfig().SECRET,
 		exp:    config.GetJwtConfig().EXP,
 		alg:    config.GetJwtConfig().ALG,
-		logger: log.DefaultLogger{},
 	}
 }
 
@@ -45,7 +42,6 @@ func (jwtAuth *jwtAuthManager) Check(c *gin.Context) bool {
 	authJwtToken, err := request.ParseFromRequest(c.Request, request.OAuth2Extractor, keyFun)
 
 	if err != nil {
-		jwtAuth.logger.Log(err)
 		log.Println(err)
 		return false
 	}
@@ -115,8 +111,4 @@ func (jwtAuth *jwtAuthManager) Login(http *http.Request, w http.ResponseWriter, 
 func (jwtAuth *jwtAuthManager) Logout(http *http.Request, w http.ResponseWriter) bool {
 	// TODO: implement
 	return true
-}
-
-func (jwtAuth *jwtAuthManager) SetLogger(log log.Logger) {
-	jwtAuth.logger = log
 }

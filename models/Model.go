@@ -3,7 +3,7 @@ package models
 import (
 	"github.com/jinzhu/gorm"
 	"morningo/config"
-	"fmt"
+	"morningo/modules/log"
 )
 
 var Model *gorm.DB
