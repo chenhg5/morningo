@@ -132,12 +132,12 @@ func Info(info E) {
 
 func Println(a ...interface{}) {
 	if config.GetEnv().DEBUG {
-		log.Println(a...)
+		fmt.Println(a...)
 	}
 }
 
 func Printf(format string, a ...interface{}) {
 	if config.GetEnv().DEBUG {
-		log.Printf(format, a...)
+		fmt.Printf(format, a...)
 	}
 }
