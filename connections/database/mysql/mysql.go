@@ -54,7 +54,7 @@ func init() {
 	}
 }
 
-func QueryWithConnection(con string, query string, args ...interface{}) ([]map[string]interface{}, *sql.Rows) {
+func QueryWithConnection(con string, query string, args ...interface{}) []map[string]interface{} {
 
 	rs, err := sqlDBmap[con].Query(query, args...)
 
@@ -65,20 +65,16 @@ func QueryWithConnection(con string, query string, args ...interface{}) ([]map[s
 		panic(err)
 	}
 
+	defer rs.Close()
+
 	col, colErr := rs.Columns()
 
 	if colErr != nil {
-		if rs != nil {
-			rs.Close()
-		}
 		panic(colErr)
 	}
 
 	typeVal, err := rs.ColumnTypes()
 	if err != nil {
-		if rs != nil {
-			rs.Close()
-		}
 		panic(err)
 	}
 
@@ -100,13 +96,10 @@ func QueryWithConnection(con string, query string, args ...interface{}) ([]map[s
 		results = append(results, result)
 	}
 	if err := rs.Err(); err != nil {
-		if rs != nil {
-			rs.Close()
-		}
 		panic(err)
 	}
 	rs.Close()
-	return results, rs
+	return results
 }
 
 func Query(query string, args ...interface{}) []map[string]interface{} {
@@ -120,20 +113,16 @@ func Query(query string, args ...interface{}) []map[string]interface{} {
 		panic(err)
 	}
 
+	defer rs.Close()
+
 	col, colErr := rs.Columns()
 
 	if colErr != nil {
-		if rs != nil {
-			rs.Close()
-		}
 		panic(colErr)
 	}
 
 	typeVal, err := rs.ColumnTypes()
 	if err != nil {
-		if rs != nil {
-			rs.Close()
-		}
 		panic(err)
 	}
 
@@ -155,9 +144,6 @@ func Query(query string, args ...interface{}) []map[string]interface{} {
 		results = append(results, result)
 	}
 	if err := rs.Err(); err != nil {
-		if rs != nil {
-			rs.Close()
-		}
 		panic(err)
 	}
 	rs.Close()
@@ -231,16 +217,16 @@ func (SqlTx *SqlTxStruct) Query(query string, args ...interface{}) ([]map[string
 		return nil, err
 	}
 
+	defer rs.Close()
+
 	col, colErr := rs.Columns()
 
 	if colErr != nil {
-		rs.Close()
 		panic(colErr)
 	}
 
 	typeVal, err := rs.ColumnTypes()
 	if err != nil {
-		rs.Close()
 		panic(err)
 	}
 
@@ -253,7 +239,6 @@ func (SqlTx *SqlTxStruct) Query(query string, args ...interface{}) ([]map[string
 		}
 		result := make(map[string]interface{})
 		if scanErr := rs.Scan(colVar...); scanErr != nil {
-			rs.Close()
 			panic(scanErr)
 		}
 		for j := 0; j < len(col); j++ {
@@ -262,7 +247,6 @@ func (SqlTx *SqlTxStruct) Query(query string, args ...interface{}) ([]map[string
 		results = append(results, result)
 	}
 	if err := rs.Err(); err != nil {
-		rs.Close()
 		panic(err)
 	}
 	return results, nil
