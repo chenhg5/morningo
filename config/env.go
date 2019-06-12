@@ -5,11 +5,11 @@ import "github.com/go-sql-driver/mysql"
 // 本文件建议在代码协同工具(git/svn等)中忽略
 
 var env = Env{
-	DEBUG: true,
+	Debug: true,
 
-	SERVER_PORT: "4000",
+	ServerPort: "4000",
 
-	DATABASE: mysql.Config{
+	Database: mysql.Config{
 		User:                 "root",
 		Passwd:               "root",
 		Addr:                 "127.0.0.1:3306",
@@ -18,28 +18,28 @@ var env = Env{
 		Net:                  "tcp",
 		AllowNativePasswords: true,
 	},
-	MAXIDLECONNS: 50,
-	MAXOPENCONNS: 100,
+	MaxIdleConns: 50,
+	MaxOpenConns: 100,
 
-	REDIS_IP:       "127.0.0.1",
-	REDIS_PORT:     "6379",
-	REDIS_PASSWORD: "",
-	REDIS_DB:       0,
+	RedisIp:       "127.0.0.1",
+	RedisPort:     "6379",
+	RedisPassword: "",
+	RedisDb:       0,
 
-	REDIS_SESSION_DB: 1,
-	REDIS_CACHE_DB:   2,
+	RedisSessionDb: 1,
+	RedisCacheDb:   2,
 
-	ACCESS_LOG:      true,
-	ACCESS_LOG_PATH: "storage/logs/access.log",
+	AccessLog:     true,
+	AccessLogPath: "storage/logs/access.log",
 
-	ERROR_LOG:      true,
-	ERROR_LOG_PATH: "storage/logs/error.log",
+	ErrorLog:     true,
+	ErrorLogPath: "storage/logs/error.log",
 
-	INFO_LOG:      true,
-	INFO_LOG_PATH: "storage/logs/info.log",
+	InfoLog:     true,
+	InfoLogPath: "storage/logs/info.log",
 
-	TEMPLATE_PATH: "frontend/templates",
+	TemplatePath: "frontend/templates",
 
 	//APP_SECRET: "YbskZqLNT6TEVLUA9HWdnHmZErypNJpL",
-	APP_SECRET: "something-very-secret",
+	AppSecret: "something-very-secret",
 }

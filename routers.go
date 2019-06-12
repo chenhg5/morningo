@@ -14,9 +14,9 @@ import (
 func initRouter() *gin.Engine {
 	router := gin.New()
 
-	router.LoadHTMLGlob(config.GetEnv().TEMPLATE_PATH + "/*") // html模板
+	router.LoadHTMLGlob(config.GetEnv().TemplatePath + "/*") // html模板
 
-	if config.GetEnv().DEBUG {
+	if config.GetEnv().Debug {
 		pprof.Register(router)   // 性能分析工具
 	}
 

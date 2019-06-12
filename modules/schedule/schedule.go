@@ -14,9 +14,9 @@ func init() {
 
 	// 切割日志
 	c.AddFunc("0 59 23 * * *", func() {
-		cutLog(config.GetEnv().ACCESS_LOG_PATH)
-		cutLog(config.GetEnv().INFO_LOG_PATH)
-		cutLog(config.GetEnv().ERROR_LOG_PATH)
+		cutLog(config.GetEnv().AccessLogPath)
+		cutLog(config.GetEnv().InfoLogPath)
+		cutLog(config.GetEnv().ErrorLogPath)
 		log.InitAllLogger()
 	})
 

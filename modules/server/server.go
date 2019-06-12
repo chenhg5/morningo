@@ -15,7 +15,7 @@ import (
 
 func Run(router *gin.Engine) {
 	srv := &http.Server{
-		Addr:    ":" + config.GetEnv().SERVER_PORT,
+		Addr:    ":" + config.GetEnv().ServerPort,
 		Handler: router,
 	}
 

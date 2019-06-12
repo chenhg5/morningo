@@ -484,7 +484,7 @@ func (sql *Sql) empty() *Sql {
 }
 
 func (sql *Sql) log() {
-	if config.GetEnv().SQL_LOG {
+	if config.GetEnv().SqlLog {
 		log.Info(log.E{
 			Info: log.M{
 				"statement": sql.statement,

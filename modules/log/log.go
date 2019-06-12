@@ -59,18 +59,18 @@ func init() {
 
 func InitAllLogger() {
 	// init access.log
-	if config.GetEnv().ACCESS_LOG {
-		gin.DefaultWriter = InitLogger(config.GetEnv().ACCESS_LOG_PATH)
+	if config.GetEnv().AccessLog {
+		gin.DefaultWriter = InitLogger(config.GetEnv().AccessLogPath)
 	}
 
 	// init error.log
-	if config.GetEnv().ERROR_LOG {
-		ErrorWriter = InitLogger(config.GetEnv().ERROR_LOG_PATH)
+	if config.GetEnv().ErrorLog {
+		ErrorWriter = InitLogger(config.GetEnv().ErrorLogPath)
 	}
 
 	// init info.log
-	if config.GetEnv().INFO_LOG {
-		InfoWriter = InitLogger(config.GetEnv().INFO_LOG_PATH)
+	if config.GetEnv().InfoLog {
+		InfoWriter = InitLogger(config.GetEnv().InfoLogPath)
 	}
 }
 
@@ -79,7 +79,7 @@ func InitLogger(path string) io.Writer {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	if config.GetEnv().DEBUG {
+	if config.GetEnv().Debug {
 		return io.MultiWriter(file, os.Stdout)
 	} else {
 		return io.MultiWriter(file)
@@ -87,7 +87,7 @@ func InitLogger(path string) io.Writer {
 }
 
 func Error(err interface{}) {
-	if config.GetEnv().ERROR_LOG {
+	if config.GetEnv().ErrorLog {
 		fmt.Fprintf(ErrorWriter, "%s", "\n")
 		fmt.Fprintf(ErrorWriter, "%s", "["+time.Now().Format("2006-01-02 15:04:05")+"] app.ERROR: ")
 		fmt.Fprintf(ErrorWriter, "%s", err)
@@ -98,7 +98,7 @@ func Error(err interface{}) {
 }
 
 func Info(info E) {
-	if config.GetEnv().INFO_LOG {
+	if config.GetEnv().InfoLog {
 		fmt.Fprintf(InfoWriter, "%s", "time="+time.Now().Format("2006-01-02 15:04:05")+" ")
 
 		if info.Level == "" {
@@ -131,13 +131,13 @@ func Info(info E) {
 }
 
 func Println(a ...interface{}) {
-	if config.GetEnv().DEBUG {
+	if config.GetEnv().Debug {
 		fmt.Println(a...)
 	}
 }
 
 func Printf(format string, a ...interface{}) {
-	if config.GetEnv().DEBUG {
+	if config.GetEnv().Debug {
 		fmt.Printf(format, a...)
 	}
 }
