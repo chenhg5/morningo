@@ -1,16 +1,16 @@
 package server
 
 import (
+	"context"
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"io/ioutil"
+	"log"
+	"morningo/config"
+	"net/http"
 	"os"
 	"os/signal"
 	"time"
-	"fmt"
-	"io/ioutil"
-	"log"
-	"net/http"
-	"morningo/config"
-	"context"
 )
 
 func Run(router *gin.Engine) {
@@ -43,6 +43,6 @@ func Run(router *gin.Engine) {
 	pid := fmt.Sprintf("%d", os.Getpid())
 	_, openErr := os.OpenFile("pid", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if openErr == nil {
-		ioutil.WriteFile("pid", []byte(pid), 0)
+		_ = ioutil.WriteFile("pid", []byte(pid), 0)
 	}
 }

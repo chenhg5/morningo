@@ -6,12 +6,12 @@ import (
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"log"
+	"morningo/connections/database"
 	db "morningo/connections/database/mysql"
 	"morningo/filters/auth"
 	m "morningo/models"
 	"net/http"
 	"time"
-	"morningo/connections/database"
 )
 
 func IndexApi(c *gin.Context) {
@@ -22,7 +22,7 @@ func IndexApi(c *gin.Context) {
 	})
 }
 
-func DBexample(c *gin.Context) {
+func DBExample(c *gin.Context) {
 
 	// 数据库插入
 	insertRs, _ := db.Exec("insert into users (name, avatar, sex) values (?, ?, ?)", "人才", "unknown", 1)
@@ -33,7 +33,7 @@ func DBexample(c *gin.Context) {
 	db.Exec("update users set name = ? where id = ?", "饭桶", insertId)
 
 	// 数据库中间件
-	database.Table("users").Where("id", "=", insertId).Update(database.H{
+	_, _ = database.Table("users").Where("id", "=", insertId).Update(database.H{
 		"name": "你好",
 	})
 
@@ -48,7 +48,7 @@ func DBexample(c *gin.Context) {
 	log.Println(rs1[0])
 
 	// 数据库事务
-	db.WithTransaction(func(tx *db.SqlTxStruct) (error, map[string]interface{}) {
+	_, _ = db.WithTransaction(func(tx *db.SqlTxStruct) (error, map[string]interface{}) {
 		_, err := tx.Query("select name,avatar,id from users where id < ?", 100)
 		if err != nil {
 			return err, map[string]interface{}{}
@@ -76,8 +76,8 @@ func StoreExample(c *gin.Context) {
 
 	// cache存储
 	cacheStore, _ := c.MustGet(cache.CACHE_MIDDLEWARE_KEY).(*persistence.CacheStore)
-	(*cacheStore).Set("key", "value", time.Minute)
-	(*cacheStore).Delete("key")
+	_ = (*cacheStore).Set("key", "value", time.Minute)
+	_ = (*cacheStore).Delete("key")
 
 	c.JSON(http.StatusOK, gin.H{
 		"code": 0,

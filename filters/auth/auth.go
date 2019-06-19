@@ -2,8 +2,8 @@ package auth
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
 	"morningo/filters/auth/drivers"
+	"net/http"
 )
 
 var driverList = map[string]func() Auth{

@@ -25,8 +25,12 @@ func init() {
 	var err error
 	SqlDB, err = sql.Open("mysql", config.GetEnv().Database.FormatDSN())
 
+	if SqlDB == nil {
+		panic("wrong connection")
+	}
+
 	if err != nil {
-		SqlDB.Close()
+		_ = SqlDB.Close()
 		panic(err.Error())
 	} else {
 
@@ -44,8 +48,11 @@ func init() {
 	cons := config.GetCons()
 	for k, v := range cons {
 		tempSql, openErr := sql.Open("mysql", v.FormatDSN())
+		if tempSql == nil {
+			panic("wrong connection")
+		}
 		if openErr != nil {
-			tempSql.Close()
+			_ = tempSql.Close()
 			panic(openErr.Error())
 		}
 		tempSql.SetMaxIdleConns(v.MaxIdleConns) // 连接池连接数 = mysql最大连接数/2
@@ -60,12 +67,14 @@ func QueryWithConnection(con string, query string, args ...interface{}) []map[st
 
 	if err != nil {
 		if rs != nil {
-			rs.Close()
+			_ = rs.Close()
 		}
 		panic(err)
 	}
 
-	defer rs.Close()
+	defer func() {
+		_ = rs.Close()
+	}()
 
 	col, colErr := rs.Columns()
 
@@ -87,7 +96,7 @@ func QueryWithConnection(con string, query string, args ...interface{}) []map[st
 		}
 		result := make(map[string]interface{})
 		if scanErr := rs.Scan(colVar...); scanErr != nil {
-			rs.Close()
+			_ = rs.Close()
 			panic(scanErr)
 		}
 		for j := 0; j < len(col); j++ {
@@ -98,7 +107,7 @@ func QueryWithConnection(con string, query string, args ...interface{}) []map[st
 	if err := rs.Err(); err != nil {
 		panic(err)
 	}
-	rs.Close()
+	_ = rs.Close()
 	return results
 }
 
@@ -108,12 +117,14 @@ func Query(query string, args ...interface{}) []map[string]interface{} {
 
 	if err != nil {
 		if rs != nil {
-			rs.Close()
+			_ = rs.Close()
 		}
 		panic(err)
 	}
 
-	defer rs.Close()
+	defer func() {
+		_ = rs.Close()
+	}()
 
 	col, colErr := rs.Columns()
 
@@ -146,7 +157,7 @@ func Query(query string, args ...interface{}) []map[string]interface{} {
 	if err := rs.Err(); err != nil {
 		panic(err)
 	}
-	rs.Close()
+	_ = rs.Close()
 	return results
 }
 
@@ -261,11 +272,11 @@ func WithTransactionByLevel(level sql.IsolationLevel, fn TxFn) (err error, res m
 	defer func() {
 		if p := recover(); p != nil {
 			// a panic occurred, rollback and repanic
-			SqlTx.Tx.Rollback()
+			_ = SqlTx.Tx.Rollback()
 			panic(p)
 		} else if err != nil {
 			// something went wrong, rollback
-			SqlTx.Tx.Rollback()
+			_ = SqlTx.Tx.Rollback()
 		} else {
 			// all good, commit
 			err = SqlTx.Tx.Commit()
@@ -283,11 +294,11 @@ func WithTransaction(fn TxFn) (err error, res map[string]interface{}) {
 	defer func() {
 		if p := recover(); p != nil {
 			// a panic occurred, rollback and repanic
-			SqlTx.Tx.Rollback()
+			_ = SqlTx.Tx.Rollback()
 			panic(p)
 		} else if err != nil {
 			// something went wrong, rollback
-			SqlTx.Tx.Rollback()
+			_ = SqlTx.Tx.Rollback()
 		} else {
 			// all good, commit
 			err = SqlTx.Tx.Commit()

@@ -2,15 +2,15 @@ package drivers
 
 import (
 	"encoding/json"
-	"morningo/modules/log"
+	"errors"
 	jwtLib "github.com/dgrijalva/jwt-go"
 	"github.com/dgrijalva/jwt-go/request"
+	"github.com/gin-gonic/gin"
 	"morningo/config"
+	"morningo/modules/log"
 	"net/http"
 	"strings"
 	"time"
-	"github.com/gin-gonic/gin"
-	"errors"
 )
 
 type jwtAuthManager struct {

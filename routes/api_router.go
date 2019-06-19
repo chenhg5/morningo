@@ -21,7 +21,7 @@ func RegisterApiRouter(router *gin.Engine) {
 	{
 		api.GET("/orm", controllers.OrmExample)
 		api.GET("/store", controllers.StoreExample)
-		api.GET("/db", controllers.DBexample)
+		api.GET("/db", controllers.DBExample)
 		api.GET("/cookie/get", controllers.CookieGetExample)
 	}
 

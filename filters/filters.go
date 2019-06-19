@@ -1,11 +1,11 @@
 package filters
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/gin-gonic/contrib/sessions"
-	"morningo/config"
-	"github.com/gin-contrib/cache/persistence"
 	"github.com/gin-contrib/cache"
+	"github.com/gin-contrib/cache/persistence"
+	"github.com/gin-gonic/contrib/sessions"
+	"github.com/gin-gonic/gin"
+	"morningo/config"
 	"time"
 )
 

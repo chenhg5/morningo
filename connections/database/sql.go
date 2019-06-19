@@ -1,12 +1,12 @@
 package database
 
 import (
-	db "morningo/connections/database/mysql"
 	"errors"
+	"morningo/config"
+	db "morningo/connections/database/mysql"
+	"morningo/modules/log"
 	"strconv"
 	"strings"
-	"morningo/config"
-	"morningo/modules/log"
 	"sync"
 )
 
@@ -405,7 +405,7 @@ func (sql *Sql) getWheres() string {
 	}
 	wheres := " where "
 	for _, where := range sql.wheres {
-		wheres += where.field + " " + where.operation + " " + where.qmark + " and "
+		wheres += "`" + where.field + "` " + where.operation + " " + where.qmark + " and "
 	}
 
 	if sql.whereRaw != "" {
