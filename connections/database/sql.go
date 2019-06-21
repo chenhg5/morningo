@@ -405,7 +405,12 @@ func (sql *Sql) getWheres() string {
 	}
 	wheres := " where "
 	for _, where := range sql.wheres {
-		wheres += "`" + where.field + "` " + where.operation + " " + where.qmark + " and "
+		fs := strings.Split(where.field, ".")
+		if len(fs) > 1 {
+			wheres += fs[0] + ".`" + fs[1] + "` " + where.operation + " " + where.qmark + " and "
+		} else {
+			wheres += "`" + where.field + "` " + where.operation + " " + where.qmark + " and "
+		}
 	}
 
 	if sql.whereRaw != "" {
