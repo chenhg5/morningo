@@ -30,7 +30,6 @@ func init() {
 	}
 
 	if err != nil {
-		_ = SqlDB.Close()
 		panic(err.Error())
 	} else {
 

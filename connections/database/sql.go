@@ -117,7 +117,7 @@ func (sql *Sql) Where(field string, operation string, arg interface{}) *Sql {
 
 func (sql *Sql) WhereIn(field string, arg []interface{}) *Sql {
 	if len(arg) == 0 {
-		return sql
+		panic("where in args is empty")
 	}
 	qmark := "("
 	for i := 0; i < len(arg); i++ {
