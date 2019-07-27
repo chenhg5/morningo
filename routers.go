@@ -1,11 +1,11 @@
 package main
 
 import (
-	"morningo/config"
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
-	"morningo/filters/auth"
+	"morningo/config"
 	"morningo/filters"
+	"morningo/filters/auth"
 	routeRegister "morningo/routes"
 	"net/http"
 	// proxy "github.com/chenhg5/gin-reverseproxy"
