@@ -17,14 +17,14 @@ func initRouter() *gin.Engine {
 	router.LoadHTMLGlob(config.GetEnv().TemplatePath + "/*") // html模板
 
 	if config.GetEnv().Debug {
-		pprof.Register(router)   // 性能分析工具
+		pprof.Register(router) // 性能分析工具
 	}
 
 	router.Use(gin.Logger())
 
-	router.Use(handleErrors()) // 错误处理
-	router.Use(filters.RegisterSession())  // 全局session
-	router.Use(filters.RegisterCache())    // 全局cache
+	router.Use(handleErrors())            // 错误处理
+	router.Use(filters.RegisterSession()) // 全局session
+	router.Use(filters.RegisterCache())   // 全局cache
 
 	router.Use(auth.RegisterGlobalAuthDriver("cookie", "web_auth")) // 全局auth cookie
 	router.Use(auth.RegisterGlobalAuthDriver("jwt", "jwt_auth"))    // 全局auth jwt
