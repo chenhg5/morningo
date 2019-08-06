@@ -6,13 +6,9 @@ import (
 	"net/http"
 )
 
-var driverList = map[string]func() Auth{
-	"cookie": func() Auth {
-		return drivers.NewCookieAuthDriver()
-	},
-	"jwt": func() Auth {
-		return drivers.NewJwtAuthDriver()
-	},
+var driverList = map[string]Auth{
+	"cookie": drivers.NewCookieAuthDriver(),
+	"jwt":    drivers.NewJwtAuthDriver(),
 }
 
 type Auth interface {
@@ -24,18 +20,16 @@ type Auth interface {
 
 func RegisterGlobalAuthDriver(authKey string, key string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		driver := GenerateAuthDriver(authKey)
-		c.Set(key, driver)
+		c.Set(key, GenerateAuthDriver(authKey))
 		c.Next()
 	}
 }
 
 func Middleware(authKey string) gin.HandlerFunc {
 	return func(c *gin.Context) {
-		driver := GenerateAuthDriver(authKey)
-		if !(*driver).Check(c) {
+		if !GenerateAuthDriver(authKey).Check(c) {
 			c.HTML(http.StatusOK, "index.tpl", gin.H{
-				"title": "尚未登录，请登录",
+				"title": "login first",
 			})
 			c.Abort()
 		}
@@ -43,15 +37,13 @@ func Middleware(authKey string) gin.HandlerFunc {
 	}
 }
 
-func GenerateAuthDriver(string string) *Auth {
-	var authDriver Auth
-	authDriver = driverList[string]()
-	return &authDriver
+func GenerateAuthDriver(string string) Auth {
+	return driverList[string]
 }
 
 func GetCurUser(c *gin.Context, key string) map[string]interface{} {
-	authDriver, _ := c.MustGet(key).(*Auth)
-	return (*authDriver).User(c).(map[string]interface{})
+	authDriver, _ := c.MustGet(key).(Auth)
+	return authDriver.User(c).(map[string]interface{})
 }
 
 func User(c *gin.Context) map[string]interface{} {

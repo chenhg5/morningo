@@ -46,9 +46,7 @@ func (jwtAuth *jwtAuthManager) Check(c *gin.Context) bool {
 		return false
 	}
 
-	c.Set("User", map[string]interface{}{
-		"token": authJwtToken,
-	})
+	c.Set("jwt_auth_token", authJwtToken)
 
 	return authJwtToken.Valid
 }
@@ -58,10 +56,10 @@ func (jwtAuth *jwtAuthManager) Check(c *gin.Context) bool {
 func (jwtAuth *jwtAuthManager) User(c *gin.Context) interface{} {
 
 	var jwtToken *jwtLib.Token
-	if jwtUser, exist := c.Get("User"); !exist {
+	if jwtAuthToken, exist := c.Get("jwt_auth_token"); !exist {
 		tokenStr := strings.Replace(c.Request.Header.Get("Authorization"), "Bearer ", "", -1)
 		if tokenStr == "" {
-			return map[interface{}]interface{}{}
+			return map[string]interface{}{}
 		}
 		var err error
 		jwtToken, err = jwtLib.Parse(tokenStr, func(token *jwtLib.Token) (interface{}, error) {
@@ -72,7 +70,7 @@ func (jwtAuth *jwtAuthManager) User(c *gin.Context) interface{} {
 			panic(err)
 		}
 	} else {
-		jwtToken = jwtUser.(map[string]interface{})["token"].(*jwtLib.Token)
+		jwtToken = jwtAuthToken.(*jwtLib.Token)
 	}
 
 	if claims, ok := jwtToken.Claims.(jwtLib.MapClaims); ok && jwtToken.Valid {
@@ -80,7 +78,7 @@ func (jwtAuth *jwtAuthManager) User(c *gin.Context) interface{} {
 		if err := json.Unmarshal([]byte(claims["user"].(string)), &user); err != nil {
 			panic(err)
 		}
-		c.Set("User", map[string]interface{}{
+		c.Set("auth_user", map[string]interface{}{
 			"token": jwtToken,
 			"user":  user,
 		})

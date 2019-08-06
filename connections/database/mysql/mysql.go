@@ -6,6 +6,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"morningo/config"
 	"strconv"
+	"time"
 )
 
 type SqlTxStruct struct {
@@ -40,6 +41,9 @@ func init() {
 		// 设置数据库最大连接 减少timewait 正式环境调大
 		SqlDB.SetMaxIdleConns(config.GetEnv().MaxIdleConns) // 连接池连接数 = mysql最大连接数/2
 		SqlDB.SetMaxOpenConns(config.GetEnv().MaxOpenConns) // 最大打开连接 = mysql最大连接数
+
+		// 设置链接重置时间
+		SqlDB.SetConnMaxLifetime(80 * time.Second)
 	}
 
 	// 初始化其他连接
