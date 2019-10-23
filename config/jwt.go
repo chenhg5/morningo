@@ -10,7 +10,7 @@ type JwtConfig struct {
 
 func GetJwtConfig() *JwtConfig {
 	return &JwtConfig{
-		SECRET: "morningo_session",
+		SECRET: GetEnv().AppSecret,
 		EXP:    time.Hour,
 		ALG:    "HS256",
 	}

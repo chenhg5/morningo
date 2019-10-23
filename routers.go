@@ -34,7 +34,6 @@ func initRouter() *gin.Engine {
 			"code": 404,
 			"msg":  "找不到该路由",
 		})
-		return
 	})
 
 	router.NoMethod(func(c *gin.Context) {
@@ -42,7 +41,6 @@ func initRouter() *gin.Engine {
 			"code": 404,
 			"msg":  "找不到该方法",
 		})
-		return
 	})
 
 	routeRegister.RegisterApiRouter(router)

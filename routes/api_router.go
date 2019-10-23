@@ -17,7 +17,7 @@ func RegisterApiRouter(router *gin.Engine) {
 	api.GET("/cookie/set/:userid", controllers.CookieSetExample)
 
 	// cookie auth middleware
-	api.Use(auth.Middleware("cookie"))
+	api.Use(auth.Middleware(auth.CookieAuthDriverKey))
 	{
 		api.GET("/orm", controllers.OrmExample)
 		api.GET("/store", controllers.StoreExample)
@@ -29,7 +29,7 @@ func RegisterApiRouter(router *gin.Engine) {
 	jwtApi.GET("/jwt/set/:userid", controllers.JwtSetExample)
 
 	// jwt auth middleware
-	jwtApi.Use(auth.Middleware("jwt"))
+	jwtApi.Use(auth.Middleware(auth.JwtAuthDriverKey))
 	{
 		jwtApi.GET("/jwt/get", controllers.JwtGetExample)
 	}

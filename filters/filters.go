@@ -15,8 +15,8 @@ func RegisterSession() gin.HandlerFunc {
 		"tcp",
 		config.GetEnv().RedisIp+":"+config.GetEnv().RedisPort,
 		config.GetEnv().RedisPassword,
-		[]byte("secret"))
-	return sessions.Sessions("mysession", store)
+		[]byte(config.GetEnv().SessionSecret))
+	return sessions.Sessions(config.GetEnv().SessionKey, store)
 }
 
 func RegisterCache() gin.HandlerFunc {

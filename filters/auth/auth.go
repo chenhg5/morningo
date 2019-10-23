@@ -6,9 +6,14 @@ import (
 	"net/http"
 )
 
+const (
+	JwtAuthDriverKey    = "jwt"
+	CookieAuthDriverKey = "cookie"
+)
+
 var driverList = map[string]Auth{
-	"cookie": drivers.NewCookieAuthDriver(),
-	"jwt":    drivers.NewJwtAuthDriver(),
+	CookieAuthDriverKey: drivers.NewCookieAuthDriver(),
+	JwtAuthDriverKey:    drivers.NewJwtAuthDriver(),
 }
 
 type Auth interface {
@@ -44,8 +49,4 @@ func GenerateAuthDriver(string string) Auth {
 func GetCurUser(c *gin.Context, key string) map[string]interface{} {
 	authDriver, _ := c.MustGet(key).(Auth)
 	return authDriver.User(c).(map[string]interface{})
-}
-
-func User(c *gin.Context) map[string]interface{} {
-	return GetCurUser(c, "jwt_auth")
 }

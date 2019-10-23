@@ -90,8 +90,17 @@ func (sql *Sql) Select(fields ...string) *Sql {
 	return sql
 }
 
-func (sql *Sql) OrderBy(filed string, order string) *Sql {
-	sql.order = filed + " " + order
+func (sql *Sql) OrderBy(fields ...string) *Sql {
+	if len(fields) == 0 {
+		panic("wrong order field")
+	}
+	for i := 0; i < len(fields); i++ {
+		if i == len(fields)-2 {
+			sql.order += " " + fields[i] + " " + fields[i+1]
+			return sql
+		}
+		sql.order += " " + fields[i] + " and "
+	}
 	return sql
 }
 
@@ -477,15 +486,6 @@ func (sql *Sql) prepareInsert(values H) {
 	quesMark = quesMark[:len(quesMark)-1] + ")"
 
 	sql.statement = "insert into " + sql.table + fields + " values " + quesMark
-}
-
-func (sql *Sql) empty() *Sql {
-	sql.fields = make([]string, 0)
-	sql.args = make([]interface{}, 0)
-	sql.table = ""
-	sql.wheres = make([]Where, 0)
-	sql.leftjoins = make([]Join, 0)
-	return sql
 }
 
 func (sql *Sql) log() {

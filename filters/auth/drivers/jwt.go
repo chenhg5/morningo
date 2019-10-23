@@ -34,8 +34,7 @@ func (jwtAuth *jwtAuthManager) Check(c *gin.Context) bool {
 	if token == "" {
 		return false
 	}
-	var keyFun jwtLib.Keyfunc
-	keyFun = func(token *jwtLib.Token) (interface{}, error) {
+	var keyFun = func(token *jwtLib.Token) (interface{}, error) {
 		b := []byte(jwtAuth.secret)
 		return b, nil
 	}
@@ -93,6 +92,9 @@ func (jwtAuth *jwtAuthManager) Login(http *http.Request, w http.ResponseWriter, 
 	token := jwtLib.New(jwtLib.GetSigningMethod(jwtAuth.alg))
 	// Set some claims
 	userStr, err := json.Marshal(user)
+	if err != nil {
+		return nil
+	}
 	token.Claims = jwtLib.MapClaims{
 		"user": string(userStr),
 		"exp":  time.Now().Add(jwtAuth.exp).Unix(),
